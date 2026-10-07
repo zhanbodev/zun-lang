@@ -1,0 +1,3 @@
+$Type Feed {
+    items: List<User?>
+}

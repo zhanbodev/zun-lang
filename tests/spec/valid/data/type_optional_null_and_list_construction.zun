@@ -1,0 +1,23 @@
+$Type Post {
+    title: String
+}
+
+$Type Profile {
+    nickname: String?
+    posts: List<Post>?
+}
+
+$ empty_profile = Profile {};
+$ full_profile = Profile {
+    nickname: null,
+    posts: [
+        Post {
+            title: "First",
+        }
+    ],
+};
+
+$>> empty_profile.nickname;
+$>> full_profile.nickname;
+$ posts = full_profile.posts;
+$>> posts[0].title;

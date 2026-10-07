@@ -1,0 +1,11 @@
+$Type User {
+    id: Int,
+    name: String,
+}
+
+$GET("/users/:id") get_user(id) -> User {
+    $# User {
+        id: 1,
+        name: "Ada",
+    };
+}

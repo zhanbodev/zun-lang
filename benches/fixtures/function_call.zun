@@ -1,0 +1,5 @@
+$fn add(a, b) -> Int {
+    $# a + b;
+}
+
+$ result = add(10, 32);

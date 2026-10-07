@@ -1,0 +1,3 @@
+$mod std.fs;
+$>> fs.exists("Cargo.toml");
+$>> fs.exists("this_file_does_not_exist_xyz.txt");

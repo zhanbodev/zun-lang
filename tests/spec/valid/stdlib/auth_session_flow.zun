@@ -1,0 +1,14 @@
+$mod std.auth.session;
+$mod std.auth.guard;
+
+$ created = session.create({
+    "subject": "user_1",
+    "roles": ["admin"],
+    "permissions": ["post:create"],
+    "claims": { "team_id": "t_001" }
+});
+
+$>> created["subject"];
+$>> session.exists();
+$>> guard.authenticated();
+$>> guard.principal()["roles"][0];

@@ -1,0 +1,7 @@
+$GET("/health") health() -> String {
+    $# "ok";
+}
+
+$POST("/echo") echo() -> String {
+    $# body;
+}

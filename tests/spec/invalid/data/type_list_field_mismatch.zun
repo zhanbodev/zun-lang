@@ -1,0 +1,19 @@
+$Type User {
+    id: Int
+}
+
+$Type Post {
+    title: String
+}
+
+$Type Feed {
+    items: List<Post>
+}
+
+$ feed = Feed {
+    items: [
+        User {
+            id: 1,
+        }
+    ],
+};

@@ -1,0 +1,15 @@
+$Type User {
+    id: Int
+    name: String
+    @HIDE password: String
+}
+
+$ user = User {
+    id: 1,
+    name: "Alice",
+    password: "hash-1",
+};
+
+$>> user.password;
+user.password = "hash-2";
+$>> user.password;

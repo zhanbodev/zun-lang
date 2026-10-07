@@ -1,0 +1,5 @@
+$mod std.fs;
+$ lines = fs.read_lines("tests/fixtures/stdlib/lines.txt");
+$for line in lines {
+    $>> line;
+}

@@ -1,0 +1,32 @@
+[workspace]
+members = [
+    ".",
+    "crates/zun-frontend",
+    "crates/zun-runtime",
+    "crates/zun-cli",
+    "crates/zun-lsp",
+]
+
+[package]
+name = "zun"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+zun_frontend = { package = "zun-frontend", path = "crates/zun-frontend" }
+zun_runtime = { package = "zun-runtime", path = "crates/zun-runtime" }
+zun_cli = { package = "zun-cli", path = "crates/zun-cli" }
+
+[dev-dependencies]
+criterion = "0.5"
+reqwest = { version = "0.12", features = ["blocking"] }
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "net", "sync", "time"] }
+
+[[bench]]
+name = "phase12_baseline"
+harness = false
+
+[profile.release]
+lto = "fat"
+codegen-units = 1

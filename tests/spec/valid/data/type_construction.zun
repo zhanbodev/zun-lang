@@ -1,0 +1,38 @@
+$Type User {
+    id: Int
+    name: String
+    email: String
+    @HIDE password: String
+}
+
+$Type Post {
+    id: Int
+    title: String
+    content: String
+    author: User
+}
+
+$Type Feed {
+    items: List<Post>
+}
+
+$ user = User {
+    id: 1,
+    name: "John",
+    email: "john@example.com",
+    password: "secret",
+};
+
+$ post = Post {
+    id: 7,
+    title: "Hello",
+    content: "World",
+    author: user,
+};
+
+$ feed = Feed {
+    items: [post],
+};
+
+$ items = feed.items;
+$>> items[0].title;

@@ -1,0 +1,7 @@
+$mod std.fs;
+$try {
+    $ content = fs.read_text("this_file_does_not_exist_xyz.txt");
+    $>> content;
+} $catch err {
+    $>> "caught!";
+}

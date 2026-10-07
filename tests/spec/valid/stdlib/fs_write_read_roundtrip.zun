@@ -1,0 +1,5 @@
+$mod std.fs;
+fs.write_text("/tmp/zun-test-stdlib.txt", "roundtrip ok");
+$ content = fs.read_text("/tmp/zun-test-stdlib.txt");
+$>> content;
+fs.delete("/tmp/zun-test-stdlib.txt");

@@ -1,0 +1,5 @@
+$mod std.sqlite;
+
+$ conn = sqlite.connect(":memory:");
+$ payload = [1];
+$>> conn.execute("SELECT ?", [payload]);

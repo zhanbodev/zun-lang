@@ -1,0 +1,2 @@
+$mod std.json;
+$ value = json.parse("{");

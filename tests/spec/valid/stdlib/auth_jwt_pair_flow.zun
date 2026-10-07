@@ -1,0 +1,16 @@
+$mod std.auth.jwt;
+
+$ pair = jwt.issue_pair({
+    "sub": "user_1",
+    "roles": ["admin"],
+    "permissions": ["post:create"]
+});
+
+$ access = jwt.verify(pair["access_token"]);
+$ refresh = jwt.verify_refresh(pair["refresh_token"]);
+$ refreshed = jwt.refresh_pair(pair["refresh_token"]);
+$ refreshed_access = jwt.verify(refreshed["access_token"]);
+
+$>> access["token_use"];
+$>> refresh["token_use"];
+$>> refreshed_access["sub"];

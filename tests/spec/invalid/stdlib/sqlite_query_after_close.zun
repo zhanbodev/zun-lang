@@ -1,0 +1,5 @@
+$mod std.sqlite;
+
+$ conn = sqlite.connect(":memory:");
+$ closed = conn.close();
+$>> conn.query("SELECT 1 AS n", []);

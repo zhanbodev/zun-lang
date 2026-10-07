@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 256" role="img" aria-labelledby="zun-logo-title">
+  <title id="zun-logo-title">Zun</title>
+  <defs>
+    <linearGradient id="zun-body" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#4F46E5"/>
+      <stop offset="0.55" stop-color="#0EA5E9"/>
+      <stop offset="1" stop-color="#10B981"/>
+    </linearGradient>
+    <linearGradient id="zun-wing" x1="1" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#22D3EE"/>
+      <stop offset="1" stop-color="#6366F1"/>
+    </linearGradient>
+    <linearGradient id="zun-throat" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FB7185"/>
+      <stop offset="1" stop-color="#E11D48"/>
+    </linearGradient>
+  </defs>
+
+  <g transform="translate(-12 2)">
+    <!-- tail: three-feather fan -->
+    <polygon points="106,164 36,200 82,198" fill="#4F46E5"/>
+    <polygon points="108,170 50,236 94,204" fill="#6366F1"/>
+    <polygon points="116,174 92,246 112,206" fill="#818CF8"/>
+
+    <!-- far wing -->
+    <polygon points="152,96 76,6 124,22 166,88" fill="url(#zun-wing)" opacity="0.5"/>
+
+    <!-- body -->
+    <polygon points="150,80 188,94 176,134 142,166 102,182 116,134" fill="url(#zun-body)"/>
+    <polygon points="176,134 142,166 102,182 152,142" fill="#0284C7" opacity="0.55"/>
+
+    <!-- throat (ruby) -->
+    <polygon points="188,94 176,134 158,104" fill="url(#zun-throat)"/>
+
+    <!-- head -->
+    <polygon points="150,80 160,60 184,58 196,76 188,94 158,104" fill="#059669"/>
+    <polygon points="160,60 184,58 196,76 170,71" fill="#34D399"/>
+
+    <!-- beak -->
+    <polygon points="192,69 252,46 194,84" fill="#64748B"/>
+
+    <!-- near wing -->
+    <polygon points="148,102 28,36 98,32 162,92" fill="url(#zun-wing)"/>
+    <polygon points="148,102 28,36 120,112" fill="#4F46E5" opacity="0.85"/>
+
+    <!-- eye -->
+    <circle cx="177" cy="73" r="5" fill="#0F172A"/>
+    <circle cx="178.8" cy="71.4" r="1.6" fill="#FFFFFF"/>
+  </g>
+  <text x="262" y="178" fill="#0F172A" font-family="Inter, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif" font-size="156" font-weight="800" letter-spacing="-4">Zun</text>
+</svg>

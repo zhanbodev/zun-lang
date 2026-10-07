@@ -1,0 +1,6 @@
+$mod std.env;
+$try {
+    $ val = env.get("ZUN_STDLIB_TEST_VAR_NOT_SET");
+} $catch err {
+    $>> "env error caught";
+}

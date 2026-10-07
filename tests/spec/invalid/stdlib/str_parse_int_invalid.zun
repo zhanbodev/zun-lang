@@ -1,0 +1,2 @@
+$mod std.str;
+$ value = str.parse_int("abc");

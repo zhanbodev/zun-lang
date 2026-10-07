@@ -1,0 +1,13 @@
+$mod std.time;
+
+$try {
+    $>> time.year("bad");
+} $catch err {
+    $>> "caught-year";
+}
+
+$try {
+    $>> time.parse("bad-date", "%Y-%m-%d");
+} $catch err {
+    $>> "caught-parse";
+}

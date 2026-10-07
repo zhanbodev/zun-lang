@@ -1,0 +1,2 @@
+$mod std.template;
+$>> template.about();

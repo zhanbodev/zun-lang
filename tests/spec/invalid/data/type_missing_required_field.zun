@@ -1,0 +1,8 @@
+$Type User {
+    id: Int
+    name: String
+}
+
+$ user = User {
+    id: 1,
+};

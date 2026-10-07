@@ -1,0 +1,3 @@
+$fn get_user() -> JSON<User> {
+    $# 1;
+}

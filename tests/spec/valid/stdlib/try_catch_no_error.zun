@@ -1,0 +1,6 @@
+$try {
+    $ x = 1 + 1;
+    $>> x;
+} $catch err {
+    $>> "should not reach";
+}

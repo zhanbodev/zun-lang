@@ -1,0 +1,51 @@
+$mod std.math;
+
+$fn sum(list) {
+    $ total = 0;
+    $for x in list {
+        total += x;
+    }
+    $# total;
+}
+
+$fn mean(list) -> Float {
+    $# sum(list) / list.len() * 1.0;
+}
+
+$fn min_list(list) {
+    $ result = list[0];
+    $for x in list {
+        $if x < result {
+            result = x;
+        }
+    }
+    $# result;
+}
+
+$fn max_list(list) {
+    $ result = list[0];
+    $for x in list {
+        $if x > result {
+            result = x;
+        }
+    }
+    $# result;
+}
+
+$fn median(list) {
+    $ n = list.len();
+    $ mid = math.floor(n / 2);
+    $if n % 2 == 1 {
+        $# list[mid];
+    } $else {
+        $# (list[mid - 1] + list[mid]) / 2;
+    }
+}
+
+$fn clamp_list(list, lo, hi) {
+    $ result = [];
+    $for x in list {
+        result.push(math.clamp(x, lo, hi));
+    }
+    $# result;
+}

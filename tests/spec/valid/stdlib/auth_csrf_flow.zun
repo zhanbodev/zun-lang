@@ -1,0 +1,16 @@
+$mod std.auth.csrf;
+$mod std.auth.session;
+
+session.create({
+    "subject": "user_1",
+    "roles": ["admin"],
+    "permissions": []
+});
+
+$ initial = csrf.token();
+$ rotated = csrf.rotate();
+
+$>> initial != "";
+$>> rotated != "";
+$>> initial != rotated;
+$>> session.current()["csrf_token"] == rotated;

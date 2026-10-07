@@ -1,0 +1,15 @@
+$mod std.math;
+
+$>> math.sqrt(16.0);
+$>> math.pow(2.0, 3.0);
+$>> math.abs(-5);
+$>> math.abs(-5.5);
+$>> math.floor(3.9);
+$>> math.ceil(3.1);
+$>> math.round(3.5);
+$>> math.min(2, 5);
+$>> math.max(2.5, 5.5);
+$>> math.clamp(150, 0, 100);
+$>> math.pi();
+$>> math.sin(0.0);
+$>> math.cos(0.0);

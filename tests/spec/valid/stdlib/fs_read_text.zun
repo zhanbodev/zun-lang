@@ -1,0 +1,3 @@
+$mod std.fs;
+$ content = fs.read_text("tests/fixtures/stdlib/hello.txt");
+$>> content;

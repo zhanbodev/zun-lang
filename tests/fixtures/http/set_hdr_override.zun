@@ -1,0 +1,5 @@
+@SET_HDR({ "Cache-Control": "no-cache" })
+$HTTP("/api") {
+    @SET_HDR({ "Cache-Control": "max-age=3600", "X-Route": "static" })
+    $GET("/static") list() { $# []; }
+}

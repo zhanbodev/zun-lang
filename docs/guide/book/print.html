@@ -1,0 +1,4176 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Zun Guide</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-c015aa2b.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-f522da52.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zun Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="zun-guide"><a class="header" href="#zun-guide">Zun Guide</a></h1>
+<p>本页是 <code>docs/guide/</code> 的主入口。Guide 只负责学习路径，不负责完整 API 查表，也不负责定义最终实现边界。</p>
+<p>如果你第一次系统学习 Zun，按本页编号章节往下读即可；如果你已经知道自己要查哪个能力，优先跳到对应 reference 页面。</p>
+<h2 id="文档分层规则"><a class="header" href="#文档分层规则">文档分层规则</a></h2>
+<ul>
+<li>Guide：讲学习顺序、最小示例、推荐写法</li>
+<li>Reference：讲查表、速查、完整接口索引</li>
+<li>Spec：讲当前实现行为与边界</li>
+</ul>
+<p>出现冲突时：</p>
+<ol>
+<li>以当前实现和 <code>tests/spec/*</code> 为准</li>
+<li>然后看 <code>docs/spec/*</code></li>
+<li>Guide / Reference 只保留与上述一致的说法</li>
+</ol>
+<h2 id="迁移期旧页面状态规则"><a class="header" href="#迁移期旧页面状态规则">迁移期旧页面状态规则</a></h2>
+<p>本目录仍保留一批旧页面，但它们不再共同承担“主线指南”职责。状态统一分为三类：</p>
+<ul>
+<li><code>Deprecated</code>：内容已与主线冲突，应停止作为教学入口使用</li>
+<li><code>Supplemental</code>：仍有补充背景或示例价值，但不替代编号章节</li>
+<li><code>Migration Source</code>：保留迁移索引或尚未完全整合的旧内容</li>
+</ul>
+<p>使用建议：</p>
+<ul>
+<li>学习主线时优先读编号章节</li>
+<li>查完整 stdlib API 时读 <a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a></li>
+<li>对语言边界有疑问时读 <a href="../spec/README.html">../spec/README.md</a></li>
+</ul>
+<h2 id="章节目录"><a class="header" href="#章节目录">章节目录</a></h2>
+<pre><code class="language-text">docs/guide/
+├── README.md
+├── 01-introduction.md
+├── 02-installation-and-cli.md
+├── 03-first-program.md
+├── 04-basic-syntax.md
+├── 05-values-and-variables.md
+├── 06-control-flow.md
+├── 07-functions.md
+├── 08-collections-and-methods.md
+├── 09-gradual-typing.md
+├── 10-error-handling.md
+├── 11-modules.md
+├── 12-projects-and-package.md
+├── 13-stdlib-overview.md
+├── 14-io-env-config.md
+├── 15-http-basics.md
+├── 16-http-organization.md
+├── 17-testing-and-debugging.md
+├── 18-patterns-and-recipes.md
+└── appendix/
+    ├── syntax-cheatsheet.md
+    ├── cli-cheatsheet.md
+    ├── module-resolution.md
+    └── common-errors.md
+</code></pre>
+<h2 id="开始阅读"><a class="header" href="#开始阅读">开始阅读</a></h2>
+<ul>
+<li><a href="#1-认识-zun-1">01-introduction.md</a></li>
+<li><a href="#2-安装与-cli-1">02-installation-and-cli.md</a></li>
+<li><a href="#3-第一个程序-1">03-first-program.md</a></li>
+<li><a href="#4-基本语法-1">04-basic-syntax.md</a></li>
+<li><a href="#5-值变量与常量-1">05-values-and-variables.md</a></li>
+<li><a href="#6-控制流-1">06-control-flow.md</a></li>
+<li><a href="#7-函数-1">07-functions.md</a></li>
+<li><a href="#8-集合与常用方法-1">08-collections-and-methods.md</a></li>
+<li><a href="#9-渐进类型-1">09-gradual-typing.md</a></li>
+<li><a href="#10-错误处理-1">10-error-handling.md</a></li>
+<li><a href="#11-模块系统-1">11-modules.md</a></li>
+<li><a href="#12-项目系统与-packagetoml">12-projects-and-package.md</a></li>
+<li><a href="#13-标准库总览-1">13-stdlib-overview.md</a></li>
+<li><a href="#14-io环境变量与配置-1">14-io-env-config.md</a></li>
+<li><a href="#15-http-基础-1">15-http-basics.md</a></li>
+<li><a href="#16-http-组织方式-1">16-http-organization.md</a></li>
+<li><a href="#17-测试与调试-1">17-testing-and-debugging.md</a></li>
+<li><a href="#18-模式与实战配方-1">18-patterns-and-recipes.md</a></li>
+</ul>
+<p>附录：</p>
+<ul>
+<li><a href="#syntax-cheatsheet">syntax-cheatsheet.md</a></li>
+<li><a href="#cli-cheatsheet">cli-cheatsheet.md</a></li>
+<li><a href="#module-resolution">module-resolution.md</a></li>
+<li><a href="#common-errors">common-errors.md</a></li>
+</ul>
+<p>迁移期旧页面：</p>
+<ul>
+<li><a href="#核心概念">concepts.md</a></li>
+<li><a href="#快速开始">getting-started.md</a></li>
+<li><a href="#实用示例">examples.md</a></li>
+<li><a href="#模块系统">modules.md</a></li>
+<li><a href="#标准库参考">stdlib.md</a></li>
+<li><a href="#类型注解">types.md</a></li>
+<li><a href="#web-服务">web.md</a></li>
+</ul>
+<p>Reference 快速入口：</p>
+<ul>
+<li><a href="../reference/syntax.html">../reference/syntax.md</a></li>
+<li><a href="../reference/errors.html">../reference/errors.md</a></li>
+<li><a href="../reference/project-system.html">../reference/project-system.md</a></li>
+<li><a href="../reference/http.html">../reference/http.md</a></li>
+<li><a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a></li>
+</ul>
+<h2 id="主线章节"><a class="header" href="#主线章节">主线章节</a></h2>
+<h3 id="part-1-起步"><a class="header" href="#part-1-起步">Part 1 起步</a></h3>
+<h4 id="1-认识-zun"><a class="header" href="#1-认识-zun">1. 认识 Zun</a></h4>
+<ul>
+<li>Zun 的定位、适用场景、和其他语言的区别</li>
+<li>解释执行、面向脚本和轻服务的心智模型</li>
+<li>Guide / Reference / Spec 三类文档分别解决什么问题</li>
+</ul>
+<h4 id="2-安装与-cli"><a class="header" href="#2-安装与-cli">2. 安装与 CLI</a></h4>
+<ul>
+<li>本地编译与运行方式</li>
+<li><code>zun</code> REPL、<code>zun run &lt;file&gt;</code>、<code>zun serve [path]</code>、<code>zun test</code></li>
+<li><code>--routertab</code>、<code>test --route</code>、<code>test --body</code> 的使用场景</li>
+</ul>
+<h4 id="3-第一个程序"><a class="header" href="#3-第一个程序">3. 第一个程序</a></h4>
+<ul>
+<li>Hello World</li>
+<li>第一个 REPL 交互</li>
+<li>第一个 HTTP 路由</li>
+<li>单文件脚本与项目目录运行的区别</li>
+</ul>
+<h3 id="part-2-语言基础"><a class="header" href="#part-2-语言基础">Part 2 语言基础</a></h3>
+<h4 id="4-基本语法"><a class="header" href="#4-基本语法">4. 基本语法</a></h4>
+<ul>
+<li>语句与分号</li>
+<li>注释</li>
+<li>标识符与 <code>$</code> 前缀关键字</li>
+<li>字面量：数字、字符串、字符、布尔、<code>null</code></li>
+<li>f-string 基本写法</li>
+<li>表达式优先级的最小规则</li>
+</ul>
+<h4 id="5-值变量与常量"><a class="header" href="#5-值变量与常量">5. 值、变量与常量</a></h4>
+<ul>
+<li><code>$</code> 变量声明</li>
+<li><code>$@</code> 常量声明</li>
+<li>赋值与复合赋值</li>
+<li><code>$&gt;&gt;</code> 输出、<code>$&gt;&gt;ERR(...)</code> 错误输出</li>
+<li><code>$&lt;&lt;LINE(...)</code> 读入</li>
+</ul>
+<h4 id="6-控制流"><a class="header" href="#6-控制流">6. 控制流</a></h4>
+<ul>
+<li><code>$if / $elif / $else</code></li>
+<li><code>$while</code></li>
+<li><code>$loop</code></li>
+<li><code>$for item in iterable</code></li>
+<li>C 风格 <code>$for init; condition; update</code></li>
+<li><code>$break</code>、<code>$continue</code>、<code>exit</code></li>
+<li>truthy / falsy 规则</li>
+</ul>
+<h4 id="7-函数"><a class="header" href="#7-函数">7. 函数</a></h4>
+<ul>
+<li><code>$fn</code> 定义函数</li>
+<li>参数、可变参数、返回值</li>
+<li><code>$#</code> 返回</li>
+<li>返回类型注解</li>
+<li>匿名函数的当前能力边界</li>
+<li><code>_$fn</code> 私有函数</li>
+</ul>
+<h4 id="8-集合与常用方法"><a class="header" href="#8-集合与常用方法">8. 集合与常用方法</a></h4>
+<ul>
+<li><code>List</code>、<code>Map</code>、字符串的基础操作</li>
+<li>索引访问与方法调用</li>
+<li>常用内建方法：<code>len</code>、<code>slice</code>、<code>contains</code>、<code>push</code>、<code>pop</code>、<code>keys</code>、<code>values</code>、<code>type</code></li>
+<li>什么时候用值方法，什么时候用 <code>std.*</code></li>
+</ul>
+<h3 id="part-3-语言能力"><a class="header" href="#part-3-语言能力">Part 3 语言能力</a></h3>
+<h4 id="9-渐进类型"><a class="header" href="#9-渐进类型">9. 渐进类型</a></h4>
+<ul>
+<li>“默认动态，显式约束”的使用方式</li>
+<li>变量/常量类型注解</li>
+<li>当前真正支持的声明类型名</li>
+<li>函数返回类型检查</li>
+<li><code>List&lt;T&gt;</code> 与 <code>$Type</code> 的定位</li>
+</ul>
+<h4 id="10-错误处理"><a class="header" href="#10-错误处理">10. 错误处理</a></h4>
+<ul>
+<li>运行时错误是什么</li>
+<li><code>$try / $catch</code></li>
+<li><code>$throw</code></li>
+<li>未定义变量、类型不匹配、模块加载失败等典型错误</li>
+<li>Guide 中如何引导读者读懂错误信息</li>
+</ul>
+<h4 id="11-模块系统"><a class="header" href="#11-模块系统">11. 模块系统</a></h4>
+<ul>
+<li><code>$mod a.b;</code></li>
+<li><code>$mod a.*;</code></li>
+<li>命名空间访问规则</li>
+<li>公有函数与私有函数</li>
+<li>普通模块与 <code>std.*</code> 的区别</li>
+</ul>
+<h4 id="12-项目系统"><a class="header" href="#12-项目系统">12. 项目系统</a></h4>
+<ul>
+<li><code>package.toml</code> 的当前字段</li>
+<li><code>entry</code></li>
+<li><code>[server]</code></li>
+<li><code>[env]</code></li>
+<li><code>[dependencies]</code> 当前只是解析边界，不写成“已完整可用的包管理”</li>
+<li>项目根与入口解析规则</li>
+</ul>
+<h3 id="part-4-标准库与宿主能力"><a class="header" href="#part-4-标准库与宿主能力">Part 4 标准库与宿主能力</a></h3>
+<h4 id="13-标准库总览"><a class="header" href="#13-标准库总览">13. 标准库总览</a></h4>
+<ul>
+<li>native 模块与纯 <code>.zun</code> 模块的区别</li>
+<li>当前已可写入主线的模块：
+<ul>
+<li><code>std.str</code></li>
+<li><code>std.math</code></li>
+<li><code>std.json</code></li>
+<li><code>std.fs</code></li>
+<li><code>std.env</code></li>
+<li><code>std.time</code></li>
+<li><code>std.uuid</code></li>
+<li><code>std.http</code></li>
+<li><code>std.core.iter</code></li>
+<li><code>std.core.check</code></li>
+<li><code>std.str.check</code></li>
+<li><code>std.str.fmt</code></li>
+<li><code>std.math.stats</code></li>
+<li><code>std.math.trig</code></li>
+<li><code>std.path</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="14-io环境变量与配置"><a class="header" href="#14-io环境变量与配置">14. I/O、环境变量与配置</a></h4>
+<ul>
+<li><code>$&lt;&lt;ENV(...)</code></li>
+<li><code>$&lt;&lt;CONFIG(...)</code></li>
+<li><code>$&lt;&lt;FILE(...)</code> 与 <code>$&gt;&gt;FILE(...)</code></li>
+<li><code>std.fs</code> 与 <code>std.env</code></li>
+<li>serve 模式与非 serve 模式下的能力差异</li>
+</ul>
+<h3 id="part-5-web-开发"><a class="header" href="#part-5-web-开发">Part 5 Web 开发</a></h3>
+<h4 id="15-http-基础"><a class="header" href="#15-http-基础">15. HTTP 基础</a></h4>
+<ul>
+<li><code>$GET / $POST / $PUT / $DEL / $PATCH</code></li>
+<li>handler 参数、路径参数、query 参数、body</li>
+<li><code>$HDR(...)</code></li>
+<li><code>-&gt; String</code>、<code>-&gt; JSON</code>、<code>-&gt; HTML</code></li>
+<li><code>$JSON { ... }</code>、<code>$HTML(...)</code>、<code>$RES(status, body)</code></li>
+<li><code>std.http</code> 的同步客户端调用</li>
+</ul>
+<h4 id="16-http-组织方式"><a class="header" href="#16-http-组织方式">16. HTTP 组织方式</a></h4>
+<ul>
+<li><code>$HTTP { ... }</code></li>
+<li><code>$HTTP("/prefix") { ... }</code></li>
+<li><code>$HTTP(...).link("module.path")</code></li>
+<li><code>$STATIC(...)</code></li>
+<li>路由拆分、静态资源、HTML link 的当前能力边界</li>
+</ul>
+<h3 id="part-6-工程化使用"><a class="header" href="#part-6-工程化使用">Part 6 工程化使用</a></h3>
+<h4 id="17-测试与调试"><a class="header" href="#17-测试与调试">17. 测试与调试</a></h4>
+<ul>
+<li><code>zun test</code></li>
+<li>针对单路由测试</li>
+<li>如何最小化复现运行时错误</li>
+<li>REPL、打印输出、fixture 风格的调试方式</li>
+</ul>
+<h4 id="18-模式与实战配方"><a class="header" href="#18-模式与实战配方">18. 模式与实战配方</a></h4>
+<ul>
+<li>小脚本</li>
+<li>带 <code>package.toml</code> 的项目</li>
+<li>拆模块的服务</li>
+<li>纯标准库数据处理</li>
+<li>“从单文件到小型 API” 的迁移路径</li>
+</ul>
+<h2 id="附录章节"><a class="header" href="#附录章节">附录章节</a></h2>
+<h3 id="appendix-a-语法速查"><a class="header" href="#appendix-a-语法速查">Appendix A 语法速查</a></h3>
+<ul>
+<li>一页式列出常见语法</li>
+<li>面向已经学过一遍、需要回查的用户</li>
+</ul>
+<h3 id="appendix-b-cli-速查"><a class="header" href="#appendix-b-cli-速查">Appendix B CLI 速查</a></h3>
+<ul>
+<li>run / serve / test / repl 的命令清单</li>
+</ul>
+<h3 id="appendix-c-模块解析说明"><a class="header" href="#appendix-c-模块解析说明">Appendix C 模块解析说明</a></h3>
+<ul>
+<li>当前目录、项目根、<code>modules/</code>、<code>stdlib/</code>、<code>deps/</code> 的查找顺序</li>
+</ul>
+<h3 id="appendix-d-常见错误"><a class="header" href="#appendix-d-常见错误">Appendix D 常见错误</a></h3>
+<ul>
+<li>解析错误</li>
+<li>类型错误</li>
+<li>模块错误</li>
+<li>文件与环境变量读取错误</li>
+</ul>
+<h2 id="暂不进入-guide-主线的主题"><a class="header" href="#暂不进入-guide-主线的主题">暂不进入 Guide 主线的主题</a></h2>
+<p>以下主题可以在设计文档或 reference 中保留，但不建议先写进 Guide 主线：</p>
+<ul>
+<li>第三方依赖生态与真正的包管理工作流</li>
+<li>尚未形成稳定用户故事的高级安全模型</li>
+<li>LSP 与编辑器集成细节</li>
+<li>未经 spec/test 固化的新语法提案</li>
+<li>把 <code>Any</code>、<code>Json</code>、<code>Response</code> 等写成“变量声明已完整支持”的教程</li>
+</ul>
+<h2 id="现有文档的重构建议"><a class="header" href="#现有文档的重构建议">现有文档的重构建议</a></h2>
+<ul>
+<li><code>getting-started.md</code> 可拆入第 2、3 章</li>
+<li><code>concepts.md</code> 可压缩为第 1 章的“定位与设计目标”</li>
+<li><code>examples.md</code> 不再单独做成散装示例页，改为分散到各章与第 18 章</li>
+<li><code>types.md</code> 需要继续和主线章节保持同步，避免旧页再次落后于实现</li>
+<li><code>modules.md</code>、<code>stdlib.md</code>、<code>web.md</code> 适合分别并入第 11、13-16 章</li>
+</ul>
+<h2 id="下一步建议"><a class="header" href="#下一步建议">下一步建议</a></h2>
+<p>按下面顺序开始扩写最稳妥：</p>
+<ol>
+<li>第 2 章 安装与 CLI</li>
+<li>第 3 章 第一个程序</li>
+<li>第 4-8 章 语言基础</li>
+<li>第 11-16 章 模块、项目系统、标准库、Web</li>
+<li>第 9-10、17-18 章 类型、错误处理、测试与实战</li>
+</ol>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="1-认识-zun-1"><a class="header" href="#1-认识-zun-1">1. 认识 Zun</a></h1>
+<p>Zun 是一门面向独立开发者的脚本语言，强调“从想法到可运行结果”的路径尽量短。</p>
+<p>它当前的用户主线很明确：</p>
+<ul>
+<li>写脚本</li>
+<li>组织模块</li>
+<li>使用标准库</li>
+<li>直接暴露简单 HTTP 服务</li>
+</ul>
+<p>这也是本套 Guide 的组织方式。</p>
+<h2 id="这套-guide-怎么读"><a class="header" href="#这套-guide-怎么读">这套 Guide 怎么读</a></h2>
+<p>这组文档分成三层：</p>
+<ul>
+<li>Guide：按学习路径展开，讲如何使用 Zun</li>
+<li>Reference：按主题查表，适合已经入门后回查</li>
+<li>Spec：记录当前实现行为，遇到边界问题以 Spec 和实现为准</li>
+</ul>
+<p>如果你第一次接触 Zun，建议按本 Guide 从前往后读。</p>
+<h2 id="zun-的几个核心特征"><a class="header" href="#zun-的几个核心特征">Zun 的几个核心特征</a></h2>
+<h3 id="1-符号化语法"><a class="header" href="#1-符号化语法">1. 符号化语法</a></h3>
+<p>Zun 使用 <code>$</code> 前缀组织大量语言结构：</p>
+<pre><code class="language-zun">$ value = 1;
+$@ NAME = "zun";
+$&gt;&gt; value;
+</code></pre>
+<p>常见形式包括：</p>
+<ul>
+<li><code>$</code> 变量声明</li>
+<li><code>$@</code> 常量声明</li>
+<li><code>$fn</code> 函数</li>
+<li><code>$#</code> 返回</li>
+<li><code>$if</code>、<code>$while</code>、<code>$for</code> 控制流</li>
+<li><code>$mod</code> 模块导入</li>
+<li><code>$GET</code>、<code>$POST</code> 等 HTTP 路由</li>
+</ul>
+<h3 id="2-默认解释执行"><a class="header" href="#2-默认解释执行">2. 默认解释执行</a></h3>
+<p>你可以直接运行 <code>.zun</code> 文件，也可以进入 REPL 快速验证代码。</p>
+<h3 id="3-默认动态支持渐进类型"><a class="header" href="#3-默认动态支持渐进类型">3. 默认动态，支持渐进类型</a></h3>
+<p>不写类型注解时，变量保持动态。</p>
+<pre><code class="language-zun">$ x = 1;
+x = "hello";
+</code></pre>
+<p>写了类型注解后，Zun 会对赋值进行约束：</p>
+<pre><code class="language-zun">$ x: Int = 1;
+</code></pre>
+<h3 id="4-模块标准库http-是主线能力"><a class="header" href="#4-模块标准库http-是主线能力">4. 模块、标准库、HTTP 是主线能力</a></h3>
+<p>Zun 不只是“能写表达式”的玩具语言。当前实现已经具备：</p>
+<ul>
+<li>语言模块系统</li>
+<li><code>std.*</code> 标准库模块</li>
+<li><code>package.toml</code> 项目配置</li>
+<li><code>zun serve</code> HTTP 服务模式</li>
+</ul>
+<h2 id="为什么-zun-长这样"><a class="header" href="#为什么-zun-长这样">为什么 Zun 长这样</a></h2>
+<p>旧 guide 里有一个很重要的点，新主线也应该保留：Zun 不是想做“更大、更全”的通用语言，而是想把独立开发者最常见的起步路径压短。</p>
+<p>可以把它理解成：</p>
+<ul>
+<li>少一点工程铺垫</li>
+<li>少一点框架前置学习</li>
+<li>多一点脚本即服务的直接路径</li>
+</ul>
+<h2 id="-的设计直觉"><a class="header" href="#-的设计直觉"><code>$</code> 的设计直觉</a></h2>
+<p><code>$</code> 不只是一个视觉符号，它是 Zun 语法风格的中心。</p>
+<pre><code class="language-zun">$ value = 1;
+$@ PI = 3.14;
+$&gt;&gt; value;
+</code></pre>
+<p>这种写法有两个直接效果：</p>
+<ul>
+<li>代码外形很容易识别</li>
+<li>初学者更容易把“声明、输出、控制结构”区分开</li>
+</ul>
+<h2 id="目标用户"><a class="header" href="#目标用户">目标用户</a></h2>
+<p>按当前定位，Zun 更偏向这些用户：</p>
+<ul>
+<li>独立开发者</li>
+<li>需要快速验证 API 或脚本想法的人</li>
+<li>不想先搭完整框架再开始的人</li>
+</ul>
+<h2 id="和-php-式传统-web-路线的区别"><a class="header" href="#和-php-式传统-web-路线的区别">和 PHP 式传统 Web 路线的区别</a></h2>
+<p>旧文档里有一句比喻是有效的：PHP 更像建房子，Zun 更像先把摊摆出来。</p>
+<p>这不是说工程化不重要，而是说 Zun 当前阶段更强调：</p>
+<ul>
+<li>今天学</li>
+<li>今天写</li>
+<li>今天跑起来</li>
+</ul>
+<h2 id="当前阶段的方向"><a class="header" href="#当前阶段的方向">当前阶段的方向</a></h2>
+<p>从现有文档和实现看，Zun 的方向更接近：</p>
+<ul>
+<li>脚本</li>
+<li>小型工具</li>
+<li>轻量 API</li>
+<li>配置驱动服务</li>
+</ul>
+<p>而不是一开始就进入重框架、重工程、重生态的路线。</p>
+<h2 id="当前适合用-zun-做什么"><a class="header" href="#当前适合用-zun-做什么">当前适合用 Zun 做什么</a></h2>
+<p>按当前实现，比较合适的场景有：</p>
+<ul>
+<li>小脚本</li>
+<li>配置驱动的小工具</li>
+<li>简单文件与环境变量处理</li>
+<li>轻量 JSON 处理</li>
+<li>原型 API 或内部接口</li>
+</ul>
+<h2 id="这一阶段不应该期待什么"><a class="header" href="#这一阶段不应该期待什么">这一阶段不应该期待什么</a></h2>
+<p>Guide 不会把这些内容写成“已经成熟可用”：</p>
+<ul>
+<li>完整第三方包生态</li>
+<li>大型工程化框架</li>
+<li>尚未固定下来的语法提案</li>
+</ul>
+<h2 id="下一章"><a class="header" href="#下一章">下一章</a></h2>
+<p>继续看 <a href="#2-安装与-cli-1">02-installation-and-cli.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="2-安装与-cli-1"><a class="header" href="#2-安装与-cli-1">2. 安装与 CLI</a></h1>
+<p>这一章介绍如何构建 Zun，并理解它当前的几个主要命令入口。</p>
+<h2 id="安装"><a class="header" href="#安装">安装</a></h2>
+<p>如果你在源码仓库中工作，可以直接本地编译：</p>
+<pre><code class="language-bash">git clone https://github.com/zhanbodev/zun-lang.git
+cd zun-lang
+cargo build --release
+</code></pre>
+<p>可选地把二进制加入 <code>PATH</code>：</p>
+<pre><code class="language-bash">export PATH="$PATH:$(pwd)/target/release"
+</code></pre>
+<h2 id="cli-总览"><a class="header" href="#cli-总览">CLI 总览</a></h2>
+<p>当前 CLI 主入口包括：</p>
+<ul>
+<li><code>zun</code></li>
+<li><code>zun run &lt;file&gt;</code></li>
+<li><code>zun serve [path]</code></li>
+<li><code>zun test [options]</code></li>
+</ul>
+<h3 id="进入-repl"><a class="header" href="#进入-repl">进入 REPL</a></h3>
+<p>不带参数启动时，进入 REPL：</p>
+<pre><code class="language-bash">zun
+</code></pre>
+<p>你可以在里面直接执行语句：</p>
+<pre><code class="language-text">&gt;&gt; $&gt;&gt; "Hello!";
+Hello!
+&gt;&gt; $ x = 1 + 2;
+&gt;&gt; $&gt;&gt; x;
+3
+</code></pre>
+<p>退出 REPL 的常见方式：</p>
+<ul>
+<li>输入 <code>exit</code></li>
+<li>输入 <code>quit</code></li>
+<li>在空输入时按 <code>Ctrl+D</code></li>
+</ul>
+<p>常见快捷操作：</p>
+<ul>
+<li><code>↑</code> / <code>↓</code> 查看历史记录</li>
+<li><code>Ctrl+A</code> 跳到行首</li>
+<li><code>Ctrl+E</code> 跳到行末</li>
+<li><code>Ctrl+C</code> 取消当前输入</li>
+<li><code>Ctrl+D</code> 在空行时退出</li>
+</ul>
+<h3 id="运行单个文件"><a class="header" href="#运行单个文件">运行单个文件</a></h3>
+<p>运行 <code>.zun</code> 文件：</p>
+<pre><code class="language-bash">zun run hello.zun
+</code></pre>
+<p><code>run</code> 当前要求传入 <code>.zun</code> 文件路径。</p>
+<h3 id="启动服务模式"><a class="header" href="#启动服务模式">启动服务模式</a></h3>
+<p>服务模式用于加载 HTTP 路由并启动服务：</p>
+<pre><code class="language-bash">zun serve .
+</code></pre>
+<p>也可以直接指定脚本文件或项目目录：</p>
+<pre><code class="language-bash">zun serve main.zun
+zun serve .
+</code></pre>
+<p>打印路由表：</p>
+<pre><code class="language-bash">zun serve . --routertab
+</code></pre>
+<h3 id="测试模式"><a class="header" href="#测试模式">测试模式</a></h3>
+<p>HTTP 测试入口：</p>
+<pre><code class="language-bash">zun test
+zun test main.zun
+</code></pre>
+<p>测试某条指定路由：</p>
+<pre><code class="language-bash">zun test --route GET /hello
+</code></pre>
+<p>给 <code>POST</code> / <code>PUT</code> 之类的请求附带 body：</p>
+<pre><code class="language-bash">zun test --route POST /users --body '{"name":"Tom"}'
+</code></pre>
+<h2 id="命令和运行模式的关系"><a class="header" href="#命令和运行模式的关系">命令和运行模式的关系</a></h2>
+<p>可以把 CLI 理解成四种工作模式：</p>
+<ul>
+<li>REPL：交互试验</li>
+<li>Run：执行脚本</li>
+<li>Serve：启动 HTTP 服务</li>
+<li>Test：对路由进行测试</li>
+</ul>
+<p>其中 <code>serve</code> 和 <code>test</code> 会更多地涉及项目配置、HTTP 路由和模块加载。</p>
+<h2 id="一个建议的上手顺序"><a class="header" href="#一个建议的上手顺序">一个建议的上手顺序</a></h2>
+<p>第一次使用时，建议按这个顺序：</p>
+<ol>
+<li>先进入 <code>zun</code> 试几行表达式</li>
+<li>再用 <code>zun run hello.zun</code> 跑单文件</li>
+<li>再用 <code>zun serve main.zun</code> 启动一个最小路由</li>
+<li>最后再看 <code>zun test</code></li>
+</ol>
+<h2 id="迁移期参考"><a class="header" href="#迁移期参考">迁移期参考</a></h2>
+<p>旧版快速开始仍保留在 <a href="#快速开始">getting-started.md</a>。</p>
+<h2 id="下一章-1"><a class="header" href="#下一章-1">下一章</a></h2>
+<p>继续看 <a href="#3-第一个程序-1">03-first-program.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="3-第一个程序-1"><a class="header" href="#3-第一个程序-1">3. 第一个程序</a></h1>
+<p>这一章只做三件事：跑第一个脚本、试一次 REPL、起第一个 HTTP 路由。</p>
+<h2 id="第一个脚本"><a class="header" href="#第一个脚本">第一个脚本</a></h2>
+<p>创建 <code>hello.zun</code>：</p>
+<pre><code class="language-zun">$&gt;&gt; "Hello, Zun!";
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run hello.zun
+</code></pre>
+<h3 id="怎么确认成功"><a class="header" href="#怎么确认成功">怎么确认成功</a></h3>
+<ul>
+<li>终端应该输出 <code>Hello, Zun!</code></li>
+<li>如果没有输出，先检查语句末尾是否有分号</li>
+<li>如果提示找不到文件，确认你在 <code>hello.zun</code> 所在目录执行命令</li>
+</ul>
+<h2 id="第一个-repl-交互"><a class="header" href="#第一个-repl-交互">第一个 REPL 交互</a></h2>
+<p>进入 REPL：</p>
+<pre><code class="language-bash">zun
+</code></pre>
+<p>输入：</p>
+<pre><code class="language-text">&gt;&gt; $ name = "builder";
+&gt;&gt; $&gt;&gt; f"hello, {name}";
+hello, builder
+</code></pre>
+<p>REPL 适合做这些事情：</p>
+<ul>
+<li>试表达式</li>
+<li>试字符串与列表方法</li>
+<li>快速复现小问题</li>
+</ul>
+<h2 id="第一个-http-路由"><a class="header" href="#第一个-http-路由">第一个 HTTP 路由</a></h2>
+<p>创建 <code>main.zun</code>：</p>
+<pre><code class="language-zun">$GET("/hello") hello() -&gt; String {
+    $# "world";
+}
+</code></pre>
+<p>启动：</p>
+<pre><code class="language-bash">zun serve main.zun
+</code></pre>
+<h3 id="怎么确认成功-1"><a class="header" href="#怎么确认成功-1">怎么确认成功</a></h3>
+<p>先看终端没有报错，再用浏览器或 <code>curl</code> 验证：</p>
+<pre><code class="language-bash">curl http://127.0.0.1:8080/hello
+</code></pre>
+<p>预期结果：</p>
+<ul>
+<li>响应体是 <code>world</code></li>
+<li>如果你改了 <code>[server]</code> 端口，就把 <code>8080</code> 换成对应端口</li>
+<li>浏览器直接访问 <code>http://127.0.0.1:8080/hello</code> 也应看到同样结果</li>
+</ul>
+<h2 id="单文件和项目目录的区别"><a class="header" href="#单文件和项目目录的区别">单文件和项目目录的区别</a></h2>
+<p>单文件适合：</p>
+<ul>
+<li>小脚本</li>
+<li>小型 demo</li>
+<li>单路由接口</li>
+</ul>
+<p>项目目录适合：</p>
+<ul>
+<li>需要 <code>package.toml</code></li>
+<li>需要多个模块</li>
+<li>需要统一 server 配置</li>
+</ul>
+<p>项目目录的入口、<code>entry</code> 和 <code>$main()</code> 在 <a href="#12-项目系统与-packagetoml">12-projects-and-package.md</a> 里详细说明。</p>
+<h2 id="下一章-2"><a class="header" href="#下一章-2">下一章</a></h2>
+<p>继续看 <a href="#4-基本语法-1">04-basic-syntax.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="4-基本语法-1"><a class="header" href="#4-基本语法-1">4. 基本语法</a></h1>
+<p>这一章不是“扫一眼语法名词”，而是先把 Zun 程序最常见的组成方式讲清楚。读完这一章，你应该已经能看懂大部分简单脚本。</p>
+<h2 id="语句与分号"><a class="header" href="#语句与分号">语句与分号</a></h2>
+<p>Zun 的普通语句通常以 <code>;</code> 结束：</p>
+<pre><code class="language-zun">$ value = 1;
+$&gt;&gt; value;
+</code></pre>
+<p>块语句使用 <code>{ ... }</code> 组织。</p>
+<pre><code class="language-zun">$if true {
+    $&gt;&gt; "in block";
+}
+</code></pre>
+<p>可以先记住一个简单规则：</p>
+<ul>
+<li>普通语句通常以 <code>;</code> 结束</li>
+<li>带代码块的语句用 <code>{ ... }</code></li>
+<li>函数、条件、循环、HTTP 路由都会用到代码块</li>
+</ul>
+<h2 id="注释"><a class="header" href="#注释">注释</a></h2>
+<p>单行注释：</p>
+<pre><code class="language-zun">// comment
+$ value = 1;
+</code></pre>
+<p>多行注释：</p>
+<pre><code class="language-zun">/* multi
+line */
+$&gt;&gt; "ok";
+</code></pre>
+<p>注释不会参与执行，适合：</p>
+<ul>
+<li>解释一段逻辑</li>
+<li>临时屏蔽一小段代码</li>
+<li>给示例加说明</li>
+</ul>
+<h2 id="标识符与--前缀关键字"><a class="header" href="#标识符与--前缀关键字">标识符与 <code>$</code> 前缀关键字</a></h2>
+<p>Zun 中很多语言结构都带 <code>$</code> 前缀：</p>
+<pre><code class="language-zun">$ value = 1;
+$@ NAME = "zun";
+$fn greet(name) -&gt; String {
+    $# f"hi {name}";
+}
+</code></pre>
+<p>其中：</p>
+<ul>
+<li><code>$</code> 用来声明变量</li>
+<li><code>$@</code> 用来声明常量</li>
+<li><code>$fn</code> 用来声明函数</li>
+<li><code>$#</code> 用来返回值</li>
+</ul>
+<p>不要把它们当作普通变量名的一部分，它们本身就是语法关键字。</p>
+<h2 id="常见字面量"><a class="header" href="#常见字面量">常见字面量</a></h2>
+<pre><code class="language-zun">$ n = 42;
+$ f = 3.14;
+$ s = "hello";
+$ c = 'a';
+$ b = true;
+$ empty = null;
+</code></pre>
+<h3 id="数字"><a class="header" href="#数字">数字</a></h3>
+<p>整数和浮点数都可以直接写：</p>
+<pre><code class="language-zun">$ a = 42;
+$ b = -7;
+$ c = 3.14;
+</code></pre>
+<h3 id="字符串"><a class="header" href="#字符串">字符串</a></h3>
+<p>字符串使用双引号：</p>
+<pre><code class="language-zun">$ name = "Zun";
+$&gt;&gt; "hello";
+</code></pre>
+<p>支持常见转义：</p>
+<pre><code class="language-zun">$&gt;&gt; "line1\nline2";
+$&gt;&gt; "tab\tvalue";
+</code></pre>
+<h3 id="字符"><a class="header" href="#字符">字符</a></h3>
+<p>字符使用单引号：</p>
+<pre><code class="language-zun">$ ch = 'a';
+$&gt;&gt; ch;
+</code></pre>
+<h3 id="布尔与-null"><a class="header" href="#布尔与-null">布尔与 null</a></h3>
+<pre><code class="language-zun">$ ok = true;
+$ failed = false;
+$ empty = null;
+</code></pre>
+<h2 id="f-string"><a class="header" href="#f-string">f-string</a></h2>
+<pre><code class="language-zun">$ name = "Zun";
+$&gt;&gt; f"Hello, {name}";
+</code></pre>
+<p><code>f"..."</code> 允许把表达式插入字符串中：</p>
+<pre><code class="language-zun">$ score = 100;
+$&gt;&gt; f"user={name}, score={score}";
+$&gt;&gt; f"1 + 2 = {1 + 2}";
+</code></pre>
+<p>这在打印调试信息时尤其常用。</p>
+<h2 id="列表与-map-字面量"><a class="header" href="#列表与-map-字面量">列表与 map 字面量</a></h2>
+<h3 id="列表"><a class="header" href="#列表">列表</a></h3>
+<pre><code class="language-zun">$ nums = [1, 2, 3];
+$ names = ["tom", "jerry"];
+$ mixed = [1, "two", true];
+</code></pre>
+<h3 id="map"><a class="header" href="#map">map</a></h3>
+<pre><code class="language-zun">$ user = {"name": "Tom", "age": 25};
+$ settings = {"debug": true, "port": 8080};
+</code></pre>
+<p>map 的 key 当前最常见写法是字符串 key。</p>
+<h2 id="表达式"><a class="header" href="#表达式">表达式</a></h2>
+<p>当前常见表达式包括：</p>
+<ul>
+<li>数字、字符串、布尔、字符、<code>null</code></li>
+<li>列表字面量</li>
+<li>map 字面量</li>
+<li>变量读取</li>
+<li>函数调用</li>
+<li>方法调用</li>
+<li>索引访问</li>
+<li>一元与二元运算</li>
+</ul>
+<p>下面把这些表达式逐个看一遍。</p>
+<h3 id="1-变量读取"><a class="header" href="#1-变量读取">1. 变量读取</a></h3>
+<pre><code class="language-zun">$ value = 10;
+$&gt;&gt; value;
+</code></pre>
+<h3 id="2-函数调用"><a class="header" href="#2-函数调用">2. 函数调用</a></h3>
+<pre><code class="language-zun">$fn add(a, b) -&gt; Int {
+    $# a + b;
+}
+
+$&gt;&gt; add(1, 2);
+</code></pre>
+<h3 id="3-方法调用"><a class="header" href="#3-方法调用">3. 方法调用</a></h3>
+<pre><code class="language-zun">$ text = " hello ";
+$&gt;&gt; text.trim();
+$&gt;&gt; text.type();
+</code></pre>
+<h3 id="4-索引访问"><a class="header" href="#4-索引访问">4. 索引访问</a></h3>
+<pre><code class="language-zun">$ items = ["a", "b", "c"];
+$&gt;&gt; items[0];
+
+$ user = {"name": "Tom"};
+$&gt;&gt; user["name"];
+</code></pre>
+<h3 id="5-一元运算"><a class="header" href="#5-一元运算">5. 一元运算</a></h3>
+<pre><code class="language-zun">$&gt;&gt; -3;
+$&gt;&gt; !false;
+</code></pre>
+<h3 id="6-二元运算"><a class="header" href="#6-二元运算">6. 二元运算</a></h3>
+<pre><code class="language-zun">$&gt;&gt; 1 + 2;
+$&gt;&gt; 5 - 3;
+$&gt;&gt; 4 * 2;
+$&gt;&gt; 7 / 2;
+$&gt;&gt; 7 % 3;
+$&gt;&gt; 1 &lt; 2;
+$&gt;&gt; 1 == 1;
+$&gt;&gt; true &amp;&amp; false;
+$&gt;&gt; true || false;
+</code></pre>
+<h2 id="一个综合例子"><a class="header" href="#一个综合例子">一个综合例子</a></h2>
+<pre><code class="language-zun">$ user = {"name": "Zun", "scores": [90, 95, 100]};
+$ first = user["scores"][0];
+$ name = user["name"];
+$&gt;&gt; f"{name} first={first}";
+</code></pre>
+<p>这个例子里同时出现了：</p>
+<ul>
+<li>map 字面量</li>
+<li>列表字面量</li>
+<li>索引访问</li>
+<li>变量读取</li>
+<li>f-string</li>
+</ul>
+<h2 id="最小优先级直觉"><a class="header" href="#最小优先级直觉">最小优先级直觉</a></h2>
+<pre><code class="language-zun">$&gt;&gt; 1 + 2 * 3;
+</code></pre>
+<p>结果是 <code>7</code>，不是 <code>9</code>，因为乘除优先于加减。</p>
+<p>再看几个例子：</p>
+<pre><code class="language-zun">$&gt;&gt; (1 + 2) * 3;
+$&gt;&gt; !false &amp;&amp; true;
+$&gt;&gt; [1, 2, 3].len();
+</code></pre>
+<p>可以先记住这几个最重要的规则：</p>
+<ul>
+<li><code>()</code> 可以强制改变计算顺序</li>
+<li><code>* / %</code> 优先于 <code>+ -</code></li>
+<li>比较运算在算术运算之后</li>
+<li>方法调用与索引访问会紧跟在主表达式后面继续解析</li>
+</ul>
+<h2 id="迁移期参考-1"><a class="header" href="#迁移期参考-1">迁移期参考</a></h2>
+<ul>
+<li><code>docs/reference/syntax.md</code></li>
+<li><code>docs/spec/lexical.md</code></li>
+<li><code>docs/spec/syntax.md</code></li>
+</ul>
+<h2 id="下一章-3"><a class="header" href="#下一章-3">下一章</a></h2>
+<p>继续看 <a href="#5-值变量与常量-1">05-values-and-variables.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="5-值变量与常量-1"><a class="header" href="#5-值变量与常量-1">5. 值、变量与常量</a></h1>
+<p>这一章把“怎么存值、改值、打印值、读入值”讲完整。写 Zun 脚本时，这些操作会出现得最频繁。</p>
+<h2 id="变量"><a class="header" href="#变量">变量</a></h2>
+<p>变量使用 <code>$</code> 声明：</p>
+<pre><code class="language-zun">$ name = "Zun";
+$ answer = 42;
+</code></pre>
+<p>一个变量名绑定一个值：</p>
+<pre><code class="language-zun">$ price = 19.9;
+$ enabled = true;
+</code></pre>
+<p>变量可以重新赋值：</p>
+<pre><code class="language-zun">$ counter = 1;
+counter = counter + 1;
+counter += 1;
+</code></pre>
+<p>也就是说，你可以先声明，再更新：</p>
+<pre><code class="language-zun">$ total = 0;
+total = total + 10;
+total += 5;
+$&gt;&gt; total;
+</code></pre>
+<h2 id="常量"><a class="header" href="#常量">常量</a></h2>
+<p>常量使用 <code>$@</code> 声明：</p>
+<pre><code class="language-zun">$@ APP_NAME = "Zun";
+$@ MAX = 10;
+</code></pre>
+<p>常量声明后不能再修改。</p>
+<p>常量适合表达这些内容：</p>
+<ul>
+<li>不应该被改写的固定值</li>
+<li>应用名称</li>
+<li>上限值</li>
+<li>约定字符串</li>
+</ul>
+<pre><code class="language-zun">$@ APP_NAME = "Zun";
+$@ MAX_RETRY = 3;
+</code></pre>
+<h2 id="变量和常量怎么选"><a class="header" href="#变量和常量怎么选">变量和常量怎么选</a></h2>
+<p>如果一个值会变化，用变量：</p>
+<pre><code class="language-zun">$ counter = 0;
+counter += 1;
+</code></pre>
+<p>如果一个值不应该变化，用常量：</p>
+<pre><code class="language-zun">$@ API_VERSION = "v1";
+</code></pre>
+<h2 id="输出"><a class="header" href="#输出">输出</a></h2>
+<p>标准输出：</p>
+<pre><code class="language-zun">$&gt;&gt; "hello";
+$&gt;&gt; 42;
+</code></pre>
+<p>你可以输出任意表达式：</p>
+<pre><code class="language-zun">$ name = "Zun";
+$&gt;&gt; name;
+$&gt;&gt; 1 + 2 * 3;
+$&gt;&gt; f"hello, {name}";
+</code></pre>
+<p>标准错误输出：</p>
+<pre><code class="language-zun">$&gt;&gt;ERR("error");
+</code></pre>
+<p>它适合打印错误和调试信息：</p>
+<pre><code class="language-zun">$ path = "missing.txt";
+$&gt;&gt;ERR(f"cannot open: {path}");
+</code></pre>
+<h2 id="读入"><a class="header" href="#读入">读入</a></h2>
+<p>读取一行输入：</p>
+<pre><code class="language-zun">$ name = $&lt;&lt;LINE();
+</code></pre>
+<p>带提示读取：</p>
+<pre><code class="language-zun">$ name = $&lt;&lt;LINE("name: ");
+</code></pre>
+<p>你可以把读到的内容继续赋值、打印、传给函数：</p>
+<pre><code class="language-zun">$ name = $&lt;&lt;LINE("your name: ");
+$&gt;&gt; f"hello, {name}";
+</code></pre>
+<p>这一类读入默认都是字符串输入，后续如果需要数字，可以再做转换：</p>
+<pre><code class="language-zun">$ raw = $&lt;&lt;LINE("age: ");
+$ age = raw.to_int();
+$&gt;&gt; age + 1;
+</code></pre>
+<h2 id="变量遮蔽"><a class="header" href="#变量遮蔽">变量遮蔽</a></h2>
+<p>同名变量可以再次用 <code>$</code> 重新声明：</p>
+<pre><code class="language-zun">$ value = 1;
+$&gt;&gt; value;
+
+$ value = "hello";
+$&gt;&gt; value;
+</code></pre>
+<p>这表示你重新定义了一个同名变量，而不是对原值做普通赋值。</p>
+<h2 id="当前的值类型直觉"><a class="header" href="#当前的值类型直觉">当前的值类型直觉</a></h2>
+<p>从用户视角，当前最常见的值类型包括：</p>
+<ul>
+<li>Int</li>
+<li>Float</li>
+<li>String</li>
+<li>Bool</li>
+<li>List</li>
+<li>Map</li>
+<li>Null</li>
+</ul>
+<p>可以先有一个最基础的印象：</p>
+<pre><code class="language-zun">$ i = 1;
+$ f = 3.14;
+$ s = "hello";
+$ ok = true;
+$ items = [1, 2, 3];
+$ user = {"name": "Tom"};
+$ none = null;
+</code></pre>
+<p>后续第 8 章会专门讲集合和方法，第 9 章会专门讲类型注解。</p>
+<h2 id="一个完整例子"><a class="header" href="#一个完整例子">一个完整例子</a></h2>
+<pre><code class="language-zun">$ name = $&lt;&lt;LINE("name: ");
+$@ APP = "demo";
+$ count = 1;
+
+$&gt;&gt; f"{APP}: hello, {name}";
+$&gt;&gt; count;
+count += 1;
+$&gt;&gt; count;
+</code></pre>
+<h2 id="迁移期参考-2"><a class="header" href="#迁移期参考-2">迁移期参考</a></h2>
+<ul>
+<li><a href="#实用示例">examples.md</a></li>
+<li><a href="#类型注解">types.md</a></li>
+</ul>
+<h2 id="下一章-4"><a class="header" href="#下一章-4">下一章</a></h2>
+<p>继续看 <a href="#6-控制流-1">06-control-flow.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="6-控制流-1"><a class="header" href="#6-控制流-1">6. 控制流</a></h1>
+<p>这一章介绍 Zun 中“让程序按条件和次数运行”的方式。只会写表达式还不够，能组织流程才算能写脚本。</p>
+<h2 id="条件分支"><a class="header" href="#条件分支">条件分支</a></h2>
+<pre><code class="language-zun">$ score = 75;
+$if score &gt;= 90 {
+    $&gt;&gt; "A";
+} $elif score &gt;= 80 {
+    $&gt;&gt; "B";
+} $else {
+    $&gt;&gt; "C";
+}
+</code></pre>
+<p>这个例子说明了三件事：</p>
+<ul>
+<li>条件写在 <code>$if</code> 后面</li>
+<li>命中分支后执行对应代码块</li>
+<li>没命中时落到 <code>$else</code></li>
+</ul>
+<p>再看一个更贴近脚本的写法：</p>
+<pre><code class="language-zun">$ name = "zun";
+$if name == "zun" {
+    $&gt;&gt; "matched";
+} $else {
+    $&gt;&gt; "not matched";
+}
+</code></pre>
+<h2 id="while-循环"><a class="header" href="#while-循环">while 循环</a></h2>
+<pre><code class="language-zun">$ i = 0;
+$while i &lt; 3 {
+    $&gt;&gt; i;
+    i += 1;
+}
+</code></pre>
+<p><code>$while</code> 的语义是：</p>
+<ol>
+<li>先判断条件</li>
+<li>条件为真时执行循环体</li>
+<li>循环体结束后回到条件判断</li>
+</ol>
+<p>它适合“直到某个条件不成立”为止的任务。</p>
+<h2 id="loop-无限循环"><a class="header" href="#loop-无限循环">loop 无限循环</a></h2>
+<pre><code class="language-zun">$ i = 0;
+$loop {
+    $&gt;&gt; i;
+    i += 1;
+    $if i &gt;= 3 {
+        $break;
+    }
+}
+</code></pre>
+<p><code>$loop</code> 没有条件，本身就是无限循环，因此通常要配合 <code>$break</code> 使用。</p>
+<h2 id="for-in-遍历"><a class="header" href="#for-in-遍历">for-in 遍历</a></h2>
+<pre><code class="language-zun">$for item in [1, 2, 3] {
+    $&gt;&gt; item;
+}
+</code></pre>
+<p>当前实现支持遍历：</p>
+<ul>
+<li>List</li>
+<li>Map</li>
+<li>String</li>
+</ul>
+<h3 id="遍历-list"><a class="header" href="#遍历-list">遍历 List</a></h3>
+<pre><code class="language-zun">$ nums = [1, 2, 3];
+$for n in nums {
+    $&gt;&gt; n;
+}
+</code></pre>
+<h3 id="遍历-map"><a class="header" href="#遍历-map">遍历 Map</a></h3>
+<pre><code class="language-zun">$ user = {"name": "Tom", "age": 25};
+$for key in user {
+    $&gt;&gt; key;
+}
+</code></pre>
+<p>遍历 map 时，当前拿到的是 key。</p>
+<h3 id="遍历-string"><a class="header" href="#遍历-string">遍历 String</a></h3>
+<pre><code class="language-zun">$for ch in "abc" {
+    $&gt;&gt; ch;
+}
+</code></pre>
+<p>遍历字符串时，拿到的是单字符字符串。</p>
+<h2 id="c-风格-for"><a class="header" href="#c-风格-for">C 风格 for</a></h2>
+<pre><code class="language-zun">$for i = 0; i &lt; 5; i = i + 1 {
+    $&gt;&gt; i;
+}
+</code></pre>
+<p>可以把它理解成：</p>
+<ul>
+<li>初始化：<code>i = 0</code></li>
+<li>条件：<code>i &lt; 5</code></li>
+<li>更新：<code>i = i + 1</code></li>
+</ul>
+<p>它适合“已知循环计数方式”的场景。</p>
+<h2 id="break-与-continue"><a class="header" href="#break-与-continue">break 与 continue</a></h2>
+<pre><code class="language-zun">$for i = 0; i &lt; 5; i = i + 1 {
+    $if i == 2 {
+        $continue;
+    }
+    $if i == 4 {
+        $break;
+    }
+    $&gt;&gt; i;
+}
+</code></pre>
+<ul>
+<li><code>$continue</code> 跳过本轮后续逻辑，进入下一轮</li>
+<li><code>$break</code> 直接结束整个循环</li>
+</ul>
+<h2 id="exit"><a class="header" href="#exit">exit</a></h2>
+<p><code>exit</code> 会终止当前程序执行链：</p>
+<pre><code class="language-zun">$&gt;&gt; "before";
+exit;
+$&gt;&gt; "after";
+</code></pre>
+<p>写脚本时要谨慎使用，因为它会直接结束流程。</p>
+<h2 id="truthy--falsy"><a class="header" href="#truthy--falsy">truthy / falsy</a></h2>
+<p>条件判断依赖 truthy / falsy 规则。常见 falsy 值包括：</p>
+<ul>
+<li><code>false</code></li>
+<li><code>0</code></li>
+<li><code>0.0</code></li>
+<li>空字符串</li>
+<li>空列表</li>
+<li>空 map</li>
+<li><code>Null</code></li>
+</ul>
+<p>例如：</p>
+<pre><code class="language-zun">$if "" {
+    $&gt;&gt; "truthy";
+} $else {
+    $&gt;&gt; "falsy";
+}
+</code></pre>
+<pre><code class="language-zun">$if [] {
+    $&gt;&gt; "truthy";
+} $else {
+    $&gt;&gt; "falsy";
+}
+</code></pre>
+<p>更正式的边界以 <code>docs/spec/semantics.md</code> 为准。</p>
+<h2 id="一个完整例子-1"><a class="header" href="#一个完整例子-1">一个完整例子</a></h2>
+<pre><code class="language-zun">$ items = [1, 2, 3, 4, 5];
+$ total = 0;
+
+$for item in items {
+    $if item % 2 == 0 {
+        $continue;
+    }
+    total += item;
+}
+
+$&gt;&gt; total;
+</code></pre>
+<h2 id="下一章-5"><a class="header" href="#下一章-5">下一章</a></h2>
+<p>继续看 <a href="#7-函数-1">07-functions.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="7-函数-1"><a class="header" href="#7-函数-1">7. 函数</a></h1>
+<p>函数是 Zun 组织逻辑、消除重复、拆模块的主要方式。</p>
+<h2 id="定义函数"><a class="header" href="#定义函数">定义函数</a></h2>
+<pre><code class="language-zun">$fn greet(name) -&gt; String {
+    $# f"Hello, {name}";
+}
+</code></pre>
+<p>调用：</p>
+<pre><code class="language-zun">$&gt;&gt; greet("World");
+</code></pre>
+<h2 id="返回值和返回类型"><a class="header" href="#返回值和返回类型">返回值和返回类型</a></h2>
+<p>使用 <code>$#</code> 返回：</p>
+<pre><code class="language-zun">$fn add(a, b) -&gt; Int {
+    $# a + b;
+}
+</code></pre>
+<p>没有显式 <code>$#</code> 的函数会返回 <code>Null</code>：</p>
+<pre><code class="language-zun">$fn log(msg) {
+    $&gt;&gt; msg;
+}
+</code></pre>
+<p>当前主线可稳定讲解的返回类型包括：</p>
+<ul>
+<li><code>Int</code></li>
+<li><code>Float</code></li>
+<li><code>String</code></li>
+<li><code>Bool</code></li>
+<li><code>List</code></li>
+<li><code>Map</code></li>
+<li><code>JSON</code></li>
+<li><code>HTML</code></li>
+<li><code>Response</code></li>
+<li><code>List&lt;T&gt;</code>，其中 <code>T</code> 可以是内建类型或已定义的用户类型</li>
+</ul>
+<p>需要注意的是，当前主线只把 <code>List&lt;T&gt;</code> 当作可教学的泛型返回写法，不把 <code>JSON&lt;T&gt;</code> 当作同级语法来承诺。</p>
+<h2 id="参数目前怎么写"><a class="header" href="#参数目前怎么写">参数目前怎么写</a></h2>
+<p>当前主线<strong>不承诺函数参数类型注解是可用语法</strong>。也就是说，这一版文档统一只教下面这种签名：</p>
+<pre><code class="language-zun">$fn add(a, b) -&gt; Int {
+    $# a + b;
+}
+</code></pre>
+<p>如果你需要约束输入，当前推荐做法是：</p>
+<ul>
+<li>用返回类型约束输出</li>
+<li>在函数体内用 <code>.type()</code>、条件判断或断言做输入检查</li>
+<li>在对外接口层用更小的函数拆分而不是依赖参数注解</li>
+</ul>
+<h2 id="可变参数"><a class="header" href="#可变参数">可变参数</a></h2>
+<pre><code class="language-zun">$fn sum(...nums) -&gt; Int {
+    $ total = 0;
+    $for n in nums {
+        total += n;
+    }
+    $# total;
+}
+</code></pre>
+<h2 id="递归"><a class="header" href="#递归">递归</a></h2>
+<pre><code class="language-zun">$fn factorial(n) -&gt; Int {
+    $if n &lt;= 1 {
+        $# 1;
+    } $else {
+        $# n * factorial(n - 1);
+    }
+}
+</code></pre>
+<h2 id="私有函数"><a class="header" href="#私有函数">私有函数</a></h2>
+<pre><code class="language-zun">_$fn normalize(name) -&gt; String {
+    $# name.trim().lower();
+}
+
+$fn public_name(name) -&gt; String {
+    $# normalize(name);
+}
+</code></pre>
+<p><code>_$fn</code> 只给当前模块内部使用。</p>
+<h2 id="匿名函数"><a class="header" href="#匿名函数">匿名函数</a></h2>
+<pre><code class="language-zun">$ double = $fn(x) {
+    $# x * 2;
+};
+
+$&gt;&gt; double(5);
+</code></pre>
+<h2 id="一个完整例子-2"><a class="header" href="#一个完整例子-2">一个完整例子</a></h2>
+<pre><code class="language-zun">_$fn twice(x) -&gt; Int {
+    $# x * 2;
+}
+
+$fn compute(n) -&gt; Int {
+    $ value = twice(n);
+    $# value + 1;
+}
+
+$&gt;&gt; compute(10);
+</code></pre>
+<h2 id="下一章-6"><a class="header" href="#下一章-6">下一章</a></h2>
+<p>继续看 <a href="#8-集合与常用方法-1">08-collections-and-methods.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="8-集合与常用方法-1"><a class="header" href="#8-集合与常用方法-1">8. 集合与常用方法</a></h1>
+<p>这一章集中讲三类最常用的值：字符串、列表、Map。重点是“创建、读取、修改、查询”和“什么时候该去 <code>std.*</code>”。</p>
+<h2 id="字符串-1"><a class="header" href="#字符串-1">字符串</a></h2>
+<pre><code class="language-zun">$ text = "  hello,world  ";
+$&gt;&gt; text.trim();
+$&gt;&gt; text.upper();
+$&gt;&gt; text.split(",");
+$&gt;&gt; text.contains("hello");
+</code></pre>
+<p><code>split()</code> 返回 <code>List</code>，所以可以继续接列表处理：</p>
+<pre><code class="language-zun">$ parts = "a,b,c".split(",");
+$&gt;&gt; parts.len();
+$&gt;&gt; parts.join("-");
+</code></pre>
+<h2 id="列表-1"><a class="header" href="#列表-1">列表</a></h2>
+<pre><code class="language-zun">$ nums = [3, 1, 4, 1, 5];
+$&gt;&gt; nums.len();
+$&gt;&gt; nums.contains(4);
+$&gt;&gt; nums.index_of(4);
+$&gt;&gt; nums.count(1);
+$&gt;&gt; nums.slice(1, 4);
+</code></pre>
+<p>常用原地修改方法：</p>
+<pre><code class="language-zun">nums.push(9);
+nums.sort();
+nums.sort_desc();
+nums.reverse();
+</code></pre>
+<p>常见读法：</p>
+<pre><code class="language-zun">$&gt;&gt; nums.first();
+$&gt;&gt; nums.last();
+$&gt;&gt; nums.unique();
+$&gt;&gt; [[1, 2], [3, 4]].flatten();
+</code></pre>
+<h3 id="索引越界"><a class="header" href="#索引越界">索引越界</a></h3>
+<p>当前实现里，列表索引越界会报运行时错误，不会返回 <code>null</code>。</p>
+<p>例如下面这种写法不应作为主线常规用法：</p>
+<pre><code class="language-zun">$ items = [1, 2, 3];
+$&gt;&gt; items[10];
+</code></pre>
+<p>更安全的写法是先看长度：</p>
+<pre><code class="language-zun">$if nums.len() &gt; 2 {
+    $&gt;&gt; nums[2];
+}
+</code></pre>
+<h2 id="map-1"><a class="header" href="#map-1">Map</a></h2>
+<pre><code class="language-zun">$ user = {"name": "Tom", "age": 25};
+$&gt;&gt; user["name"];
+$&gt;&gt; user.len();
+$&gt;&gt; user.keys();
+$&gt;&gt; user.values();
+$&gt;&gt; user.contains_key("age");
+</code></pre>
+<h3 id="map-写入"><a class="header" href="#map-写入">Map 写入</a></h3>
+<p>当前主线写法直接使用索引赋值：</p>
+<pre><code class="language-zun">$ user = {"name": "Tom"};
+user["email"] = "tom@example.com";
+user["age"] = 25;
+$&gt;&gt; user["email"];
+</code></pre>
+<p>删除键：</p>
+<pre><code class="language-zun">user.remove("age");
+</code></pre>
+<h3 id="什么时候改用-stdjson"><a class="header" href="#什么时候改用-stdjson">什么时候改用 <code>std.json</code></a></h3>
+<p>如果你操作的是通用 JSON 结构，或者想做“按路径更新、合并、格式化”，优先用 <code>std.json</code>：</p>
+<pre><code class="language-zun">$mod std.json;
+
+$ obj = {"name": "Tom"};
+$ obj = json.set(obj, "email", "tom@example.com");
+$&gt;&gt; json.stringify(obj);
+</code></pre>
+<p>可以把两者这样区分：</p>
+<ul>
+<li><code>Map</code> 原生操作：当前变量上的直接读写</li>
+<li><code>std.json</code>：更偏通用 JSON 工具和转换函数</li>
+</ul>
+<h2 id="值方法和标准库的区别"><a class="header" href="#值方法和标准库的区别">值方法和标准库的区别</a></h2>
+<ul>
+<li>值方法：<code>nums.push(1)</code>、<code>user.keys()</code>、<code>"a,b".split(",")</code></li>
+<li>标准库：<code>str.trim(text)</code>、<code>json.set(obj, key, value)</code>、<code>math.sqrt(9.0)</code></li>
+</ul>
+<p>如果只是处理当前值本身，先选值方法；如果要做通用转换或组合工具，再去 <code>std.*</code>。</p>
+<h2 id="一个完整例子-3"><a class="header" href="#一个完整例子-3">一个完整例子</a></h2>
+<pre><code class="language-zun">$ raw = "alice,bob,bob,carol";
+$ names = raw.split(",");
+names.sort_desc();
+
+$ stats = {"count": names.len()};
+stats["unique_count"] = names.unique().len();
+
+$&gt;&gt; names;
+$&gt;&gt; stats["count"];
+$&gt;&gt; stats["unique_count"];
+</code></pre>
+<h2 id="继续查表"><a class="header" href="#继续查表">继续查表</a></h2>
+<ul>
+<li>值方法与模块索引：<a href="#13-标准库总览-1">13-stdlib-overview.md</a></li>
+<li>完整 API：<a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a></li>
+</ul>
+<h2 id="下一章-7"><a class="header" href="#下一章-7">下一章</a></h2>
+<p>继续看 <a href="#9-渐进类型-1">09-gradual-typing.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="9-渐进类型-1"><a class="header" href="#9-渐进类型-1">9. 渐进类型</a></h1>
+<p>Zun 当前采用“默认动态，显式约束”的使用方式。</p>
+<h2 id="默认动态"><a class="header" href="#默认动态">默认动态</a></h2>
+<p>不写类型注解时，变量可以改变值类型：</p>
+<pre><code class="language-zun">$ x = 30;
+x = "hello";
+x = true;
+</code></pre>
+<h2 id="显式类型注解"><a class="header" href="#显式类型注解">显式类型注解</a></h2>
+<pre><code class="language-zun">$ count: Int = 0;
+$ name: String = "Alice";
+$ active: Bool = true;
+$ items: List = [1, 2, 3];
+$ config: Map = {"name": "demo"};
+</code></pre>
+<p>常量也支持类型注解：</p>
+<pre><code class="language-zun">$@ MAX: Int = 100;
+</code></pre>
+<p>当前主线可依赖的声明类型名：</p>
+<ul>
+<li><code>Int</code></li>
+<li><code>Float</code></li>
+<li><code>String</code></li>
+<li><code>Str</code></li>
+<li><code>Bool</code></li>
+<li><code>Boolean</code></li>
+<li><code>List</code></li>
+<li><code>Map</code></li>
+</ul>
+<p>当前不要把 <code>Json</code>、<code>Response</code> 写成“变量/常量声明可稳定使用”的类型名。</p>
+<h2 id="函数参数类型注解的态度"><a class="header" href="#函数参数类型注解的态度">函数参数类型注解的态度</a></h2>
+<p>当前主线文档统一采用保守口径：<strong>不教学、不承诺参数类型注解语法</strong>。</p>
+<p>也就是说，这一版只写：</p>
+<pre><code class="language-zun">$fn add(a, b) -&gt; Int {
+    $# a + b;
+}
+</code></pre>
+<p>如果你需要更强约束，优先使用：</p>
+<ul>
+<li>返回类型</li>
+<li>局部变量显式声明</li>
+<li><code>.type()</code> / <code>std.core.check</code></li>
+<li><a href="#10-错误处理-1">10-error-handling.md</a> 里的错误处理方式</li>
+</ul>
+<h2 id="返回类型和-listt"><a class="header" href="#返回类型和-listt">返回类型和 <code>List&lt;T&gt;</code></a></h2>
+<p>返回类型是这一章最重要的稳定能力之一。</p>
+<h3 id="正确写法"><a class="header" href="#正确写法">正确写法</a></h3>
+<pre><code class="language-zun">$Type User {
+    id: Int
+    name: Str
+}
+
+$fn list_users() -&gt; List&lt;User&gt; {
+    $# [
+        {"id": 1, "name": "Alice"},
+        {"id": 2, "name": "Bob"}
+    ];
+}
+</code></pre>
+<p>这里要记住两条：</p>
+<ul>
+<li><code>List&lt;T&gt;</code> 是当前主线可用写法</li>
+<li>裸 <code>List</code> 不应再作为返回类型写法来教学</li>
+</ul>
+<p><code>T</code> 可以是内建类型，也可以是先定义好的用户类型。</p>
+<h2 id="type"><a class="header" href="#type"><code>$Type</code></a></h2>
+<p><code>$Type</code> 用来描述结构，不等于 class：</p>
+<pre><code class="language-zun">$Type User {
+    id: Int
+    name: Str
+    email: Str?
+}
+</code></pre>
+<p>它最适合和 <code>List&lt;T&gt;</code>、接口返回说明、阅读文档时的结构表达配合使用。</p>
+<h2 id="http-返回里的-listt"><a class="header" href="#http-返回里的-listt">HTTP 返回里的 <code>List&lt;T&gt;</code></a></h2>
+<p>在 HTTP 章节里同样推荐这样写：</p>
+<pre><code class="language-zun">$Type User {
+    id: Int
+    name: Str
+}
+
+$GET("/users") list_users() -&gt; List&lt;User&gt; {
+    $# [
+        {"id": 1, "name": "Alice"},
+        {"id": 2, "name": "Bob"}
+    ];
+}
+</code></pre>
+<p>如果类型或返回校验失败，它会表现为用户可见错误；如何排查请继续看 <a href="#10-错误处理-1">10-error-handling.md</a>。</p>
+<h2 id="运行时类型查询"><a class="header" href="#运行时类型查询">运行时类型查询</a></h2>
+<pre><code class="language-zun">$&gt;&gt; 42.type();
+$&gt;&gt; "hello".type();
+$&gt;&gt; [1, 2].type();
+$&gt;&gt; {"a": 1}.type();
+</code></pre>
+<h2 id="stdcorecheck"><a class="header" href="#stdcorecheck"><code>std.core.check</code></a></h2>
+<pre><code class="language-zun">$mod std.core.check;
+
+$&gt;&gt; check.type_of(42);
+check.assert(1 + 1 == 2, "math broken");
+</code></pre>
+<h2 id="下一章-8"><a class="header" href="#下一章-8">下一章</a></h2>
+<p>继续看 <a href="#10-错误处理-1">10-error-handling.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="10-错误处理-1"><a class="header" href="#10-错误处理-1">10. 错误处理</a></h1>
+<p>Zun 当前同时有解析错误、运行时错误和显式抛出的异常。</p>
+<h2 id="三类错误先怎么分"><a class="header" href="#三类错误先怎么分">三类错误先怎么分</a></h2>
+<ul>
+<li>代码还没跑起来就出错：词法 / 语法错误</li>
+<li>跑到一半因为值或环境问题出错：运行时错误</li>
+<li>代码里主动抛出：<code>$throw</code></li>
+</ul>
+<h2 id="try--catch"><a class="header" href="#try--catch"><code>$try / $catch</code></a></h2>
+<pre><code class="language-zun">$try {
+    $throw "oops";
+} $catch err {
+    $&gt;&gt; err;
+}
+</code></pre>
+<p>如果 <code>try</code> 块内部抛错，就会进入 <code>catch</code> 块。</p>
+<h2 id="err-到底是什么"><a class="header" href="#err-到底是什么"><code>err</code> 到底是什么</a></h2>
+<p>在主线文档里，可以先把 <code>err</code> 理解成“可打印、可比较、可继续传递的错误值”。</p>
+<p>安全做法：</p>
+<ul>
+<li>直接打印 <code>err</code></li>
+<li>把 <code>err</code> 拼进日志字符串</li>
+<li>用 <code>err.type()</code> 看当前值类型</li>
+<li>根据上下文返回默认值或改写响应</li>
+</ul>
+<p>例如：</p>
+<pre><code class="language-zun">$mod std.fs;
+
+$try {
+    $ content = fs.read_text("missing.txt");
+    $&gt;&gt; content;
+} $catch err {
+    $&gt;&gt;ERR(f"read failed: {err}");
+}
+</code></pre>
+<p>主线不把 <code>err</code> 讲成运行时内部结构体，也不承诺固定字段集合。</p>
+<h2 id="throw"><a class="header" href="#throw"><code>$throw</code></a></h2>
+<pre><code class="language-zun">$throw "bad input";
+</code></pre>
+<p>适合：</p>
+<ul>
+<li>主动拒绝非法输入</li>
+<li>在工具函数里显式抛出失败</li>
+<li>提前终止一条不该继续的路径</li>
+</ul>
+<h2 id="可捕获性速查"><a class="header" href="#可捕获性速查">可捕获性速查</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>场景</th><th>能否被 <code>$catch</code> 捕获</th><th>备注</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$throw "oops"</code></td><td>可以</td><td>最直接的用法</td></tr>
+<tr><td>除零</td><td>可以</td><td>运行时错误</td></tr>
+<tr><td>未定义变量</td><td>可以</td><td>运行时错误</td></tr>
+<tr><td>类型不匹配</td><td>可以</td><td>运行时错误</td></tr>
+<tr><td>文件读取失败</td><td>可以</td><td>例如 <code>std.fs.read_text(...)</code></td></tr>
+<tr><td>模块加载失败</td><td>不作为主线承诺</td><td>通常发生在装载阶段，优先先修模块路径</td></tr>
+<tr><td>语法错误</td><td>不可以</td><td>程序尚未进入执行阶段</td></tr>
+</tbody>
+</table>
+</div>
+<p>查表版说明见 <a href="../reference/errors.html">../reference/errors.md</a>。</p>
+<h2 id="常见例子"><a class="header" href="#常见例子">常见例子</a></h2>
+<h3 id="文件读取失败"><a class="header" href="#文件读取失败">文件读取失败</a></h3>
+<pre><code class="language-zun">$mod std.fs;
+$try {
+    $ content = fs.read_text("missing.txt");
+    $&gt;&gt; content;
+} $catch err {
+    $&gt;&gt; "caught!";
+}
+</code></pre>
+<h3 id="环境变量失败"><a class="header" href="#环境变量失败">环境变量失败</a></h3>
+<pre><code class="language-zun">$mod std.env;
+$try {
+    $ token = env.get("APP_TOKEN");
+    $&gt;&gt; token;
+} $catch err {
+    $&gt;&gt; "env error caught";
+}
+</code></pre>
+<h3 id="主动抛错"><a class="header" href="#主动抛错">主动抛错</a></h3>
+<pre><code class="language-zun">$fn must_positive(n) -&gt; Int {
+    $if n &lt;= 0 {
+        $throw "n must be positive";
+    }
+    $# n;
+}
+</code></pre>
+<h2 id="怎么排查"><a class="header" href="#怎么排查">怎么排查</a></h2>
+<ol>
+<li>先分清是 parse error 还是 runtime error</li>
+<li>再看出错位置</li>
+<li>看是语法、值类型、模块、文件还是环境问题</li>
+<li>尽量把问题缩成最小 <code>.zun</code> 文件</li>
+</ol>
+<h2 id="下一章-9"><a class="header" href="#下一章-9">下一章</a></h2>
+<p>继续看 <a href="#11-模块系统-1">11-modules.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="11-模块系统-1"><a class="header" href="#11-模块系统-1">11. 模块系统</a></h1>
+<p>Zun 通过 <code>$mod</code> 组织可复用代码。脚本一旦开始变大，就应该进入模块拆分。</p>
+<h2 id="导入单个模块"><a class="header" href="#导入单个模块">导入单个模块</a></h2>
+<pre><code class="language-zun">$mod shared.helper;
+$&gt;&gt; helper.answer();
+</code></pre>
+<p>模块路径使用点号分隔，对应 <code>.zun</code> 文件路径。</p>
+<h2 id="命名空间访问"><a class="header" href="#命名空间访问">命名空间访问</a></h2>
+<p>导入后，通过文件名命名空间访问：</p>
+<pre><code class="language-zun">$mod helper;
+$&gt;&gt; helper.answer();
+</code></pre>
+<p>重点是：<strong>不会把函数直接铺平到当前作用域。</strong></p>
+<h2 id="通配符导入mod-math"><a class="header" href="#通配符导入mod-math">通配符导入：<code>$mod math.*;</code></a></h2>
+<p>当前实现支持：</p>
+<pre><code class="language-zun">$mod math.*;
+</code></pre>
+<p>它的含义是：</p>
+<ul>
+<li>导入 <code>math/</code> 目录下的直接子模块</li>
+<li>把这些子模块注册成命名空间</li>
+<li>不会把子模块函数直接平铺到当前作用域</li>
+</ul>
+<p>例如：</p>
+<pre><code class="language-text">math/
+├── add.zun
+└── calc.zun
+</code></pre>
+<pre><code class="language-zun">$mod math.*;
+$&gt;&gt; add.answer();
+$&gt;&gt; calc.square(3);
+</code></pre>
+<p>不要把它理解成下面这种旧预期：</p>
+<pre><code class="language-zun">$mod math.*;
+$&gt;&gt; answer();      // 旧预期，当前主线不这样讲
+</code></pre>
+<h2 id="公有函数与私有函数"><a class="header" href="#公有函数与私有函数">公有函数与私有函数</a></h2>
+<pre><code class="language-zun">$fn public_api() -&gt; Int {
+    $# 1;
+}
+
+_$fn hidden() -&gt; Int {
+    $# 2;
+}
+</code></pre>
+<p>规则：</p>
+<ul>
+<li><code>$fn</code> 默认公开</li>
+<li><code>_$fn</code> 默认私有</li>
+<li><code>$mod</code> 只暴露公开函数</li>
+</ul>
+<h2 id="std-命名空间"><a class="header" href="#std-命名空间"><code>std.*</code> 命名空间</a></h2>
+<p>标准库模块也通过 <code>$mod</code> 导入：</p>
+<pre><code class="language-zun">$mod std.math;
+$mod std.str;
+
+$&gt;&gt; math.sqrt(16.0);
+$&gt;&gt; str.trim("  hello  ");
+</code></pre>
+<p><code>std.*</code> 是保留命名空间，只走标准库解析，不和普通项目模块混用。</p>
+<h2 id="当前模块解析顺序"><a class="header" href="#当前模块解析顺序">当前模块解析顺序</a></h2>
+<p>普通模块的主顺序：</p>
+<ol>
+<li>当前文件所在目录</li>
+<li>当前项目根目录</li>
+<li>项目根目录下的 <code>modules/</code></li>
+<li>如果声明了依赖，再查 <code>deps/</code></li>
+</ol>
+<p><code>std.*</code> 则只走标准库解析。</p>
+<h2 id="一个完整例子-4"><a class="header" href="#一个完整例子-4">一个完整例子</a></h2>
+<p>目录：</p>
+<pre><code class="language-text">demo/
+├── main.zun
+└── shared/
+    └── helper.zun
+</code></pre>
+<p><code>shared/helper.zun</code>：</p>
+<pre><code class="language-zun">_$fn twice(x) -&gt; Int {
+    $# x * 2;
+}
+
+$fn answer() -&gt; Int {
+    $# twice(21);
+}
+</code></pre>
+<p><code>main.zun</code>：</p>
+<pre><code class="language-zun">$mod shared.helper;
+$&gt;&gt; helper.answer();
+</code></pre>
+<h2 id="继续查边界"><a class="header" href="#继续查边界">继续查边界</a></h2>
+<ul>
+<li>主线废弃说明：<a href="#模块系统">modules.md</a></li>
+<li>行为边界：<a href="../spec/modules.html">../spec/modules.md</a></li>
+</ul>
+<h2 id="下一章-10"><a class="header" href="#下一章-10">下一章</a></h2>
+<p>继续看 <a href="#12-项目系统与-packagetoml">12-projects-and-package.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="12-项目系统与-packagetoml"><a class="header" href="#12-项目系统与-packagetoml">12. 项目系统与 package.toml</a></h1>
+<p>当脚本开始变大，通常就该进入项目目录组织。</p>
+<h2 id="一个最小项目"><a class="header" href="#一个最小项目">一个最小项目</a></h2>
+<pre><code class="language-text">my-app/
+├── package.toml
+├── main.zun
+└── shared/
+    └── helper.zun
+</code></pre>
+<h2 id="最小-packagetoml"><a class="header" href="#最小-packagetoml">最小 <code>package.toml</code></a></h2>
+<pre><code class="language-toml">name = "my-app"
+version = "0.1.0"
+entry = "main.zun"
+
+[server]
+host = "0.0.0.0"
+port = 8080
+
+[env]
+APP_NAME = "My App"
+</code></pre>
+<h2 id="当前重要字段"><a class="header" href="#当前重要字段">当前重要字段</a></h2>
+<ul>
+<li><code>name</code></li>
+<li><code>version</code></li>
+<li><code>entry</code></li>
+<li><code>[server]</code></li>
+<li><code>[env]</code></li>
+<li><code>[dependencies]</code></li>
+</ul>
+<p>其中 <code>[dependencies]</code> 当前更适合理解为模块解析边界的一部分，而不是成熟包管理工作流。</p>
+<h2 id="入口文件和-entry"><a class="header" href="#入口文件和-entry">入口文件和 <code>entry</code></a></h2>
+<p>当 CLI 传入目录时：</p>
+<ol>
+<li>先定位项目根</li>
+<li>读取 <code>package.toml</code></li>
+<li>使用 <code>entry</code> 指定的入口文件</li>
+<li>如果没有 manifest，则默认尝试 <code>main.zun</code></li>
+</ol>
+<p>所以：</p>
+<ul>
+<li><code>entry</code> 决定“从哪个文件启动项目”</li>
+<li>它不等于 <code>$main()</code></li>
+</ul>
+<h2 id="main-什么时候需要"><a class="header" href="#main-什么时候需要"><code>$main()</code> 什么时候需要</a></h2>
+<p><code>$main()</code> 是 serve 模式下的顶层入口，用来放全局初始化逻辑。</p>
+<p>例如：</p>
+<pre><code class="language-zun">@CORS("*")
+$main() {
+    $&gt;&gt; "[INFO] server starting";
+}
+
+$GET("/health") health() -&gt; String {
+    $# "ok";
+}
+</code></pre>
+<p>可以这样理解：</p>
+<ul>
+<li>只需要一个简单路由时，可以不写 <code>$main()</code></li>
+<li>需要全局 <code>@CORS</code>、启动日志、启动前准备动作时，再写 <code>$main()</code></li>
+<li><code>entry</code> 负责选入口文件，<code>$main()</code> 负责该文件里的服务入口逻辑</li>
+</ul>
+<h2 id="config-的使用边界"><a class="header" href="#config-的使用边界"><code>$&lt;&lt;CONFIG(...)</code> 的使用边界</a></h2>
+<p><code>[env]</code> 中的值可以通过 <code>$&lt;&lt;CONFIG(...)</code> 读取：</p>
+<pre><code class="language-zun">$ app = $&lt;&lt;CONFIG("APP_NAME");
+</code></pre>
+<p>但要记住：</p>
+<ul>
+<li>它依赖项目配置上下文</li>
+<li>当前实现里只在 <code>serve</code> 模式下可用</li>
+<li>不应把它当成 <code>run</code> 模式下的通用配置入口</li>
+</ul>
+<p>推荐的跨模式兜底写法是优先读环境变量，把 <code>CONFIG</code> 留给 serve 项目：</p>
+<pre><code class="language-zun">$mod std.env;
+
+$ app = env.get_or("APP_NAME", "My App");
+$&gt;&gt; app;
+</code></pre>
+<p>如果你明确只在 <code>serve</code> 项目里运行，再使用 <code>$&lt;&lt;CONFIG(...)</code>。</p>
+<h2 id="server-配置"><a class="header" href="#server-配置"><code>server</code> 配置</a></h2>
+<p>服务模式会读取 <code>[server]</code>：</p>
+<pre><code class="language-toml">[server]
+host = "0.0.0.0"
+port = 8080
+</code></pre>
+<p>执行：</p>
+<pre><code class="language-bash">zun serve .
+</code></pre>
+<p>时，CLI 会加载这部分配置。</p>
+<h2 id="项目和单文件的区别"><a class="header" href="#项目和单文件的区别">项目和单文件的区别</a></h2>
+<p>单文件适合：</p>
+<ul>
+<li>demo</li>
+<li>小工具</li>
+<li>单路由原型</li>
+</ul>
+<p>项目目录适合：</p>
+<ul>
+<li>多模块</li>
+<li>配置读取</li>
+<li>服务模式</li>
+<li>后续继续扩展</li>
+</ul>
+<h2 id="进一步参考"><a class="header" href="#进一步参考">进一步参考</a></h2>
+<ul>
+<li><a href="#14-io环境变量与配置-1">14-io-env-config.md</a></li>
+<li><a href="#16-http-组织方式-1">16-http-organization.md</a></li>
+<li><a href="../reference/project-system.html">../reference/project-system.md</a></li>
+</ul>
+<h2 id="下一章-11"><a class="header" href="#下一章-11">下一章</a></h2>
+<p>继续看 <a href="#13-标准库总览-1">13-stdlib-overview.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="13-标准库总览-1"><a class="header" href="#13-标准库总览-1">13. 标准库总览</a></h1>
+<p>这一章只回答一个问题：<strong>某个能力应该去哪里找。</strong></p>
+<p>完整 API 查表不在这里，请直接看 <a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a>。</p>
+<h2 id="标准库分两类"><a class="header" href="#标准库分两类">标准库分两类</a></h2>
+<ul>
+<li>native 模块：由 Rust 实现并注册到 runtime</li>
+<li>纯 <code>.zun</code> 模块：放在 <code>stdlib/</code> 中</li>
+</ul>
+<h2 id="当前常见模块"><a class="header" href="#当前常见模块">当前常见模块</a></h2>
+<p>native 模块：</p>
+<ul>
+<li><code>std.env</code></li>
+<li><code>std.fs</code></li>
+<li><code>std.str</code></li>
+<li><code>std.math</code></li>
+<li><code>std.json</code></li>
+<li><code>std.time</code></li>
+<li><code>std.uuid</code></li>
+<li><code>std.http</code></li>
+</ul>
+<p>纯 <code>.zun</code> 模块：</p>
+<ul>
+<li><code>std.core.iter</code></li>
+<li><code>std.core.check</code></li>
+<li><code>std.str.check</code></li>
+<li><code>std.str.fmt</code></li>
+<li><code>std.math.stats</code></li>
+<li><code>std.math.trig</code></li>
+<li><code>std.path</code></li>
+</ul>
+<h2 id="先判断是值方法还是模块函数"><a class="header" href="#先判断是值方法还是模块函数">先判断是“值方法”还是“模块函数”</a></h2>
+<h3 id="值方法"><a class="header" href="#值方法">值方法</a></h3>
+<p>这些直接挂在值上：</p>
+<ul>
+<li><code>"a,b".split(",")</code></li>
+<li><code>[1, 2, 3].len()</code></li>
+<li><code>user.keys()</code></li>
+</ul>
+<p>适合当前值本身的直接处理。</p>
+<h3 id="模块函数"><a class="header" href="#模块函数">模块函数</a></h3>
+<p>这些来自 <code>std.*</code>：</p>
+<pre><code class="language-zun">$mod std.str;
+$mod std.json;
+
+$&gt;&gt; str.trim("  hello  ");
+$ obj = json.set({"name": "Tom"}, "age", 25);
+</code></pre>
+<p>适合：</p>
+<ul>
+<li>工具函数</li>
+<li>JSON 通用处理</li>
+<li>宿主能力</li>
+<li>不方便做成值方法的能力</li>
+</ul>
+<h2 id="按用途找"><a class="header" href="#按用途找">按用途找</a></h2>
+<h3 id="文本与字符串"><a class="header" href="#文本与字符串">文本与字符串</a></h3>
+<ul>
+<li>值方法：<code>trim</code>、<code>split</code>、<code>contains</code></li>
+<li>模块：<code>std.str</code>、<code>std.str.check</code>、<code>std.str.fmt</code></li>
+</ul>
+<h3 id="集合与-json"><a class="header" href="#集合与-json">集合与 JSON</a></h3>
+<ul>
+<li>值方法：<code>len</code>、<code>keys</code>、<code>values</code>、<code>flatten</code>、<code>sort_desc</code></li>
+<li>模块：<code>std.json</code></li>
+</ul>
+<h3 id="文件环境与配置"><a class="header" href="#文件环境与配置">文件、环境与配置</a></h3>
+<ul>
+<li>模块：<code>std.fs</code>、<code>std.env</code></li>
+<li>章节入口：<a href="#14-io环境变量与配置-1">14-io-env-config.md</a></li>
+</ul>
+<h3 id="http"><a class="header" href="#http">HTTP</a></h3>
+<ul>
+<li>服务端语法：第 15、16 章</li>
+<li>客户端模块：<code>std.http</code></li>
+</ul>
+<h2 id="查表去哪里"><a class="header" href="#查表去哪里">查表去哪里</a></h2>
+<ul>
+<li>完整 stdlib API：<a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a></li>
+<li>旧迁移页：<a href="#标准库参考">stdlib.md</a></li>
+</ul>
+<h2 id="下一章-12"><a class="header" href="#下一章-12">下一章</a></h2>
+<p>继续看 <a href="#14-io环境变量与配置-1">14-io-env-config.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="14-io环境变量与配置-1"><a class="header" href="#14-io环境变量与配置-1">14. I/O、环境变量与配置</a></h1>
+<p>这一章把和宿主环境直接交互的能力收在一起：环境变量、项目配置、文件系统。</p>
+<h2 id="环境变量"><a class="header" href="#环境变量">环境变量</a></h2>
+<h3 id="语言表面env"><a class="header" href="#语言表面env">语言表面：<code>$&lt;&lt;ENV(...)</code></a></h3>
+<pre><code class="language-zun">$ home = $&lt;&lt;ENV("HOME");
+</code></pre>
+<p>如果环境变量不存在，这类调用会失败。</p>
+<h3 id="标准库stdenv"><a class="header" href="#标准库stdenv">标准库：<code>std.env</code></a></h3>
+<pre><code class="language-zun">$mod std.env;
+$&gt;&gt; env.get_or("APP_ENV", "dev");
+</code></pre>
+<p>当你需要兜底值时，优先选 <code>env.get_or(...)</code>。</p>
+<h2 id="项目配置config"><a class="header" href="#项目配置config">项目配置：<code>$&lt;&lt;CONFIG(...)</code></a></h2>
+<pre><code class="language-zun">$ app = $&lt;&lt;CONFIG("APP_NAME");
+</code></pre>
+<p>当前实现里，它有两个重要边界：</p>
+<ul>
+<li>依赖项目配置上下文</li>
+<li>只在 <code>serve</code> 模式下可用</li>
+</ul>
+<p>也就是说，在 <code>run</code> 模式里把它当成通用配置读取入口会直接报错。</p>
+<h3 id="推荐的跨模式写法"><a class="header" href="#推荐的跨模式写法">推荐的跨模式写法</a></h3>
+<p>如果你希望脚本和服务都能运行，先用环境变量作为兜底主路径：</p>
+<pre><code class="language-zun">$mod std.env;
+
+$ app = env.get_or("APP_NAME", "My App");
+$&gt;&gt; app;
+</code></pre>
+<p>如果某段代码只在服务项目里运行，再使用 <code>$&lt;&lt;CONFIG(...)</code>。</p>
+<h2 id="文件读取file"><a class="header" href="#文件读取file">文件读取：<code>$&lt;&lt;FILE(...)</code></a></h2>
+<p>当前语言层面可写的形式是：</p>
+<pre><code class="language-zun">$ text = $&lt;&lt;FILE("notes.txt");
+$ lines = $&lt;&lt;FILE("notes.txt", "LINES");
+</code></pre>
+<p>口径统一如下：</p>
+<ul>
+<li><code>$&lt;&lt;FILE(path)</code>：读取全文，结果按文本处理</li>
+<li><code>$&lt;&lt;FILE(path, "LINES")</code>：按行读取</li>
+<li>第二个参数当前主线只写 <code>"LINES"</code>，不继续扩展旧文档里的其他模式字符串</li>
+</ul>
+<h2 id="stdfs-和-file-怎么选"><a class="header" href="#stdfs-和-file-怎么选"><code>std.fs</code> 和 <code>$&lt;&lt;FILE(...)</code> 怎么选</a></h2>
+<p>如果你只是想在一行里读一次文件，<code>$&lt;&lt;FILE(...)</code> 足够直观。</p>
+<p>如果你需要：</p>
+<ul>
+<li>更明确的 API</li>
+<li>写入、追加、删除</li>
+<li><code>exists</code>、<code>is_dir</code>、<code>list</code> 这类能力</li>
+</ul>
+<p>优先用 <code>std.fs</code>：</p>
+<pre><code class="language-zun">$mod std.fs;
+
+$ content = fs.read_text("tests/fixtures/stdlib/hello.txt");
+$ lines = fs.read_lines("tests/fixtures/stdlib/lines.txt");
+</code></pre>
+<p>可以把两者这样区分：</p>
+<ul>
+<li><code>$&lt;&lt;FILE(...)</code>：语言层面的简写入口</li>
+<li><code>std.fs.read_text/read_lines(...)</code>：脚本和项目里的主推荐写法</li>
+</ul>
+<h2 id="文件写入"><a class="header" href="#文件写入">文件写入</a></h2>
+<pre><code class="language-zun">$mod std.fs;
+
+fs.write_text("/tmp/zun-demo.txt", "hello");
+$&gt;&gt; fs.read_text("/tmp/zun-demo.txt");
+fs.delete("/tmp/zun-demo.txt");
+</code></pre>
+<h2 id="常见坑"><a class="header" href="#常见坑">常见坑</a></h2>
+<ul>
+<li>环境变量不存在会抛错，除非你用 <code>get_or</code></li>
+<li><code>$&lt;&lt;CONFIG(...)</code> 不是跨模式通用入口</li>
+<li>文件路径错误会导致运行时错误</li>
+<li>有副作用的能力最好配合 <code>$try / $catch</code></li>
+</ul>
+<h2 id="下一章-13"><a class="header" href="#下一章-13">下一章</a></h2>
+<p>继续看 <a href="#15-http-基础-1">15-http-basics.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="15-http-基础-1"><a class="header" href="#15-http-基础-1">15. HTTP 基础</a></h1>
+<p>Zun 当前内置了 HTTP 路由定义能力，可以直接和 <code>zun serve</code> 配合使用。</p>
+<h2 id="定义路由"><a class="header" href="#定义路由">定义路由</a></h2>
+<pre><code class="language-zun">$GET("/hello") hello() -&gt; String {
+    $# "world";
+}
+</code></pre>
+<p>启动：</p>
+<pre><code class="language-bash">zun serve main.zun
+</code></pre>
+<h2 id="handler-的基本形状"><a class="header" href="#handler-的基本形状">handler 的基本形状</a></h2>
+<p>一个 handler 一般包含四部分：</p>
+<ol>
+<li>HTTP 方法关键字</li>
+<li>路径</li>
+<li>函数名和参数</li>
+<li>返回类型和函数体</li>
+</ol>
+<pre><code class="language-zun">$GET("/users/:id") get_user(id) -&gt; JSON {
+    $# $JSON { "id": id };
+}
+</code></pre>
+<h2 id="返回类型"><a class="header" href="#返回类型">返回类型</a></h2>
+<p>常见返回类型：</p>
+<ul>
+<li><code>String</code></li>
+<li><code>JSON</code></li>
+<li><code>HTML</code></li>
+<li><code>List&lt;T&gt;</code></li>
+</ul>
+<h3 id="listt-返回例子"><a class="header" href="#listt-返回例子"><code>List&lt;T&gt;</code> 返回例子</a></h3>
+<pre><code class="language-zun">$Type User {
+    id: Int
+    name: Str
+}
+
+$GET("/users") list_users() -&gt; List&lt;User&gt; {
+    $# [
+        {"id": 1, "name": "Alice"},
+        {"id": 2, "name": "Bob"}
+    ];
+}
+</code></pre>
+<p>这里同样遵守类型章节的口径：返回集合时优先写 <code>List&lt;T&gt;</code>，不要再教学裸 <code>List</code>。</p>
+<h2 id="路径参数与-query-参数"><a class="header" href="#路径参数与-query-参数">路径参数与 query 参数</a></h2>
+<pre><code class="language-zun">$GET("/users/:id") get_user(id) -&gt; JSON {
+    $# $JSON { "id": id };
+}
+</code></pre>
+<p>query string 会按同名变量注入：</p>
+<pre><code class="language-zun">$GET("/search") search() -&gt; JSON {
+    $# $JSON { "q": q, "limit": limit };
+}
+</code></pre>
+<h2 id="header-读取"><a class="header" href="#header-读取">Header 读取</a></h2>
+<pre><code class="language-zun">$GET("/whoami") whoami() -&gt; JSON {
+    $ token = $HDR("Authorization");
+    $# $JSON { "token": token };
+}
+</code></pre>
+<h2 id="body-注入"><a class="header" href="#body-注入">body 注入</a></h2>
+<p>当前主线明确这条规则：</p>
+<ul>
+<li><code>POST</code>、<code>PUT</code>、<code>PATCH</code> 会把请求体注入到 <code>body</code></li>
+<li><code>GET</code>、<code>DELETE</code> 不把 <code>body</code> 当作主线能力来承诺</li>
+</ul>
+<p>最小例子：</p>
+<pre><code class="language-zun">$POST("/echo") echo() -&gt; JSON {
+    $# $JSON { "body": body };
+}
+</code></pre>
+<p>继续取字段：</p>
+<pre><code class="language-zun">$PATCH("/users") patch_user() -&gt; JSON {
+    $ name = body["name"];
+    $# $JSON { "updated": true, "name": name };
+}
+</code></pre>
+<h2 id="html-返回"><a class="header" href="#html-返回">HTML 返回</a></h2>
+<h3 id="直接内联"><a class="header" href="#直接内联">直接内联</a></h3>
+<pre><code class="language-zun">$GET("/") index() -&gt; HTML {
+    $# $HTML("&lt;h1&gt;Welcome&lt;/h1&gt;");
+}
+</code></pre>
+<h3 id="链接外部文件htmllink"><a class="header" href="#链接外部文件htmllink">链接外部文件：<code>$HTML().link(...)</code></a></h3>
+<pre><code class="language-zun">$GET("/") index() -&gt; HTML {
+    $# $HTML().link("pages.index");
+}
+</code></pre>
+<p>记法：</p>
+<ul>
+<li>使用模块式路径，如 <code>"pages.index"</code></li>
+<li>它对应外部页面资源，而不是 URL path</li>
+<li>当前主线把它当作链接外部 HTML/CSS/JS/XML 文件的入口</li>
+</ul>
+<p>如果你已经在组织多文件页面或路由模块，继续看 <a href="#16-http-组织方式-1">16-http-organization.md</a>。</p>
+<h2 id="stdhttp-客户端"><a class="header" href="#stdhttp-客户端"><code>std.http</code> 客户端</a></h2>
+<p>如果你不是在“接收请求”，而是要“调用别的服务”，用 <code>std.http</code>：</p>
+<pre><code class="language-zun">$mod std.http;
+
+$ res = http.get("https://example.com");
+$&gt;&gt; res["status"];
+$&gt;&gt; res["body"];
+</code></pre>
+<p>如果 URL 不合法、连接失败或超时，错误会作为普通运行时错误抛出，可以配合 <code>$try / $catch</code>。</p>
+<h2 id="下一章-14"><a class="header" href="#下一章-14">下一章</a></h2>
+<p>继续看 <a href="#16-http-组织方式-1">16-http-organization.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="16-http-组织方式-1"><a class="header" href="#16-http-组织方式-1">16. HTTP 组织方式</a></h1>
+<p>当路由开始增多时，就需要把 HTTP 代码组织起来。</p>
+<h2 id="http---"><a class="header" href="#http---"><code>$HTTP { ... }</code></a></h2>
+<pre><code class="language-zun">$HTTP {
+    $GET("/ping") ping() -&gt; String {
+        $# "pong";
+    }
+
+    $GET("/health") health() -&gt; String {
+        $# "ok";
+    }
+}
+</code></pre>
+<h2 id="带前缀的-http-块"><a class="header" href="#带前缀的-http-块">带前缀的 HTTP 块</a></h2>
+<pre><code class="language-zun">$HTTP("/api/v1") {
+    $GET("/users") list_users() -&gt; JSON {
+        $# $JSON { "ok": true };
+    }
+}
+</code></pre>
+<h2 id="main-的位置"><a class="header" href="#main-的位置"><code>$main()</code> 的位置</a></h2>
+<p><code>$main()</code> 适合放全局初始化逻辑：</p>
+<pre><code class="language-zun">@CORS("*")
+$main() {
+    $&gt;&gt; "[INFO] server starting";
+}
+</code></pre>
+<p>什么时候需要：</p>
+<ul>
+<li>需要全局 <code>@CORS</code></li>
+<li>需要启动日志或初始化动作</li>
+<li>想把“启动阶段逻辑”和“路由定义”显式分开</li>
+</ul>
+<p>什么时候可以省略：</p>
+<ul>
+<li>只有少量路由</li>
+<li>没有全局初始化逻辑</li>
+</ul>
+<p>它和 <code>entry</code> 的关系是：</p>
+<ul>
+<li><code>entry</code> 选入口文件</li>
+<li><code>$main()</code> 定义该文件里的 serve 入口逻辑</li>
+</ul>
+<h2 id="组织-set_hdr"><a class="header" href="#组织-set_hdr">组织 <code>@SET_HDR(...)</code></a></h2>
+<pre><code class="language-zun">@SET_HDR({
+    "X-Frame-Options": "DENY",
+    "Cache-Control": "no-cache"
+})
+$HTTP("/api") {
+    $GET("/ping") ping() -&gt; String {
+        $# "pong";
+    }
+}
+</code></pre>
+<p>规则：</p>
+<ul>
+<li>块级 header 会传给块内路由</li>
+<li>同名 header 由更靠近路由的声明覆盖</li>
+</ul>
+<h2 id="组织-cors"><a class="header" href="#组织-cors">组织 <code>@CORS(...)</code></a></h2>
+<p><code>@CORS(...)</code> 可以放在三个层级：</p>
+<ul>
+<li><code>$main()</code> 前：全局默认策略</li>
+<li><code>$HTTP(...)</code> 前：路由组策略</li>
+<li>具体路由前：单条路由策略</li>
+</ul>
+<p>优先级：</p>
+<ul>
+<li>路由级覆盖块级</li>
+<li>块级覆盖全局</li>
+</ul>
+<h2 id="链接外部路由模块"><a class="header" href="#链接外部路由模块">链接外部路由模块</a></h2>
+<pre><code class="language-zun">$HTTP("/v1/api").link("routers.api");
+</code></pre>
+<p><code>.link()</code> 只用于挂载 HTTP 路由，不等于普通 <code>$mod</code> 导入。</p>
+<h2 id="静态资源和-html-文件"><a class="header" href="#静态资源和-html-文件">静态资源和 HTML 文件</a></h2>
+<pre><code class="language-zun">$STATIC("/static", "static");
+
+$GET("/") index() -&gt; HTML {
+    $# $HTML().link("pages.index");
+}
+</code></pre>
+<h2 id="路由冲突怎么处理"><a class="header" href="#路由冲突怎么处理">路由冲突怎么处理</a></h2>
+<p>当前仓库没有把“同路径同方法重复注册”的底层策略写成稳定主线规则，因此这一章只给出安全建议，不虚构实现细节。</p>
+<p>推荐做法：</p>
+<ol>
+<li>同一个路径只在一个文件里定义一次</li>
+<li>先按业务域拆路由，再用 <code>.link()</code> 汇总</li>
+<li>启动时打开 <code>--routertab</code> 或最小化路由文件确认最终注册结果</li>
+<li>排查顺序先看入口文件、再看 <code>.link()</code>、最后看重复路径</li>
+</ol>
+<p>如果你怀疑冲突，先把可疑路由缩成最小例子再排查。</p>
+<h2 id="一个完整例子-5"><a class="header" href="#一个完整例子-5">一个完整例子</a></h2>
+<pre><code class="language-zun">@CORS("*")
+$main() {
+    $&gt;&gt; "[INFO] server starting";
+}
+
+@SET_HDR({ "X-Frame-Options": "DENY" })
+$HTTP("/api") {
+    $GET("/ping") ping() -&gt; JSON {
+        $# $JSON { "ok": true };
+    }
+}
+
+$HTTP("/site").link("routers.site");
+$STATIC("/static", "static");
+</code></pre>
+<h2 id="下一章-15"><a class="header" href="#下一章-15">下一章</a></h2>
+<p>继续看 <a href="#17-测试与调试-1">17-testing-and-debugging.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="17-测试与调试-1"><a class="header" href="#17-测试与调试-1">17. 测试与调试</a></h1>
+<p>这一章给一条最实用的工作流：先验证最小功能，再缩小问题面，再做最小复现。</p>
+<h2 id="1-断言与基本验证"><a class="header" href="#1-断言与基本验证">1. 断言与基本验证</a></h2>
+<p>最轻量的验证方式仍然是直接运行并看输出：</p>
+<pre><code class="language-zun">$fn add(a, b) -&gt; Int {
+    $# a + b;
+}
+
+$&gt;&gt; add(1, 2);
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run main.zun
+</code></pre>
+<p>预期看到：</p>
+<pre><code class="language-text">3
+</code></pre>
+<p>对脚本逻辑来说，先把“输入是什么、输出是什么”写清楚，比一开始就堆复杂测试框架更重要。</p>
+<p>如果你想把“预期必须成立”写进代码里，优先用 <code>std.core.check.assert</code>：</p>
+<pre><code class="language-zun">$mod std.core.check;
+
+check.assert(1 + 1 == 2, "基础算术失败");
+check.assert("hello".len() == 5, "字符串长度失败");
+$&gt;&gt; "checks passed";
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run test_math.zun
+</code></pre>
+<p>通过时，你会看到：</p>
+<pre><code class="language-text">checks passed
+</code></pre>
+<p>断言失败时，程序会直接报错并停止，这很适合写最小脚本验证。</p>
+<h2 id="2-测试文件组织建议"><a class="header" href="#2-测试文件组织建议">2. 测试文件组织建议</a></h2>
+<p>当例子开始变大，推荐直接使用 <code>.zun</code> 测试脚本：</p>
+<pre><code class="language-text">my-app/
+├── main.zun
+├── shared/
+│   └── helper.zun
+└── tests/
+    ├── test_math.zun
+    └── test_users.zun
+</code></pre>
+<p>例如 <code>tests/test_math.zun</code>：</p>
+<pre><code class="language-zun">$mod std.core.check;
+
+check.assert(1 + 1 == 2, "1 + 1 应该等于 2");
+check.assert([1, 2, 2].count(2) == 2, "count(2) 应该等于 2");
+$&gt;&gt; "test_math ok";
+</code></pre>
+<p>当前仓库也可以直接参考：</p>
+<ul>
+<li><code>tests/spec/valid/</code></li>
+<li><code>tests/spec/invalid/</code></li>
+<li><code>tests/fixtures/</code></li>
+</ul>
+<p>这些目录最适合看两件事：</p>
+<ul>
+<li>最小正确写法是什么</li>
+<li>最小错误复现应该缩到多小</li>
+</ul>
+<h2 id="3-用-zun-test-验证-http"><a class="header" href="#3-用-zun-test-验证-http">3. 用 <code>zun test</code> 验证 HTTP</a></h2>
+<p>最常用命令：</p>
+<pre><code class="language-bash">zun test
+zun test main.zun
+zun test --route GET /hello
+zun test --route POST /echo --body '{"name":"Tom"}'
+</code></pre>
+<h3 id="脚本验证路径"><a class="header" href="#脚本验证路径">脚本验证路径</a></h3>
+<p>对纯脚本逻辑，推荐顺序：</p>
+<ol>
+<li>先 <code>zun run tests/test_xxx.zun</code></li>
+<li>必要时拆成更小函数</li>
+<li>再把问题缩成最小文件</li>
+</ol>
+<h3 id="http-验证路径"><a class="header" href="#http-验证路径">HTTP 验证路径</a></h3>
+<p>对 HTTP handler，推荐顺序：</p>
+<ol>
+<li>先 <code>zun test --route ...</code></li>
+<li>再 <code>zun serve ...</code> 做真实请求验证</li>
+<li>只在需要时再扩到完整项目路径</li>
+</ol>
+<h2 id="4-终端输出怎么看"><a class="header" href="#4-终端输出怎么看">4. 终端输出怎么看</a></h2>
+<h3 id="一个通过的例子"><a class="header" href="#一个通过的例子">一个通过的例子</a></h3>
+<pre><code class="language-text">$ zun test --route GET /hello
+[OK] GET /hello
+</code></pre>
+<h3 id="一个失败的例子"><a class="header" href="#一个失败的例子">一个失败的例子</a></h3>
+<pre><code class="language-text">$ zun run bad.zun
+[ERROR] runtime error: variable 'x' not found
+</code></pre>
+<p>遇到失败时，先做三件事：</p>
+<ol>
+<li>看错误类别</li>
+<li>看报错位置</li>
+<li>看是语法、类型、模块、文件还是 HTTP 路由问题</li>
+</ol>
+<h2 id="5-调试工作流"><a class="header" href="#5-调试工作流">5. 调试工作流</a></h2>
+<h3 id="用-repl-做最小复现"><a class="header" href="#用-repl-做最小复现">用 REPL 做最小复现</a></h3>
+<p>REPL 适合：</p>
+<ul>
+<li>试表达式</li>
+<li>试类型行为</li>
+<li>试字符串和列表方法</li>
+</ul>
+<h3 id="用打印定位问题"><a class="header" href="#用打印定位问题">用打印定位问题</a></h3>
+<pre><code class="language-zun">$&gt;&gt; "debug";
+$&gt;&gt; value;
+$&gt;&gt;ERR(f"unexpected: {value}");
+</code></pre>
+<p>最适合放打印的位置：</p>
+<ul>
+<li>分支判断前后</li>
+<li>文件读取之后</li>
+<li>返回之前</li>
+<li><code>catch</code> 块里</li>
+</ul>
+<h3 id="用-try--catch-包住不稳定点"><a class="header" href="#用-try--catch-包住不稳定点">用 <code>$try / $catch</code> 包住不稳定点</a></h3>
+<pre><code class="language-zun">$mod std.fs;
+$try {
+    $ content = fs.read_text("missing.txt");
+    $&gt;&gt; content;
+} $catch err {
+    $&gt;&gt;ERR(f"read failed: {err}");
+}
+</code></pre>
+<h2 id="6-常见排障配方"><a class="header" href="#6-常见排障配方">6. 常见排障配方</a></h2>
+<h3 id="handler-返回空-body"><a class="header" href="#handler-返回空-body">handler 返回空 body</a></h3>
+<ul>
+<li>现象：请求成功，但没有你预期的响应体</li>
+<li>检查点：handler 是否真的执行到 <code>$#</code></li>
+<li>推荐动作：先改成最小固定返回，例如 <code># "ok"</code> 或固定 JSON</li>
+</ul>
+<h3 id="模块函数没被调用"><a class="header" href="#模块函数没被调用">模块函数没被调用</a></h3>
+<ul>
+<li>现象：程序能跑，但结果像是走了旧逻辑</li>
+<li>检查点：是否写了正确的 <code>$mod</code> 路径，是否通过命名空间调用</li>
+<li>推荐动作：先在入口处打印模块调用结果，确认不是旧页面里的平铺导入预期</li>
+</ul>
+<h3 id="类型注解相关报错"><a class="header" href="#类型注解相关报错">类型注解相关报错</a></h3>
+<ul>
+<li>现象：声明或返回时提示类型不匹配</li>
+<li>检查点：变量注解是否与实际值一致，返回值是否用了 <code>List&lt;T&gt;</code></li>
+<li>推荐动作：先缩成最小函数，再回看 <a href="#9-渐进类型-1">09-gradual-typing.md</a> 和 <a href="#10-错误处理-1">10-error-handling.md</a></li>
+</ul>
+<h2 id="下一章-16"><a class="header" href="#下一章-16">下一章</a></h2>
+<p>继续看 <a href="#18-模式与实战配方-1">18-patterns-and-recipes.md</a>。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="18-模式与实战配方-1"><a class="header" href="#18-模式与实战配方-1">18. 模式与实战配方</a></h1>
+<p>这一章给的是可复制的起步配方，而不是零散片段。</p>
+<h2 id="配方-1单文件脚本"><a class="header" href="#配方-1单文件脚本">配方 1：单文件脚本</a></h2>
+<p>适合：</p>
+<ul>
+<li>快速数据处理</li>
+<li>小工具</li>
+<li>一次性脚本</li>
+</ul>
+<p>文件：<code>sum.zun</code></p>
+<pre><code class="language-zun">$ nums = [1, 2, 3, 4, 5];
+$ total = 0;
+
+$for n in nums {
+    total += n;
+}
+
+$&gt;&gt; total;
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run sum.zun
+</code></pre>
+<p>预期输出：</p>
+<pre><code class="language-text">15
+</code></pre>
+<p>回看章节：</p>
+<ul>
+<li><a href="#7-函数-1">07-functions.md</a></li>
+<li><a href="#8-集合与常用方法-1">08-collections-and-methods.md</a></li>
+</ul>
+<h2 id="配方-2读取并处理-json-文件"><a class="header" href="#配方-2读取并处理-json-文件">配方 2：读取并处理 JSON 文件</a></h2>
+<p>目录：</p>
+<pre><code class="language-text">json-tool/
+├── main.zun
+└── data.json
+</code></pre>
+<p><code>data.json</code></p>
+<pre><code class="language-json">{"name":"zun","tags":["lang","tool","lang"]}
+</code></pre>
+<p><code>main.zun</code></p>
+<pre><code class="language-zun">$mod std.fs;
+$mod std.json;
+
+$ raw = fs.read_text("data.json");
+$ obj = json.parse(raw);
+$ tags = obj["tags"];
+
+$&gt;&gt; obj["name"];
+$&gt;&gt; tags.unique().len();
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run main.zun
+</code></pre>
+<p>预期输出：</p>
+<pre><code class="language-text">zun
+2
+</code></pre>
+<p>回看章节：</p>
+<ul>
+<li><a href="#8-集合与常用方法-1">08-collections-and-methods.md</a></li>
+<li><a href="#13-标准库总览-1">13-stdlib-overview.md</a></li>
+<li><a href="#14-io环境变量与配置-1">14-io-env-config.md</a></li>
+</ul>
+<h2 id="配方-3带-packagetoml-的小项目"><a class="header" href="#配方-3带-packagetoml-的小项目">配方 3：带 <code>package.toml</code> 的小项目</a></h2>
+<p>目录：</p>
+<pre><code class="language-text">my-app/
+├── package.toml
+├── main.zun
+└── shared/
+    └── helper.zun
+</code></pre>
+<p><code>package.toml</code></p>
+<pre><code class="language-toml">name = "my-app"
+version = "0.1.0"
+entry = "main.zun"
+
+[server]
+host = "127.0.0.1"
+port = 8080
+</code></pre>
+<p><code>shared/helper.zun</code></p>
+<pre><code class="language-zun">$fn greeting() -&gt; String {
+    $# "hello from helper";
+}
+</code></pre>
+<p><code>main.zun</code></p>
+<pre><code class="language-zun">$mod shared.helper;
+$&gt;&gt; helper.greeting();
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run main.zun
+</code></pre>
+<p>预期输出：</p>
+<pre><code class="language-text">hello from helper
+</code></pre>
+<p>回看章节：</p>
+<ul>
+<li><a href="#11-模块系统-1">11-modules.md</a></li>
+<li><a href="#12-项目系统与-packagetoml">12-projects-and-package.md</a></li>
+</ul>
+<h2 id="配方-4模块化-http-服务"><a class="header" href="#配方-4模块化-http-服务">配方 4：模块化 HTTP 服务</a></h2>
+<p>目录：</p>
+<pre><code class="language-text">http-app/
+├── package.toml
+├── main.zun
+└── routers/
+    └── api.zun
+</code></pre>
+<p><code>package.toml</code></p>
+<pre><code class="language-toml">name = "http-app"
+version = "0.1.0"
+entry = "main.zun"
+
+[server]
+host = "127.0.0.1"
+port = 8080
+</code></pre>
+<p><code>routers/api.zun</code></p>
+<pre><code class="language-zun">$GET("/status") status() -&gt; JSON {
+    $# $JSON { "ok": true };
+}
+</code></pre>
+<p><code>main.zun</code></p>
+<pre><code class="language-zun">@CORS("*")
+$main() {
+    $&gt;&gt; "[INFO] server starting";
+}
+
+$HTTP("/api").link("routers.api");
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun serve .
+</code></pre>
+<p>验证：</p>
+<pre><code class="language-bash">curl http://127.0.0.1:8080/api/status
+</code></pre>
+<p>预期结果：</p>
+<pre><code class="language-text">{"ok":true}
+</code></pre>
+<p>回看章节：</p>
+<ul>
+<li><a href="#12-项目系统与-packagetoml">12-projects-and-package.md</a></li>
+<li><a href="#15-http-基础-1">15-http-basics.md</a></li>
+<li><a href="#16-http-组织方式-1">16-http-organization.md</a></li>
+</ul>
+<h2 id="迁移说明"><a class="header" href="#迁移说明">迁移说明</a></h2>
+<p>旧的零散示例页仍在 <a href="#实用示例">examples.md</a>，但主线示例职责已经迁到本章。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="syntax-cheatsheet"><a class="header" href="#syntax-cheatsheet">Syntax Cheatsheet</a></h1>
+<p>只放最小可识别片段，不展开成长教程。</p>
+<h2 id="声明与赋值"><a class="header" href="#声明与赋值">声明与赋值</a></h2>
+<pre><code class="language-zun">$ value = 1;
+$ value: Int = 1;
+$@ NAME = "zun";
+value = 2;
+value += 1;
+</code></pre>
+<h2 id="输入与输出"><a class="header" href="#输入与输出">输入与输出</a></h2>
+<pre><code class="language-zun">$&gt;&gt; "hello";
+$&gt;&gt;ERR("bad input");
+$&gt;&gt;FILE("out.txt", "hello");
+$ name = $&lt;&lt;LINE();
+$ home = $&lt;&lt;ENV("HOME");
+$ text = $&lt;&lt;FILE("notes.txt");
+$ lines = $&lt;&lt;FILE("notes.txt", "LINES");
+</code></pre>
+<h2 id="控制流"><a class="header" href="#控制流">控制流</a></h2>
+<pre><code class="language-zun">$if cond {
+} $elif other {
+} $else {
+}
+
+$while cond {
+}
+
+$loop {
+    $break;
+}
+
+$for item in items {
+    $continue;
+}
+
+$for i = 0; i &lt; 10; i = i + 1 {
+}
+</code></pre>
+<h2 id="函数"><a class="header" href="#函数">函数</a></h2>
+<pre><code class="language-zun">$fn greet(name) -&gt; String {
+    $# name;
+}
+
+_$fn helper(x) -&gt; Int {
+    $# x * 2;
+}
+
+$ anon = $fn(x) {
+    $# x + 1;
+};
+</code></pre>
+<h2 id="错误处理"><a class="header" href="#错误处理">错误处理</a></h2>
+<pre><code class="language-zun">$try {
+    $throw "oops";
+} $catch err {
+    $&gt;&gt;ERR(err);
+}
+</code></pre>
+<h2 id="模块"><a class="header" href="#模块">模块</a></h2>
+<pre><code class="language-zun">$mod helper;
+$mod shared.tool;
+$mod math.*;
+$mod std.math;
+</code></pre>
+<h2 id="类型系统"><a class="header" href="#类型系统">类型系统</a></h2>
+<pre><code class="language-zun">$ items: List = [1, 2, 3];
+$Type User {
+    id: Int
+    name: Str
+}
+
+$fn list_users() -&gt; List&lt;User&gt; {
+    $# [{"id": 1, "name": "Alice"}];
+}
+</code></pre>
+<h2 id="http-handler"><a class="header" href="#http-handler">HTTP handler</a></h2>
+<pre><code class="language-zun">$GET("/hello") hello() -&gt; String {
+    $# "world";
+}
+
+$POST("/echo") echo() -&gt; JSON {
+    $# $JSON { "body": body };
+}
+</code></pre>
+<h2 id="http-组织"><a class="header" href="#http-组织">HTTP 组织</a></h2>
+<pre><code class="language-zun">$HTTP("/api") {
+    $GET("/ping") ping() -&gt; JSON {
+        $# $JSON { "ok": true };
+    }
+}
+
+$HTTP("/api").link("routers.api");
+$STATIC("/static", "static");
+</code></pre>
+<h2 id="构造器"><a class="header" href="#构造器">构造器</a></h2>
+<pre><code class="language-zun">$# $JSON { "ok": true };
+$# $HTML("&lt;h1&gt;Hello&lt;/h1&gt;");
+$# $HTML().link("pages.index");
+$# $RES(201, {"created": true});
+</code></pre>
+<h2 id="注解"><a class="header" href="#注解">注解</a></h2>
+<pre><code class="language-zun">@SET_HDR({ "Cache-Control": "no-store" })
+@CORS("*")
+</code></pre>
+<h2 id="程序入口与退出"><a class="header" href="#程序入口与退出">程序入口与退出</a></h2>
+<pre><code class="language-zun">$main() {
+    $&gt;&gt; "starting";
+}
+
+exit;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="cli-cheatsheet"><a class="header" href="#cli-cheatsheet">CLI Cheatsheet</a></h1>
+<pre><code class="language-bash">zun
+zun run hello.zun
+zun serve .
+zun serve . --routertab
+zun test
+zun test main.zun
+zun test --route GET /hello
+zun test --route POST /echo --body '{"name":"Tom"}'
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="module-resolution"><a class="header" href="#module-resolution">Module Resolution</a></h1>
+<p>当前模块解析主路径：</p>
+<ol>
+<li>当前文件所在目录</li>
+<li>项目根目录</li>
+<li>项目根目录下的 <code>modules/</code></li>
+<li><code>stdlib/</code>，仅用于 <code>std.*</code></li>
+<li><code>deps/</code>，仅用于已声明依赖</li>
+</ol>
+<p>普通模块示例：</p>
+<pre><code class="language-zun">$mod shared.helper;
+</code></pre>
+<p>标准库示例：</p>
+<pre><code class="language-zun">$mod std.math;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="common-errors"><a class="header" href="#common-errors">Common Errors</a></h1>
+<h2 id="解析阶段"><a class="header" href="#解析阶段">解析阶段</a></h2>
+<ul>
+<li>缺少分号</li>
+<li>表达式右侧缺失</li>
+<li>括号或大括号不匹配</li>
+<li>语法还没进入执行阶段，因此不能靠 <code>$catch</code> 处理</li>
+</ul>
+<h2 id="运行阶段"><a class="header" href="#运行阶段">运行阶段</a></h2>
+<ul>
+<li>未定义变量</li>
+<li>类型不匹配</li>
+<li>模块未找到</li>
+<li>文件读取失败</li>
+<li>环境变量不存在</li>
+<li>HTTP handler 返回类型不匹配</li>
+</ul>
+<h2 id="快速排查顺序"><a class="header" href="#快速排查顺序">快速排查顺序</a></h2>
+<ol>
+<li>先看是 parse error 还是 runtime error</li>
+<li>再看报错位置</li>
+<li>缩成最小 <code>.zun</code> 文件</li>
+<li>用 REPL 或 <code>zun test --route ...</code> 复现</li>
+</ol>
+<h2 id="交叉阅读"><a class="header" href="#交叉阅读">交叉阅读</a></h2>
+<ul>
+<li>主线说明：<a href="#10-错误处理-1">../10-error-handling.md</a></li>
+<li>查表说明：<a href="../reference/errors.html">../../reference/errors.md</a></li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="核心概念"><a class="header" href="#核心概念">核心概念</a></h1>
+<blockquote>
+<p><strong>Status: Supplemental</strong></p>
+<p>这是一页迁移期补充材料，不再作为学习主线入口。
+主线请先读 <a href="#1-认识-zun-1">01-introduction.md</a> 和 <a href="README.html">guide/README.md</a>。
+本页仍保留的独特价值是背景动机、设计口号和产品定位表述。</p>
+</blockquote>
+<p>本文档介绍 Zun 的设计理念和核心概念。</p>
+<h2 id="-符号哲学"><a class="header" href="#-符号哲学">$ 符号哲学</a></h2>
+<h3 id="起源"><a class="header" href="#起源">起源</a></h3>
+<p>Zun 的诞生，多少带着一点玩的意思。</p>
+<p>语言的核心符号是 <code>$</code> —— 这不是巧合。<code>$</code> 是全世界最通用的财富符号，美金，财富，钱。我们用它来声明变量、声明常量、打印输出，把每一行代码都和「赚钱」这件事绑定在一起。</p>
+<p><strong>写代码，就是赚钱。这是 Zun 最初的态度。</strong></p>
+<h3 id="设计理念"><a class="header" href="#设计理念">设计理念</a></h3>
+<p>Zun 的设计哲学，从第一个符号开始，就为独立开发者服务：</p>
+<ul>
+<li><code>$</code> 声明变量 —— 简单，直接</li>
+<li><code>$@</code> 声明常量 —— 保护重要的东西</li>
+<li><code>$&gt;&gt;</code> 打印输出 —— 立刻看到结果</li>
+<li>整套语法 6 个符号 —— 今天学，今天用</li>
+</ul>
+<h3 id="符号化语法示例"><a class="header" href="#符号化语法示例">符号化语法示例</a></h3>
+<pre><code class="language-zun">$ a = 1;        // 声明变量
+$@ PI = 3.14;  // 声明常量
+$&gt;&gt; a;         // 打印输出
+</code></pre>
+<p>这种独特的符号化语法形成了鲜明的视觉风格，让人一眼就能认出这是 Zun 代码。</p>
+<hr>
+<h2 id="我们在解决什么问题"><a class="header" href="#我们在解决什么问题">我们在解决什么问题</a></h2>
+<p>PHP 诞生于一个时代：「我要快速搭一个网页」。</p>
+<p>那个时代的问题已经被解决了。但时代之后，出现了新的问题，还没有人真正解决：</p>
+<ul>
+<li>我不想学框架，我只想<strong>快速验证一个 API 想法</strong></li>
+<li>我想把一个脚本<strong>直接暴露成可调用的服务</strong></li>
+<li>我不在乎性能，我在乎的是<strong>从想法到跑起来的时间</strong></li>
+<li>我想要<strong>今天就能开张</strong>，而不是明天</li>
+</ul>
+<p>这就是 Zun 想卡的位置。</p>
+<hr>
+<h2 id="我们和-php-不一样在哪里"><a class="header" href="#我们和-php-不一样在哪里">我们和 PHP 不一样在哪里</a></h2>
+<p>这个问题值得认真回答，因为表面上我们都在做「快速 Web 服务」。</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th></th><th>PHP</th><th>Zun</th></tr>
+</thead>
+<tbody>
+<tr><td>定位</td><td>建房子</td><td>摆摊</td></tr>
+<tr><td>目标</td><td>工程构建</td><td>变现验证</td></tr>
+<tr><td>学习成本</td><td>需要框架、路由、模板</td><td>6 个符号，5 分钟上手</td></tr>
+<tr><td>时代背景</td><td>30 年前的 Web</td><td>独立开发者的今天</td></tr>
+<tr><td>态度</td><td>严肃的工程语言</td><td>反严肃，追求最快落地</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>PHP 是建房子的，Zun 是摆摊的。</strong></p>
+<p>摆摊不需要地基，不需要设计图纸，需要的是今天就能开张，明天就能收钱。</p>
+<hr>
+<h2 id="目标用户-1"><a class="header" href="#目标用户-1">目标用户</a></h2>
+<p>Zun 面向<strong>独立开发者</strong>——那些同时身兼产品经理、设计师、工程师、运营的人。</p>
+<p>他们的时间是稀缺的，他们的耐心是有限的，他们最不需要的就是在「从想法到上线」这条路上多走任何一步弯路。</p>
+<hr>
+<h2 id="未来的方向"><a class="header" href="#未来的方向">未来的方向</a></h2>
+<p>Zun 目前是一个解释型脚本语言的起点。</p>
+<p>我们下一步想做的，是让「变现」这个动作成为语言的一等公民——让支付、Webhook、API 暴露不再是靠第三方库拼凑出来的，而是内建在语言的表达能力里。</p>
+<p>我们想要的终态是：</p>
+<blockquote>
+<p>一个 <code>.dal</code> 文件，一条命令，直接是一个能收钱的服务。</p>
+</blockquote>
+<p>这个目标听起来简单，但它需要的不是更复杂的语言，而是更极致的取舍。</p>
+<hr>
+<h2 id="一句话总结"><a class="header" href="#一句话总结">一句话总结</a></h2>
+<p><strong>Zun 是面向独立开发者的快速变现脚本语言。</strong></p>
+<p><code>$</code> 不只是变量符号，它是我们对这门语言全部野心的浓缩：</p>
+<p>写代码，就是赚钱。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="快速开始"><a class="header" href="#快速开始">快速开始</a></h1>
+<blockquote>
+<p><strong>Status: Supplemental</strong></p>
+<p>这是一页迁移期补充材料。
+如果你要走当前主线，请改读 <a href="#2-安装与-cli-1">02-installation-and-cli.md</a> 和 <a href="#3-第一个程序-1">03-first-program.md</a>。
+本页仍保留的独特价值是“一页式上手”节奏，适合快速预览，但不再承担完整教学职责。</p>
+</blockquote>
+<p>本指南帮助你在 5 分钟内上手 Zun。</p>
+<hr>
+<h2 id="安装-1"><a class="header" href="#安装-1">安装</a></h2>
+<pre><code class="language-bash"># 克隆项目
+git clone https://github.com/zhanbodev/zun-lang.git
+cd zun-lang
+
+# 编译
+cargo build --release
+
+# 将二进制加入 PATH（可选）
+export PATH="$PATH:$(pwd)/target/release"
+</code></pre>
+<hr>
+<h2 id="运行你的第一个程序"><a class="header" href="#运行你的第一个程序">运行你的第一个程序</a></h2>
+<p>创建文件 <code>hello.zun</code>：</p>
+<pre><code class="language-zun">$&gt;&gt; "Hello, Zun!";
+</code></pre>
+<p>运行：</p>
+<pre><code class="language-bash">zun run hello.zun
+# 输出: Hello, Zun!
+</code></pre>
+<hr>
+<h2 id="使用-repl"><a class="header" href="#使用-repl">使用 REPL</a></h2>
+<p>REPL 是交互式解释器，适合快速验证代码：</p>
+<pre><code class="language-bash">zun repl
+</code></pre>
+<pre><code>Zun REPL v2026
+&gt;&gt; $&gt;&gt; "Hello!";
+Hello!
+&gt;&gt; $ x = 1 + 2;
+&gt;&gt; $&gt;&gt; x;
+3
+&gt;&gt; exit
+</code></pre>
+<p><strong>REPL 快捷键</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>快捷键</th><th>功能</th></tr>
+</thead>
+<tbody>
+<tr><td><code>↑</code> / <code>↓</code></td><td>历史记录</td></tr>
+<tr><td><code>Ctrl+A</code></td><td>跳到行首</td></tr>
+<tr><td><code>Ctrl+E</code></td><td>跳到行末</td></tr>
+<tr><td><code>Ctrl+C</code></td><td>取消当前输入</td></tr>
+<tr><td><code>Ctrl+D</code></td><td>退出（输入为空时）</td></tr>
+</tbody>
+</table>
+</div>
+<p>输入 <code>exit</code> 或 <code>quit</code> 也可退出。</p>
+<hr>
+<h2 id="基本语法速览"><a class="header" href="#基本语法速览">基本语法速览</a></h2>
+<h3 id="变量与常量"><a class="header" href="#变量与常量">变量与常量</a></h3>
+<pre><code class="language-zun">$ name = "Zun";       // 变量（可修改）
+$@ PI = 3.14159;         // 常量（不可修改）
+</code></pre>
+<h3 id="输出-1"><a class="header" href="#输出-1">输出</a></h3>
+<pre><code class="language-zun">$&gt;&gt; "Hello, World!";
+$&gt;&gt; 42;
+$&gt;&gt; name;
+</code></pre>
+<h3 id="注释-1"><a class="header" href="#注释-1">注释</a></h3>
+<pre><code class="language-zun">// 这是单行注释
+</code></pre>
+<h3 id="函数-1"><a class="header" href="#函数-1">函数</a></h3>
+<pre><code class="language-zun">$fn add(a, b) {
+    $# a + b;            // $# 是 return
+}
+
+$&gt;&gt; add(3, 4);           // 7
+</code></pre>
+<h3 id="条件"><a class="header" href="#条件">条件</a></h3>
+<pre><code class="language-zun">$ score = 85;
+$if score &gt;= 90 {
+    $&gt;&gt; "A";
+} $else $if score &gt;= 80 {
+    $&gt;&gt; "B";
+} $else {
+    $&gt;&gt; "C";
+}
+</code></pre>
+<h3 id="循环"><a class="header" href="#循环">循环</a></h3>
+<pre><code class="language-zun">// for-in 遍历列表
+$for item in [1, 2, 3] {
+    $&gt;&gt; item;
+}
+
+// while 循环
+$ i = 0;
+$while i &lt; 3 {
+    $&gt;&gt; i;
+    i += 1;
+}
+</code></pre>
+<hr>
+<h2 id="下一步"><a class="header" href="#下一步">下一步</a></h2>
+<ul>
+<li><a href="#18-模式与实战配方-1">18-patterns-and-recipes.md</a> — 现行可运行配方</li>
+<li><a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a> — 标准库与值方法查表</li>
+<li><a href="#11-模块系统-1">11-modules.md</a> — 当前模块系统主线</li>
+<li><a href="#15-http-基础-1">15-http-basics.md</a> / <a href="#16-http-组织方式-1">16-http-organization.md</a> — 当前 HTTP 主线</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="实用示例"><a class="header" href="#实用示例">实用示例</a></h1>
+<blockquote>
+<p><strong>Status: Migration Source</strong></p>
+<p>这页不再承担“主线示例集”职责。
+当前可运行配方请改读 <a href="#18-模式与实战配方-1">18-patterns-and-recipes.md</a>。
+本页仅保留零散旧示例和迁移线索；遇到和主线冲突的写法，应以编号章节、reference 和 spec 为准。</p>
+</blockquote>
+<p>本章节提供真实使用场景的示例，帮助你快速上手 Zun。</p>
+<hr>
+<h2 id="1-基础计算"><a class="header" href="#1-基础计算">1. 基础计算</a></h2>
+<pre><code class="language-zun">$&gt;&gt; 1 + 2 * 3;       // 7
+$&gt;&gt; (1 + 2) * 3;     // 9
+$&gt;&gt; 10 / 3;          // 3.3333...
+$&gt;&gt; 10 % 3;          // 1
+</code></pre>
+<hr>
+<h2 id="2-字符串处理"><a class="header" href="#2-字符串处理">2. 字符串处理</a></h2>
+<pre><code class="language-zun">$ name = "Zun";
+$&gt;&gt; "Hello, " + name + "!";    // Hello, Zun!
+
+$&gt;&gt; "hello world".upper();     // HELLO WORLD
+$&gt;&gt; "  hello  ".trim();        // hello
+$&gt;&gt; "a,b,c".split(",");        // [a, b, c]
+$&gt;&gt; "hello".contains("ell");   // true
+$&gt;&gt; "hello".slice(1, 3);       // el
+</code></pre>
+<p><strong>f-string 插值</strong></p>
+<pre><code class="language-zun">$ user = "Alice";
+$ score = 100;
+$&gt;&gt; f"Player {user} scored {score} points.";
+// Player Alice scored 100 points.
+</code></pre>
+<hr>
+<h2 id="3-条件判断"><a class="header" href="#3-条件判断">3. 条件判断</a></h2>
+<pre><code class="language-zun">$ age = 20;
+$if age &gt;= 18 {
+    $&gt;&gt; "adult";
+} $else {
+    $&gt;&gt; "minor";
+}
+</code></pre>
+<p><strong>多分支</strong></p>
+<pre><code class="language-zun">$ score = 75;
+$if score &gt;= 90 {
+    $&gt;&gt; "A";
+} $else $if score &gt;= 80 {
+    $&gt;&gt; "B";
+} $else $if score &gt;= 70 {
+    $&gt;&gt; "C";
+} $else {
+    $&gt;&gt; "F";
+}
+</code></pre>
+<hr>
+<h2 id="4-循环"><a class="header" href="#4-循环">4. 循环</a></h2>
+<p><strong>for-in 遍历</strong></p>
+<pre><code class="language-zun">$for item in [1, 2, 3, 4, 5] {
+    $&gt;&gt; item;
+}
+
+$ fruits = ["apple", "banana", "cherry"];
+$for fruit in fruits {
+    $&gt;&gt; fruit;
+}
+</code></pre>
+<p><strong>while 循环</strong></p>
+<pre><code class="language-zun">$ sum = 0;
+$ i = 1;
+$while i &lt;= 100 {
+    sum += i;
+    i += 1;
+}
+$&gt;&gt; sum;    // 5050
+</code></pre>
+<p><strong>无限循环与 break</strong></p>
+<pre><code class="language-zun">$ i = 0;
+$loop {
+    $&gt;&gt; i;
+    i += 1;
+    $if i &gt;= 5 {
+        $break;
+    }
+}
+</code></pre>
+<p><strong>C 风格 for（传统写法）</strong></p>
+<pre><code class="language-zun">$for i = 0; i &lt; 5; i = i + 1 {
+    $&gt;&gt; i;
+}
+</code></pre>
+<hr>
+<h2 id="5-函数"><a class="header" href="#5-函数">5. 函数</a></h2>
+<pre><code class="language-zun">$fn greet(name) -&gt; String {
+    $# f"Hello, {name}!";
+}
+
+$&gt;&gt; greet("World");    // Hello, World!
+</code></pre>
+<p><strong>递归</strong></p>
+<pre><code class="language-zun">$fn factorial(n) {
+    $if n &lt;= 1 {
+        $# 1;
+    } $else {
+        $# n * factorial(n - 1);
+    }
+}
+
+$&gt;&gt; factorial(5);    // 120
+</code></pre>
+<p><strong>可变参数</strong></p>
+<pre><code class="language-zun">$fn sum(...nums) {
+    $ total = 0;
+    $for n in nums {
+        total += n;
+    }
+    $# total;
+}
+
+$&gt;&gt; sum(1, 2, 3, 4, 5);    // 15
+</code></pre>
+<p><strong>私有函数</strong></p>
+<pre><code class="language-zun">_$fn helper(x) {
+    $# x * 2;
+}
+
+$fn compute(n) {
+    $# helper(n) + 1;
+}
+</code></pre>
+<hr>
+<h2 id="6-列表操作"><a class="header" href="#6-列表操作">6. 列表操作</a></h2>
+<p>主线去向：<a href="#8-集合与常用方法-1">08-collections-and-methods.md</a></p>
+<pre><code class="language-zun">$ nums = [3, 1, 4, 1, 5, 9, 2, 6];
+
+$&gt;&gt; nums.len();           // 8
+$&gt;&gt; nums.contains(5);     // true
+$&gt;&gt; nums.index_of(4);     // 2
+$&gt;&gt; nums.slice(2, 5);     // [4, 1, 5]
+$&gt;&gt; nums.unique();        // [3, 1, 4, 5, 9, 2, 6]
+
+nums.sort();
+$&gt;&gt; nums;                 // [1, 1, 2, 3, 4, 5, 6, 9]
+
+nums.push(10);
+$&gt;&gt; nums.last();          // 10
+
+$&gt;&gt; nums.first();         // 1
+$&gt;&gt; nums.is_empty();      // false
+</code></pre>
+<hr>
+<h2 id="7-map-操作"><a class="header" href="#7-map-操作">7. Map 操作</a></h2>
+<p>主线去向：<a href="#8-集合与常用方法-1">08-collections-and-methods.md</a></p>
+<pre><code class="language-zun">$ user = {"name": "Tom", "age": 25};
+
+$&gt;&gt; user["name"];              // Tom
+$&gt;&gt; user.keys();               // [name, age]
+$&gt;&gt; user.contains_key("age");  // true
+$&gt;&gt; user.len();                // 2
+
+$for key in user {
+    $&gt;&gt; key;
+}
+</code></pre>
+<hr>
+<h2 id="8-异常处理"><a class="header" href="#8-异常处理">8. 异常处理</a></h2>
+<pre><code class="language-zun">$try {
+    $ result = 10 / 0;
+    $&gt;&gt; result;
+} $catch err {
+    $&gt;&gt; f"Error: {err}";
+}
+
+主线去向：[10-error-handling.md](10-error-handling.md)
+</code></pre>
+<p><strong>主动抛出异常</strong></p>
+<pre><code class="language-zun">$fn divide(a, b) {
+    $if b == 0 {
+        $throw "division by zero";
+    }
+    $# a / b;
+}
+
+$try {
+    $&gt;&gt; divide(10, 0);
+} $catch err {
+    $&gt;&gt; err;    // division by zero
+}
+</code></pre>
+<hr>
+<h2 id="9-读写文件"><a class="header" href="#9-读写文件">9. 读写文件</a></h2>
+<p><strong>读取文件</strong></p>
+<pre><code class="language-zun">$ content = $&lt;&lt;FILE("data.txt");
+$&gt;&gt; content;
+
+// 按行读取
+$ lines = $&lt;&lt;FILE("data.txt", "lines");
+$for line in lines {
+    $&gt;&gt; line;
+}
+</code></pre>
+<p><strong>写入文件</strong></p>
+<pre><code class="language-zun">$&gt;&gt;FILE("output.txt", "Hello, Zun!");           // 覆盖写入
+$&gt;&gt;FILE("log.txt", "new entry\n", "A");            // 追加写入
+</code></pre>
+<hr>
+<h2 id="10-读取用户输入"><a class="header" href="#10-读取用户输入">10. 读取用户输入</a></h2>
+<pre><code class="language-zun">$ name = $&lt;&lt;LINE("Enter your name: ");
+$&gt;&gt; f"Hello, {name}!";
+</code></pre>
+<hr>
+<h2 id="11-使用标准库"><a class="header" href="#11-使用标准库">11. 使用标准库</a></h2>
+<pre><code class="language-zun">$mod std.math;
+
+$&gt;&gt; math.sqrt(16.0);        // 4.0
+$&gt;&gt; math.floor(3.7);        // 3
+$&gt;&gt; math.random_int(1, 6);  // 骰子：1~6
+</code></pre>
+<pre><code class="language-zun">$mod std.fs;
+
+fs.mkdir_all("/tmp/zun/test");
+fs.write_text("/tmp/zun/test/hello.txt", "hi");
+$ content = fs.read_text("/tmp/zun/test/hello.txt");
+$&gt;&gt; content;    // hi
+</code></pre>
+<pre><code class="language-zun">$mod std.json;
+
+$ data = json.parse("{\"name\": \"Zun\", \"version\": 2026}");
+$&gt;&gt; json.get(data, "name");      // Zun
+$&gt;&gt; json.has(data, "version");   // true
+$&gt;&gt; json.pretty(data);
+</code></pre>
+<hr>
+<h2 id="12-匿名函数"><a class="header" href="#12-匿名函数">12. 匿名函数</a></h2>
+<pre><code class="language-zun">$ double = $fn(x) { $# x * 2; };
+$&gt;&gt; double(5);    // 10
+</code></pre>
+<hr>
+<h2 id="13-链式调用"><a class="header" href="#13-链式调用">13. 链式调用</a></h2>
+<pre><code class="language-zun">$&gt;&gt; "a,b,c".split(",").len();          // 3
+$&gt;&gt; [3, 1, 2].sort().first();          // 1
+$&gt;&gt; "  hello  ".trim().upper();        // HELLO
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="模块系统"><a class="header" href="#模块系统">模块系统</a></h1>
+<blockquote>
+<p><strong>Status: Deprecated</strong></p>
+<p>这是一页已废弃的旧版模块文档。
+当前主线请改读 <a href="#11-模块系统-1">11-modules.md</a> 和 <a href="../spec/modules.html">../spec/modules.md</a>。
+本页保留仅用于迁移追溯；其中关于通配符导入会把函数平铺到当前作用域的说法已经失效，不能再作为当前语义依据。</p>
+</blockquote>
+<p>Zun 的模块系统分为三层：<strong>native 内置模块</strong>、<strong>纯 .zun 标准库模块</strong>、<strong>项目自定义模块</strong>。</p>
+<hr>
+<h2 id="导入模块"><a class="header" href="#导入模块">导入模块</a></h2>
+<h3 id="导入标准库模块"><a class="header" href="#导入标准库模块">导入标准库模块</a></h3>
+<pre><code class="language-zun">$mod std.math;
+$mod std.fs;
+$mod std.json;
+</code></pre>
+<p>导入后，模块以最后一级名称作为命名空间前缀使用：</p>
+<pre><code class="language-zun">$mod std.math;
+$&gt;&gt; math.sqrt(9.0);    // 3.0
+
+$mod std.fs;
+$ ok = fs.exists("./data.txt");
+</code></pre>
+<h3 id="导入子模块"><a class="header" href="#导入子模块">导入子模块</a></h3>
+<pre><code class="language-zun">$mod std.math.stats;   // 对应 stdlib/math/stats.zun
+$mod std.str.fmt;      // 对应 stdlib/str/fmt.zun
+$mod std.core.iter;    // 对应 stdlib/core/iter.zun
+</code></pre>
+<pre><code class="language-zun">$mod std.core.iter;
+$for i in iter.range(0, 5) {
+    $&gt;&gt; i;             // 0 1 2 3 4
+}
+</code></pre>
+<hr>
+<h2 id="自定义模块"><a class="header" href="#自定义模块">自定义模块</a></h2>
+<p>在项目目录中创建 <code>.zun</code> 文件，即可作为模块使用。</p>
+<h3 id="项目结构"><a class="header" href="#项目结构">项目结构</a></h3>
+<pre><code>my-app/
+├── package.toml
+├── main.zun
+└── shared/
+    └── helper.zun
+</code></pre>
+<h3 id="sharedhelperdol"><a class="header" href="#sharedhelperdol"><code>shared/helper.zun</code></a></h3>
+<pre><code class="language-zun">$fn greet(name) -&gt; String {
+    $# f"Hello, {name}!";
+}
+
+// 私有函数，不可被外部调用
+_$fn internal_helper(x) {
+    $# x * 2;
+}
+</code></pre>
+<h3 id="maindol"><a class="header" href="#maindol"><code>main.zun</code></a></h3>
+<pre><code class="language-zun">$mod shared.helper;
+
+$&gt;&gt; helper.greet("Zun");    // Hello, Zun!
+</code></pre>
+<hr>
+<h2 id="公有函数与私有函数-1"><a class="header" href="#公有函数与私有函数-1">公有函数与私有函数</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>声明方式</th><th>可见性</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$fn name(...) { }</code></td><td>公有</td><td>可被外部模块调用</td></tr>
+<tr><td><code>_$fn name(...) { }</code></td><td>私有</td><td>仅限当前文件内部使用</td></tr>
+</tbody>
+</table>
+</div>
+<pre><code class="language-zun">// utils.zun
+$fn public_api(x) {
+    $# _transform(x) * 2;
+}
+
+_$fn _transform(x) {    // 私有，外部不可访问
+    $# x + 1;
+}
+</code></pre>
+<hr>
+<h2 id="模块解析顺序"><a class="header" href="#模块解析顺序">模块解析顺序</a></h2>
+<p>当你写 <code>$mod foo.bar;</code> 时，解释器按以下顺序查找：</p>
+<ol>
+<li><strong>Native 注册表</strong> — Rust 实现的内置模块（如 <code>std.math</code>、<code>std.fs</code>）</li>
+<li><strong><code>stdlib/</code> 目录</strong> — 纯 .zun 实现的标准库（如 <code>std.core.iter</code> → <code>stdlib/core/iter.zun</code>）</li>
+<li><strong>项目本地文件</strong> — 当前项目中的 <code>.zun</code> 文件（如 <code>shared.helper</code> → <code>shared/helper.zun</code>）</li>
+</ol>
+<p><code>std</code> 前缀由解释器特殊处理，会映射到标准库目录。</p>
+<hr>
+<h2 id="项目配置文件"><a class="header" href="#项目配置文件">项目配置文件</a></h2>
+<p>在项目根目录创建 <code>package.toml</code> 可以配置项目元信息、环境变量和服务器参数：</p>
+<pre><code class="language-toml">name = "my-app"
+version = "0.1.0"
+entry = "main.zun"
+
+[env]
+APP_NAME = "My Zun App"
+DB_HOST = "localhost"
+
+[server]
+port = 3000
+host = "0.0.0.0"
+</code></pre>
+<p>通过 <code>$&lt;&lt;CONFIG("KEY")</code> 读取 <code>[env]</code> 中的值：</p>
+<pre><code class="language-zun">$ app_name = $&lt;&lt;CONFIG("APP_NAME");
+$&gt;&gt; app_name;    // My Zun App
+</code></pre>
+<p>运行项目（自动加载 <code>package.toml</code>）：</p>
+<pre><code class="language-bash">zun run .
+zun serve .
+</code></pre>
+<hr>
+<h2 id="通配符导入"><a class="header" href="#通配符导入">通配符导入</a></h2>
+<p>以下示例属于旧写法说明，勿作为当前主线语义：</p>
+<pre><code class="language-zun">$mod std.core.iter.*;
+
+$for i in range(0, 3) {    // 旧写法示例
+    $&gt;&gt; i;
+}
+</code></pre>
+<p>当前实现中，<code>$mod a.*;</code> 导入的是直接子模块命名空间，不会把函数平铺到当前作用域。请以 <a href="#11-模块系统-1">11-modules.md</a> 为准。</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="标准库参考"><a class="header" href="#标准库参考">标准库参考</a></h1>
+<blockquote>
+<p><strong>Status: Migration Source</strong></p>
+<p>这是一页迁移期旧参考文档。
+当前主线的总览请读 <a href="#13-标准库总览-1">13-stdlib-overview.md</a>，完整查表请读 <a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a>。
+本页仍保留的独特价值是旧版 API 罗列，可作为迁移素材，但不应继续作为主线入口。</p>
+</blockquote>
+<p>Zun 的标准库分为两层：</p>
+<ul>
+<li><strong>内置方法</strong>：所有值都自带的方法，无需 import</li>
+<li><strong>标准库模块</strong>：通过 <code>$mod std.xxx</code> 导入，分为 native（Rust 实现）和纯 .zun 实现两种</li>
+</ul>
+<hr>
+<h2 id="内置方法"><a class="header" href="#内置方法">内置方法</a></h2>
+<h3 id="string"><a class="header" href="#string">String</a></h3>
+<pre><code class="language-zun">$ s = "Hello, World";
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>s.len()</code></td><td><code>Int</code></td><td>字符串长度</td></tr>
+<tr><td><code>s.upper()</code></td><td><code>String</code></td><td>转大写</td></tr>
+<tr><td><code>s.lower()</code></td><td><code>String</code></td><td>转小写</td></tr>
+<tr><td><code>s.trim()</code></td><td><code>String</code></td><td>去除首尾空白</td></tr>
+<tr><td><code>s.contains(sub)</code></td><td><code>Bool</code></td><td>是否包含子串</td></tr>
+<tr><td><code>s.starts_with(prefix)</code></td><td><code>Bool</code></td><td>是否以 prefix 开头</td></tr>
+<tr><td><code>s.ends_with(suffix)</code></td><td><code>Bool</code></td><td>是否以 suffix 结尾</td></tr>
+<tr><td><code>s.replace(old, new)</code></td><td><code>String</code></td><td>替换所有匹配</td></tr>
+<tr><td><code>s.split(sep)</code></td><td><code>List</code></td><td>按分隔符拆分</td></tr>
+<tr><td><code>s.slice(start, end)</code></td><td><code>String</code></td><td>切片，支持负索引</td></tr>
+<tr><td><code>s.to_int()</code></td><td><code>Int</code></td><td>转整数</td></tr>
+<tr><td><code>s.to_float()</code></td><td><code>Float</code></td><td>转浮点数</td></tr>
+<tr><td><code>s.to_bool()</code></td><td><code>Bool</code></td><td>转布尔值</td></tr>
+<tr><td><code>s.type()</code></td><td><code>String</code></td><td>返回 <code>"String"</code></td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="list"><a class="header" href="#list">List</a></h3>
+<pre><code class="language-zun">$ nums = [3, 1, 4, 1, 5];
+</code></pre>
+<p><strong>读操作</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>list.len()</code></td><td><code>Int</code></td><td>列表长度</td></tr>
+<tr><td><code>list.contains(x)</code></td><td><code>Bool</code></td><td>是否包含元素</td></tr>
+<tr><td><code>list.index_of(x)</code></td><td><code>Int</code></td><td>第一次出现的索引，不存在返回 -1</td></tr>
+<tr><td><code>list.last_index_of(x)</code></td><td><code>Int</code></td><td>最后一次出现的索引</td></tr>
+<tr><td><code>list.slice(start, end)</code></td><td><code>List</code></td><td>切片，支持负索引</td></tr>
+<tr><td><code>list.first()</code></td><td><code>Any</code></td><td>第一个元素，空列表返回 <code>null</code></td></tr>
+<tr><td><code>list.last()</code></td><td><code>Any</code></td><td>最后一个元素，空列表返回 <code>null</code></td></tr>
+<tr><td><code>list.is_empty()</code></td><td><code>Bool</code></td><td>是否为空</td></tr>
+<tr><td><code>list.flatten()</code></td><td><code>List</code></td><td>展平一层嵌套</td></tr>
+<tr><td><code>list.unique()</code></td><td><code>List</code></td><td>去重，保持顺序</td></tr>
+<tr><td><code>list.count(x)</code></td><td><code>Int</code></td><td>统计元素出现次数</td></tr>
+<tr><td><code>list.join(sep)</code></td><td><code>String</code></td><td>用分隔符连接元素</td></tr>
+<tr><td><code>list.type()</code></td><td><code>String</code></td><td>返回 <code>"List"</code></td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>写操作（原地修改）</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>list.push(x)</code></td><td>末尾追加元素</td></tr>
+<tr><td><code>list.pop()</code></td><td>移除并返回末尾元素</td></tr>
+<tr><td><code>list.reverse()</code></td><td>原地反转</td></tr>
+<tr><td><code>list.sort()</code></td><td>原地升序排序（纯数字或纯字符串）</td></tr>
+<tr><td><code>list.sort_desc()</code></td><td>原地降序排序</td></tr>
+<tr><td><code>list.remove_at(i)</code></td><td>移除指定索引的元素</td></tr>
+<tr><td><code>list.insert(i, x)</code></td><td>在指定索引插入元素</td></tr>
+<tr><td><code>list.clear()</code></td><td>清空列表</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="map-2"><a class="header" href="#map-2">Map</a></h3>
+<pre><code class="language-zun">$ user = {"name": "Alice", "age": 30};
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>map.len()</code></td><td><code>Int</code></td><td>键值对数量</td></tr>
+<tr><td><code>map.keys()</code></td><td><code>List</code></td><td>所有键</td></tr>
+<tr><td><code>map.values()</code></td><td><code>List</code></td><td>所有值</td></tr>
+<tr><td><code>map.contains_key(key)</code></td><td><code>Bool</code></td><td>是否包含某键</td></tr>
+<tr><td><code>map.remove(key)</code></td><td><code>Map</code></td><td>删除键（原地）</td></tr>
+<tr><td><code>map.type()</code></td><td><code>String</code></td><td>返回 <code>"Map"</code></td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="int--float"><a class="header" href="#int--float">Int / Float</a></h3>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>方法</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>n.to_str()</code></td><td><code>String</code></td><td>转字符串</td></tr>
+<tr><td><code>n.to_int()</code></td><td><code>Int</code></td><td>转整数（Float 截断）</td></tr>
+<tr><td><code>n.to_float()</code></td><td><code>Float</code></td><td>转浮点数</td></tr>
+<tr><td><code>n.to_bool()</code></td><td><code>Bool</code></td><td>转布尔值（仅 Int，0→false）</td></tr>
+<tr><td><code>n.type()</code></td><td><code>String</code></td><td><code>"Int"</code> 或 <code>"Float"</code></td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="native-标准库模块"><a class="header" href="#native-标准库模块">Native 标准库模块</a></h2>
+<h3 id="stdstr"><a class="header" href="#stdstr">std.str</a></h3>
+<pre><code class="language-zun">$mod std.str;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str.trim(s)</code></td><td><code>String</code></td><td>去除首尾空白</td></tr>
+<tr><td><code>str.trim_start(s)</code></td><td><code>String</code></td><td>去除开头空白</td></tr>
+<tr><td><code>str.trim_end(s)</code></td><td><code>String</code></td><td>去除末尾空白</td></tr>
+<tr><td><code>str.split(s, sep)</code></td><td><code>List</code></td><td>按分隔符拆分</td></tr>
+<tr><td><code>str.join(list, sep)</code></td><td><code>String</code></td><td>用分隔符连接列表</td></tr>
+<tr><td><code>str.replace(s, from, to)</code></td><td><code>String</code></td><td>替换子串</td></tr>
+<tr><td><code>str.contains(s, sub)</code></td><td><code>Bool</code></td><td>包含检查</td></tr>
+<tr><td><code>str.starts_with(s, prefix)</code></td><td><code>Bool</code></td><td>前缀检查</td></tr>
+<tr><td><code>str.ends_with(s, suffix)</code></td><td><code>Bool</code></td><td>后缀检查</td></tr>
+<tr><td><code>str.to_upper(s)</code></td><td><code>String</code></td><td>转大写</td></tr>
+<tr><td><code>str.to_lower(s)</code></td><td><code>String</code></td><td>转小写</td></tr>
+<tr><td><code>str.len(s)</code></td><td><code>Int</code></td><td>长度</td></tr>
+<tr><td><code>str.parse_int(s)</code></td><td><code>Int</code></td><td>解析为整数</td></tr>
+<tr><td><code>str.parse_float(s)</code></td><td><code>Float</code></td><td>解析为浮点数</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdmath"><a class="header" href="#stdmath">std.math</a></h3>
+<pre><code class="language-zun">$mod std.math;
+</code></pre>
+<p><strong>基础</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>math.sqrt(x)</code></td><td><code>Float</code></td><td>平方根</td></tr>
+<tr><td><code>math.pow(base, exp)</code></td><td><code>Float</code></td><td>幂运算</td></tr>
+<tr><td><code>math.abs(x)</code></td><td><code>Int|Float</code></td><td>绝对值</td></tr>
+<tr><td><code>math.floor(x)</code></td><td><code>Int</code></td><td>向下取整</td></tr>
+<tr><td><code>math.ceil(x)</code></td><td><code>Int</code></td><td>向上取整</td></tr>
+<tr><td><code>math.round(x)</code></td><td><code>Int</code></td><td>四舍五入</td></tr>
+<tr><td><code>math.min(a, b)</code></td><td><code>Int|Float</code></td><td>较小值（同类型）</td></tr>
+<tr><td><code>math.max(a, b)</code></td><td><code>Int|Float</code></td><td>较大值（同类型）</td></tr>
+<tr><td><code>math.clamp(x, min, max)</code></td><td><code>Int|Float</code></td><td>限制范围</td></tr>
+<tr><td><code>math.hypot(x, y)</code></td><td><code>Float</code></td><td>直角三角形斜边</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>常数</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>math.pi()</code></td><td><code>Float</code></td><td>π ≈ 3.14159</td></tr>
+<tr><td><code>math.e()</code></td><td><code>Float</code></td><td>e ≈ 2.71828</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>三角函数</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>math.sin(x)</code></td><td>正弦</td></tr>
+<tr><td><code>math.cos(x)</code></td><td>余弦</td></tr>
+<tr><td><code>math.tan(x)</code></td><td>正切</td></tr>
+<tr><td><code>math.asin(x)</code></td><td>反正弦</td></tr>
+<tr><td><code>math.acos(x)</code></td><td>反余弦</td></tr>
+<tr><td><code>math.atan(x)</code></td><td>反正切</td></tr>
+<tr><td><code>math.atan2(y, x)</code></td><td>四象限反正切</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>对数 / 指数</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>math.exp(x)</code></td><td>e^x</td></tr>
+<tr><td><code>math.ln(x)</code></td><td>自然对数</td></tr>
+<tr><td><code>math.log(x, base)</code></td><td>任意底对数</td></tr>
+<tr><td><code>math.log2(x)</code></td><td>以 2 为底</td></tr>
+<tr><td><code>math.log10(x)</code></td><td>以 10 为底</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>随机数</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>math.random()</code></td><td><code>Float</code></td><td>[0.0, 1.0) 随机浮点数</td></tr>
+<tr><td><code>math.random_int(min, max)</code></td><td><code>Int</code></td><td>[min, max] 随机整数</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdfs"><a class="header" href="#stdfs">std.fs</a></h3>
+<pre><code class="language-zun">$mod std.fs;
+</code></pre>
+<p><strong>文件操作</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>fs.read_text(path)</code></td><td>读取文件全部内容 → <code>String</code></td></tr>
+<tr><td><code>fs.read_lines(path)</code></td><td>按行读取 → <code>List</code></td></tr>
+<tr><td><code>fs.write_text(path, content)</code></td><td>覆盖写入文件</td></tr>
+<tr><td><code>fs.append_text(path, content)</code></td><td>追加写入文件</td></tr>
+<tr><td><code>fs.delete(path)</code></td><td>删除文件</td></tr>
+<tr><td><code>fs.exists(path)</code></td><td>文件/目录是否存在 → <code>Bool</code></td></tr>
+<tr><td><code>fs.size(path)</code></td><td>文件大小（字节）→ <code>Int</code></td></tr>
+<tr><td><code>fs.is_dir(path)</code></td><td>是否为目录 → <code>Bool</code></td></tr>
+<tr><td><code>fs.copy(src, dst)</code></td><td>复制文件</td></tr>
+<tr><td><code>fs.rename(src, dst)</code></td><td>移动/重命名文件或目录</td></tr>
+</tbody>
+</table>
+</div>
+<p><strong>目录操作</strong></p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>fs.list(path)</code></td><td>列出目录内容（文件名列表）→ <code>List</code></td></tr>
+<tr><td><code>fs.mkdir(path)</code></td><td>创建目录</td></tr>
+<tr><td><code>fs.mkdir_all(path)</code></td><td>递归创建目录（mkdir -p）</td></tr>
+<tr><td><code>fs.rmdir(path)</code></td><td>删除空目录</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdjson"><a class="header" href="#stdjson">std.json</a></h3>
+<pre><code class="language-zun">$mod std.json;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>json.parse(str)</code></td><td><code>Map|List</code></td><td>解析 JSON 字符串</td></tr>
+<tr><td><code>json.stringify(value)</code></td><td><code>String</code></td><td>转为 JSON 字符串</td></tr>
+<tr><td><code>json.pretty(value)</code></td><td><code>String</code></td><td>美化 JSON 输出</td></tr>
+<tr><td><code>json.get(obj, key)</code></td><td><code>Any</code></td><td>获取对象中某键的值</td></tr>
+<tr><td><code>json.has(obj, key)</code></td><td><code>Bool</code></td><td>键是否存在</td></tr>
+<tr><td><code>json.keys(obj)</code></td><td><code>List</code></td><td>所有键</td></tr>
+<tr><td><code>json.values(obj)</code></td><td><code>List</code></td><td>所有值</td></tr>
+<tr><td><code>json.set(obj, key, value)</code></td><td><code>Map</code></td><td>设置键值（返回新对象）</td></tr>
+<tr><td><code>json.delete(obj, key)</code></td><td><code>Map</code></td><td>删除键（返回新对象）</td></tr>
+<tr><td><code>json.merge(a, b)</code></td><td><code>Map</code></td><td>合并两个对象（b 覆盖 a）</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdenv"><a class="header" href="#stdenv">std.env</a></h3>
+<pre><code class="language-zun">$mod std.env;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>env.get(key)</code></td><td><code>String</code></td><td>获取环境变量（不存在则报错）</td></tr>
+<tr><td><code>env.get_or(key, default)</code></td><td><code>String</code></td><td>获取环境变量或返回默认值</td></tr>
+<tr><td><code>env.has(key)</code></td><td><code>Bool</code></td><td>检查环境变量是否存在</td></tr>
+<tr><td><code>env.all()</code></td><td><code>Map</code></td><td>返回所有环境变量</td></tr>
+<tr><td><code>env.set(key, value)</code></td><td>—</td><td>设置环境变量（仅非 serve 模式）</td></tr>
+<tr><td><code>env.remove(key)</code></td><td>—</td><td>删除环境变量（仅非 serve 模式）</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="纯-zun-标准库模块"><a class="header" href="#纯-zun-标准库模块">纯 Zun 标准库模块</a></h2>
+<h3 id="stdpath"><a class="header" href="#stdpath">std.path</a></h3>
+<pre><code class="language-zun">$mod std.path;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>path.join(base, segment)</code></td><td><code>String</code></td><td>拼接路径</td></tr>
+<tr><td><code>path.basename(path)</code></td><td><code>String</code></td><td>获取文件名</td></tr>
+<tr><td><code>path.dirname(path)</code></td><td><code>String</code></td><td>获取目录部分</td></tr>
+<tr><td><code>path.ext(path)</code></td><td><code>String</code></td><td>获取扩展名（含 <code>.</code>）</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdstrfmt"><a class="header" href="#stdstrfmt">std.str.fmt</a></h3>
+<pre><code class="language-zun">$mod std.str.fmt;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>fmt.pad_left(s, width, char)</code></td><td><code>String</code></td><td>左填充至指定宽度</td></tr>
+<tr><td><code>fmt.pad_right(s, width, char)</code></td><td><code>String</code></td><td>右填充至指定宽度</td></tr>
+<tr><td><code>fmt.repeat(s, n)</code></td><td><code>String</code></td><td>重复字符串 n 次</td></tr>
+<tr><td><code>fmt.truncate(s, max_len, suffix)</code></td><td><code>String</code></td><td>截断并加后缀</td></tr>
+<tr><td><code>fmt.count(s, sub)</code></td><td><code>Int</code></td><td>统计子串出现次数</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdstrcheck"><a class="header" href="#stdstrcheck">std.str.check</a></h3>
+<pre><code class="language-zun">$mod std.str.check;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>check.is_empty(s)</code></td><td><code>Bool</code></td><td>是否为空字符串</td></tr>
+<tr><td><code>check.is_blank(s)</code></td><td><code>Bool</code></td><td>是否为空白字符串</td></tr>
+<tr><td><code>check.is_numeric(s)</code></td><td><code>Bool</code></td><td>是否为纯数字</td></tr>
+<tr><td><code>check.is_prefix_of(prefix, s)</code></td><td><code>Bool</code></td><td>prefix 是否为 s 的前缀</td></tr>
+<tr><td><code>check.is_suffix_of(suffix, s)</code></td><td><code>Bool</code></td><td>suffix 是否为 s 的后缀</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdmathstats"><a class="header" href="#stdmathstats">std.math.stats</a></h3>
+<pre><code class="language-zun">$mod std.math.stats;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>stats.sum(list)</code></td><td><code>Int|Float</code></td><td>求和</td></tr>
+<tr><td><code>stats.mean(list)</code></td><td><code>Float</code></td><td>平均值</td></tr>
+<tr><td><code>stats.min_list(list)</code></td><td><code>Any</code></td><td>最小值</td></tr>
+<tr><td><code>stats.max_list(list)</code></td><td><code>Any</code></td><td>最大值</td></tr>
+<tr><td><code>stats.median(list)</code></td><td><code>Any</code></td><td>中位数</td></tr>
+<tr><td><code>stats.clamp_list(list, lo, hi)</code></td><td><code>List</code></td><td>将列表元素限制在 [lo, hi] 内</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdmathtrig"><a class="header" href="#stdmathtrig">std.math.trig</a></h3>
+<pre><code class="language-zun">$mod std.math.trig;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>trig.degrees(rad)</code></td><td><code>Float</code></td><td>弧度转角度</td></tr>
+<tr><td><code>trig.radians(deg)</code></td><td><code>Float</code></td><td>角度转弧度</td></tr>
+<tr><td><code>trig.tan(x)</code></td><td><code>Float</code></td><td>正切</td></tr>
+<tr><td><code>trig.sign(n)</code></td><td><code>Int</code></td><td>符号：-1 / 0 / 1</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdcoreiter"><a class="header" href="#stdcoreiter">std.core.iter</a></h3>
+<pre><code class="language-zun">$mod std.core.iter;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>iter.range(start, end)</code></td><td><code>List</code></td><td>生成 <code>[start, end)</code> 整数列表</td></tr>
+<tr><td><code>iter.range_step(start, end, step)</code></td><td><code>List</code></td><td>生成带步长的整数列表</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h3 id="stdcorecheck-1"><a class="header" href="#stdcorecheck-1">std.core.check</a></h3>
+<pre><code class="language-zun">$mod std.core.check;
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>函数</th><th>返回值</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>check.assert(cond, msg)</code></td><td>—</td><td>断言，失败时抛出异常</td></tr>
+<tr><td><code>check.type_of(val)</code></td><td><code>String</code></td><td>获取值的类型名</td></tr>
+<tr><td><code>check.is_null(val)</code></td><td><code>Bool</code></td><td>是否为 null</td></tr>
+<tr><td><code>check.identity(val)</code></td><td><code>Any</code></td><td>恒等函数，原样返回</td></tr>
+</tbody>
+</table>
+</div>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="类型注解"><a class="header" href="#类型注解">类型注解</a></h1>
+<blockquote>
+<p><strong>Status: Migration Source</strong></p>
+<p>这是一页迁移期旧类型文档。
+当前主线请改读 <a href="#9-渐进类型-1">09-gradual-typing.md</a>。
+本页仍保留的独特价值是旧版示例集合，但其中参数类型注解、<code>JSON&lt;User&gt;</code> 等写法不应视为当前主线承诺。</p>
+</blockquote>
+<p>Zun 支持<strong>渐进类型注解</strong>：注解完全可选，不影响程序运行，但能提升代码可读性。</p>
+<hr>
+<h2 id="变量类型注解"><a class="header" href="#变量类型注解">变量类型注解</a></h2>
+<p>在变量名后加 <code>: 类型</code> 进行注解：</p>
+<pre><code class="language-zun">$ count: Int = 0;
+$ name: String = "Alice";
+$ ratio: Float = 0.5;
+$ active: Bool = true;
+$ items: List = [1, 2, 3];
+$ config: Map = {"key": "value"};
+</code></pre>
+<p>不带注解的写法同样有效：</p>
+<pre><code class="language-zun">$ count = 0;
+$ name = "Alice";
+</code></pre>
+<hr>
+<h2 id="函数返回类型注解"><a class="header" href="#函数返回类型注解">函数返回类型注解</a></h2>
+<p>在参数列表后加 <code>-&gt; 类型</code>：</p>
+<pre><code class="language-zun">$fn add(a, b) -&gt; Int {
+    $# a + b;
+}
+
+$fn greet(name) -&gt; String {
+    $# f"Hello, {name}!";
+}
+
+$fn is_even(n) -&gt; Bool {
+    $# n % 2 == 0;
+}
+</code></pre>
+<p>没有返回值的函数可以省略注解：</p>
+<pre><code class="language-zun">$fn log(msg) {
+    $&gt;&gt; msg;
+}
+</code></pre>
+<hr>
+<h2 id="支持的类型名"><a class="header" href="#支持的类型名">支持的类型名</a></h2>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>类型名</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><code>Int</code></td><td>整数</td></tr>
+<tr><td><code>Float</code></td><td>浮点数</td></tr>
+<tr><td><code>String</code> / <code>Str</code></td><td>字符串</td></tr>
+<tr><td><code>Bool</code></td><td>布尔值</td></tr>
+<tr><td><code>List</code></td><td>列表</td></tr>
+<tr><td><code>Map</code></td><td>字典</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="自定义类型-type"><a class="header" href="#自定义类型-type">自定义类型 <code>$Type</code></a></h2>
+<p>使用 <code>$Type</code> 定义 JSON 数据形状（文档性质，不创建运行时类型）：</p>
+<pre><code class="language-zun">$Type User {
+    id: Int
+    name: Str
+    email: Str?    // ? 表示可选字段
+    age: Int?
+}
+</code></pre>
+<ul>
+<li>字段类型：<code>Int</code> <code>Str</code> <code>Bool</code> <code>Float</code>，首字母大写</li>
+<li>可选字段：在类型后加 <code>?</code></li>
+<li>无 getter / setter，无私有字段，无方法</li>
+</ul>
+<h3 id="与返回类型相关的迁移提醒"><a class="header" href="#与返回类型相关的迁移提醒">与返回类型相关的迁移提醒</a></h3>
+<p>旧文档里曾经把 <code>$Type</code> 和 <code>JSON&lt;User&gt;</code> 放在一起讲解。</p>
+<p>这一轮主线已经不再把 <code>JSON&lt;User&gt;</code> 当作稳定教学写法，所以这里不要继续照抄旧签名。当前阅读方式是：</p>
+<ul>
+<li>结构说明看 <code>$Type</code></li>
+<li>普通 JSON 返回看 <code>-&gt; JSON</code></li>
+<li>集合返回看 <code>-&gt; List&lt;T&gt;</code></li>
+</ul>
+<p>主线说明以 <a href="#9-渐进类型-1">09-gradual-typing.md</a> 为准。</p>
+<hr>
+<h2 id="运行时类型查询-1"><a class="header" href="#运行时类型查询-1">运行时类型查询</a></h2>
+<p>通过 <code>.type()</code> 方法在运行时获取值的类型名：</p>
+<pre><code class="language-zun">$&gt;&gt; 42.type();          // Int
+$&gt;&gt; 3.14.type();        // Float
+$&gt;&gt; "hello".type();     // String
+$&gt;&gt; true.type();        // Bool
+$&gt;&gt; [1, 2].type();      // List
+$&gt;&gt; {"a": 1}.type();    // Map
+$&gt;&gt; null.type();        // Null
+</code></pre>
+<p>配合条件判断：</p>
+<pre><code class="language-zun">$fn describe(val) -&gt; String {
+    $ t = val.type();
+    $if t == "Int" {
+        $# "这是整数";
+    } $else $if t == "String" {
+        $# "这是字符串";
+    } $else {
+        $# f"类型: {t}";
+    }
+}
+
+$&gt;&gt; describe(42);        // 这是整数
+$&gt;&gt; describe("hello");   // 这是字符串
+</code></pre>
+<hr>
+<h2 id="常量-1"><a class="header" href="#常量-1">常量</a></h2>
+<p>使用 <code>$@</code> 声明不可修改的常量：</p>
+<pre><code class="language-zun">$@ MAX_SIZE = 100;
+$@ PI = 3.14159;
+$@ APP_NAME = "Zun";
+</code></pre>
+<p>常量支持类型注解：</p>
+<pre><code class="language-zun">$@ MAX_SIZE: Int = 100;
+$@ PI: Float = 3.14159;
+</code></pre>
+<p>尝试修改常量会报运行时错误：</p>
+<pre><code class="language-zun">$@ X = 10;
+X = 20;    // 错误：不能修改常量
+</code></pre>
+<hr>
+<h2 id="stdcorecheck-类型工具"><a class="header" href="#stdcorecheck-类型工具"><code>std.core.check</code> 类型工具</a></h2>
+<pre><code class="language-zun">$mod std.core.check;
+
+check.type_of(42);        // "Int"
+check.type_of("hello");   // "String"
+check.is_null(null);      // true
+check.is_null(0);         // false
+
+check.assert(1 + 1 == 2, "数学出错了");    // 通过
+check.assert(false, "断言失败");           // 抛出异常
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="web-服务"><a class="header" href="#web-服务">Web 服务</a></h1>
+<blockquote>
+<p><strong>Status: Migration Source</strong></p>
+<p>这是一页迁移期旧 Web 文档。
+当前主线请改读 <a href="#15-http-基础-1">15-http-basics.md</a> 和 <a href="#16-http-组织方式-1">16-http-organization.md</a>。
+本页仍保留的独特价值是把 serve 启动、路由、CORS、静态资源放在同一页浏览，但不再作为主线入口。</p>
+</blockquote>
+<p>Zun 内置 HTTP 服务支持，通过 <code>zun serve</code> 启动，使用声明式语法定义路由。</p>
+<hr>
+<h2 id="启动服务"><a class="header" href="#启动服务">启动服务</a></h2>
+<pre><code class="language-bash"># 运行单文件
+zun serve main.zun
+
+# 运行项目目录（自动读取 package.toml）
+zun serve .
+
+# 启动并打印路由表
+zun serve . --routertab
+</code></pre>
+<p>默认监听 <code>0.0.0.0:8080</code>，可通过 <code>package.toml</code> 修改：</p>
+<pre><code class="language-toml">[server]
+port = 3000
+host = "127.0.0.1"
+</code></pre>
+<hr>
+<h2 id="定义路由-1"><a class="header" href="#定义路由-1">定义路由</a></h2>
+<h3 id="基本语法"><a class="header" href="#基本语法">基本语法</a></h3>
+<pre><code class="language-zun">$METHOD("/path") handler_name() -&gt; ReturnType {
+    // 处理逻辑
+    $# 返回值;
+}
+</code></pre>
+<p>支持的 HTTP 方法：</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>关键字</th><th>HTTP 方法</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$GET</code></td><td>GET</td></tr>
+<tr><td><code>$POST</code></td><td>POST</td></tr>
+<tr><td><code>$PUT</code></td><td>PUT</td></tr>
+<tr><td><code>$DEL</code></td><td>DELETE</td></tr>
+<tr><td><code>$PATCH</code></td><td>PATCH</td></tr>
+</tbody>
+</table>
+</div>
+<h3 id="示例"><a class="header" href="#示例">示例</a></h3>
+<pre><code class="language-zun">$GET("/hello") hello() -&gt; String {
+    $# "world";
+}
+
+$GET("/ping") ping() -&gt; String {
+    $# "pong";
+}
+</code></pre>
+<hr>
+<h2 id="返回类型-1"><a class="header" href="#返回类型-1">返回类型</a></h2>
+<h3 id="返回-json"><a class="header" href="#返回-json">返回 JSON</a></h3>
+<pre><code class="language-zun">$GET("/user") get_user() -&gt; JSON {
+    $# {"name": "Alice", "age": 30};
+}
+</code></pre>
+<h3 id="返回字符串"><a class="header" href="#返回字符串">返回字符串</a></h3>
+<pre><code class="language-zun">$GET("/health") health() -&gt; String {
+    $# "ok";
+}
+</code></pre>
+<h3 id="返回-html"><a class="header" href="#返回-html">返回 HTML</a></h3>
+<pre><code class="language-zun">$GET("/") index() -&gt; HTML {
+    $# "&lt;h1&gt;Welcome to Zun!&lt;/h1&gt;";
+}
+</code></pre>
+<hr>
+<h2 id="路径参数"><a class="header" href="#路径参数">路径参数</a></h2>
+<p>在路径中使用 <code>:param</code> 定义动态参数，参数值自动注入为同名变量：</p>
+<pre><code class="language-zun">$GET("/users/:id") get_user(id) -&gt; JSON {
+    $# {"id": id, "name": "User " + id};
+}
+</code></pre>
+<p>访问 <code>/users/42</code> → <code>{"id": "42", "name": "User 42"}</code></p>
+<hr>
+<h2 id="请求体post--put--patch"><a class="header" href="#请求体post--put--patch">请求体（POST / PUT / PATCH）</a></h2>
+<p><code>POST</code>、<code>PUT</code>、<code>PATCH</code> 请求的 JSON body 自动解析，通过 <code>body</code> 变量访问：</p>
+<pre><code class="language-zun">$POST("/echo") echo() -&gt; JSON {
+    $# body;
+}
+
+$POST("/users") create_user() -&gt; JSON {
+    $ name = body["name"];
+    $ age = body["age"];
+    $# {"created": true, "name": name, "age": age};
+}
+</code></pre>
+<hr>
+<h2 id="查询参数"><a class="header" href="#查询参数">查询参数</a></h2>
+<p>URL 查询字符串（<code>?key=value</code>）中的参数自动注入为变量：</p>
+<pre><code class="language-zun">$GET("/search") search() -&gt; JSON {
+    // GET /search?q=hello&amp;limit=10
+    $# {"query": q, "limit": limit};
+}
+</code></pre>
+<hr>
+<h2 id="读取请求头"><a class="header" href="#读取请求头">读取请求头</a></h2>
+<p>使用 <code>$HDR("Header-Name")</code> 读取请求头：</p>
+<pre><code class="language-zun">$GET("/whoami") whoami() -&gt; JSON {
+    $ token = $HDR("Authorization");
+    $# {"token": token};
+}
+</code></pre>
+<hr>
+<h2 id="响应头注解"><a class="header" href="#响应头注解">响应头注解</a></h2>
+<p>如果你要给响应统一附加静态 header，用 <code>@SET_HDR(...)</code>：</p>
+<pre><code class="language-zun">@SET_HDR({
+    "X-Frame-Options": "DENY",
+    "Cache-Control": "max-age=3600"
+})
+$GET("/health") health() -&gt; String {
+    $# "ok";
+}
+</code></pre>
+<p>规则很简单：</p>
+<ul>
+<li><code>@SET_HDR(...)</code> 只接受一个对象字面量</li>
+<li>key 必须是字符串 header 名</li>
+<li>value 必须是字符串字面量</li>
+<li>一个注解里可以声明多个 header</li>
+</ul>
+<p>如果没有写 <code>@SET_HDR(...)</code>，响应不会额外附加这些 header。</p>
+<hr>
+<h2 id="cors-注解"><a class="header" href="#cors-注解">CORS 注解</a></h2>
+<p>公开接口可以直接写：</p>
+<pre><code class="language-zun">@CORS("*")
+$GET("/public") public_data() -&gt; JSON {
+    $# {"ok": true};
+}
+</code></pre>
+<p>需要白名单时，用对象写法：</p>
+<pre><code class="language-zun">@CORS({
+    origins: ["https://app.example.com"],
+    methods: ["GET", "POST"],
+    headers: ["Authorization"],
+    max_age: 600,
+    credentials: true
+})
+$GET("/profile") profile() -&gt; JSON {
+    $# {"ok": true};
+}
+</code></pre>
+<p><code>@CORS(...)</code> 可以放在：</p>
+<ul>
+<li><code>$main()</code> 前，作为全局默认策略</li>
+<li><code>$HTTP(...)</code> 前，作为块级策略</li>
+<li>路由前，作为路由级策略</li>
+</ul>
+<p>优先级是路由级覆盖块级，块级覆盖全局；没有写时，就不会额外返回 CORS 响应头。</p>
+<hr>
+<h2 id="路由分组http-块"><a class="header" href="#路由分组http-块">路由分组（$HTTP 块）</a></h2>
+<p>使用 <code>$HTTP("/prefix") { ... }</code> 为一组路由添加统一前缀：</p>
+<pre><code class="language-zun">$HTTP("/api/v1") {
+    $GET("/users") list_users() -&gt; JSON {
+        $# [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}];
+    }
+
+    $POST("/users") create_user() -&gt; JSON {
+        $# {"created": true, "user": body};
+    }
+
+    $GET("/users/:id") get_user(id) -&gt; JSON {
+        $# {"id": id};
+    }
+}
+</code></pre>
+<p>最终路由为 <code>/api/v1/users</code> 和 <code>/api/v1/users/:id</code>。</p>
+<hr>
+<h2 id="链接外部模块路由"><a class="header" href="#链接外部模块路由">链接外部模块路由</a></h2>
+<p>将其他模块中定义的路由链接到当前服务，支持多级模块拆分：</p>
+<pre><code class="language-zun">// routers/api.zun
+$GET("/status") status() -&gt; String {
+    $# "running";
+}
+</code></pre>
+<pre><code class="language-zun">// main.zun
+$HTTP().link("routers.api");
+</code></pre>
+<p>多个模块链接：</p>
+<pre><code class="language-zun">$HTTP().link("routers.users");
+$HTTP().link("routers.orders");
+$HTTP().link("routers.admin");
+</code></pre>
+<hr>
+<h2 id="静态文件"><a class="header" href="#静态文件">静态文件</a></h2>
+<p>使用 <code>$STATIC</code> 提供静态文件服务：</p>
+<pre><code class="language-zun">// 将 /static 映射到项目的 static/ 目录
+$STATIC("/static", "static");
+
+// 简写（URL 前缀默认为 /static）
+$STATIC("static");
+</code></pre>
+<p>项目结构：</p>
+<pre><code>my-app/
+├── main.zun
+└── static/
+    ├── index.html
+    ├── css/
+    │   └── style.css
+    └── js/
+        └── app.js
+</code></pre>
+<hr>
+<h2 id="读取项目配置"><a class="header" href="#读取项目配置">读取项目配置</a></h2>
+<p>通过 <code>$&lt;&lt;CONFIG("KEY")</code> 读取 <code>package.toml</code> 的 <code>[env]</code> 配置：</p>
+<pre><code class="language-toml"># package.toml
+[env]
+DB_HOST = "localhost"
+DB_PORT = "5432"
+SECRET_KEY = "my-secret"
+</code></pre>
+<pre><code class="language-zun">$GET("/config") show_config() -&gt; JSON {
+    $ db_host = $&lt;&lt;CONFIG("DB_HOST");
+    $ db_port = $&lt;&lt;CONFIG("DB_PORT");
+    $# {"db_host": db_host, "db_port": db_port};
+}
+</code></pre>
+<hr>
+<h2 id="状态码控制"><a class="header" href="#状态码控制">状态码控制</a></h2>
+<p>默认情况下，handler 返回 HTTP 200。用 <code>$RES(status, body)</code> 显式指定状态码：</p>
+<pre><code class="language-zun">// 404 Not Found
+$GET("/users/:id") get_user(id) -&gt; JSON {
+    $# $RES(404, {"msg": "用户不存在"});
+}
+
+// 201 Created
+$POST("/users") create_user() -&gt; JSON {
+    $# $RES(201, {"msg": "创建成功", "data": body});
+}
+</code></pre>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>写法</th><th>HTTP 状态码</th><th>适用场景</th></tr>
+</thead>
+<tbody>
+<tr><td><code>$# {...}</code></td><td>始终 200</td><td>普通 JSON 返回</td></tr>
+<tr><td><code>$# $RES(201, {...})</code></td><td>指定状态码</td><td>REST API 语义</td></tr>
+</tbody>
+</table>
+</div>
+<hr>
+<h2 id="错误处理-1"><a class="header" href="#错误处理-1">错误处理</a></h2>
+<h3 id="throw--代码级错误传播"><a class="header" href="#throw--代码级错误传播">$throw — 代码级错误传播</a></h3>
+<p><code>$throw</code> 用于终止执行并传播错误，可配合 <code>$try/$catch</code> 捕获：</p>
+<p><strong>未捕获 → HTTP 500 + 终端打印错误：</strong></p>
+<pre><code class="language-zun">$GET("/boom") boom() -&gt; JSON {
+    $throw "something went wrong";
+    // 终端: [ERROR] uncaught throw: something went wrong
+    // 客户端: HTTP 500 + {"error": "uncaught throw: something went wrong"}
+}
+</code></pre>
+<p><strong>用 <code>$try/$catch</code> 捕获，主动返回响应：</strong></p>
+<pre><code class="language-zun">$GET("/safe") safe() -&gt; JSON {
+    $try {
+        $throw "inner error";
+    } $catch e {
+        $# {"caught": e};
+    }
+}
+</code></pre>
+<h3 id="err--终端日志不影响响应"><a class="header" href="#err--终端日志不影响响应">$&gt;&gt;ERR — 终端日志（不影响响应）</a></h3>
+<pre><code class="language-zun">$GET("/debug") debug() -&gt; JSON {
+    $&gt;&gt;ERR("debug info");     // 仅输出到终端
+    $# {"ok": true};          // HTTP 响应正常返回
+}
+</code></pre>
+<hr>
+<h2 id="完整示例"><a class="header" href="#完整示例">完整示例</a></h2>
+<pre><code class="language-zun">// main.zun
+$mod std.json;
+
+$GET("/") index() -&gt; HTML {
+    $# "&lt;h1&gt;Zun Web&lt;/h1&gt;";
+}
+
+$HTTP("/api") {
+    $GET("/hello") hello() -&gt; JSON {
+        $# {"message": "Hello, World!"};
+    }
+
+    $POST("/echo") echo() -&gt; JSON {
+        $# body;
+    }
+
+    $GET("/users/:id") get_user(id) -&gt; JSON {
+        $# {"id": id, "name": f"User {id}"};
+    }
+}
+
+$STATIC("/static", "static");
+</code></pre>
+<p>启动：</p>
+<pre><code class="language-bash">zun serve main.zun --routertab
+</code></pre>
+<p>输出：</p>
+<pre><code>  GET    /              -&gt; index
+  GET    /api/hello     -&gt; hello
+  POST   /api/echo      -&gt; echo
+  GET    /api/users/:id -&gt; get_user
+  STATIC /static        -&gt; static/
+
+Server running at http://0.0.0.0:8080
+</code></pre>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>

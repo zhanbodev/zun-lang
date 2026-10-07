@@ -1,0 +1,10 @@
+$ value: Int = 2;
+
+$fn describe(input) -> String {
+    $if input {
+        $# "truthy";
+    }
+    $# "falsy";
+}
+
+$>> describe(value);

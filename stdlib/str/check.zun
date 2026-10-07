@@ -1,0 +1,31 @@
+$mod std.str;
+
+$fn is_empty(s) -> Bool {
+    $# str.len(s) == 0;
+}
+
+$fn is_blank(s) -> Bool {
+    $# str.len(str.trim(s)) == 0;
+}
+
+$fn is_numeric(s) -> Bool {
+    $try {
+        str.parse_int(s);
+        $# true;
+    } $catch e {
+        $try {
+            str.parse_float(s);
+            $# true;
+        } $catch e2 {
+            $# false;
+        }
+    }
+}
+
+$fn is_prefix_of(prefix, s) -> Bool {
+    $# str.starts_with(s, prefix);
+}
+
+$fn is_suffix_of(suffix, s) -> Bool {
+    $# str.ends_with(s, suffix);
+}

@@ -1,0 +1,13 @@
+$mod std.fs;
+
+$ path = "/tmp/zun-fs-write-append-delete.txt";
+
+fs.write(path, "hello");
+fs.append(path, "\nworld");
+
+$>> fs.read_text(path);
+$>> fs.exists(path);
+$>> fs.size(path);
+
+fs.delete(path);
+$>> fs.exists(path);

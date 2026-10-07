@@ -1,0 +1,9 @@
+$Type User {
+    id: Int
+}
+
+$ user = User {
+    id: 1,
+};
+
+$>> user.name;

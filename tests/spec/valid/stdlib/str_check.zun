@@ -1,0 +1,11 @@
+$mod std.str.check;
+
+$>> check.is_empty("");
+$>> check.is_empty("hi");
+$>> check.is_blank("   ");
+$>> check.is_blank("  x ");
+$>> check.is_numeric("42");
+$>> check.is_numeric("3.14");
+$>> check.is_numeric("abc");
+$>> check.is_prefix_of("he", "hello");
+$>> check.is_suffix_of("lo", "hello");

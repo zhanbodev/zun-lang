@@ -1,0 +1,14 @@
+@CORS("*")
+$main() {}
+
+@CORS({ origins: ["https://public.example.com"], methods: ["GET", "POST"] })
+$HTTP("/api") {
+    $GET("/public") public() -> String {
+        $# "public";
+    }
+
+    @CORS({ origins: ["https://admin.example.com"], methods: ["GET"] })
+    $GET("/admin") admin() -> String {
+        $# "admin";
+    }
+}

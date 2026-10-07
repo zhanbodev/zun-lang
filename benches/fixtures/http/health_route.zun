@@ -1,0 +1,3 @@
+$GET("/health") health() -> String {
+    $# "ok";
+}

@@ -1,0 +1,3 @@
+$mod std.env;
+$ val = env.get("ZUN_STDLIB_TEST_VAR_NOT_SET");
+$>> val;

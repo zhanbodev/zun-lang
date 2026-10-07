@@ -1,0 +1,9 @@
+$fn classify(n) -> String {
+    $if n > 5 {
+        $# "pass";
+    } $else {
+        $# "fail";
+    }
+}
+
+$>> classify(7);

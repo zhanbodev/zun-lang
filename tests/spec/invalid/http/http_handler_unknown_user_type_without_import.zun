@@ -1,0 +1,3 @@
+$GET("/users/:id") get_user(id) -> User {
+    $# {"id": id};
+}

@@ -1,0 +1,29 @@
+pub const LEX_UNEXPECTED_CHAR: &str = "ZUN-L001";
+pub const LEX_UNTERMINATED_COMMENT: &str = "ZUN-L002";
+pub const LEX_UNTERMINATED_STRING: &str = "ZUN-L003";
+pub const LEX_INVALID_CHAR: &str = "ZUN-L004";
+
+pub const PARSE_GENERIC: &str = "ZUN-P001";
+pub const PARSE_EXPECTED_TOKEN: &str = "ZUN-P002";
+pub const PARSE_CORS_INVALID_POSITION: &str = "ZUN-P003";
+pub const PARSE_CORS_DUPLICATE: &str = "ZUN-P004";
+pub const PARSE_CORS_INVALID_SYNTAX: &str = "ZUN-P005";
+pub const PARSE_SET_HDR_INVALID_POSITION: &str = "ZUN-P006";
+pub const PARSE_SET_HDR_INVALID_SYNTAX: &str = "ZUN-P007";
+pub const PARSE_LEGACY_FILE_SYNTAX: &str = "ZUN-P008";
+
+pub const RUNTIME_GENERIC: &str = "ZUN-R001";
+pub const RUNTIME_DIVISION_BY_ZERO: &str = "ZUN-R002";
+pub const RUNTIME_MODULO_BY_ZERO: &str = "ZUN-R003";
+pub const RUNTIME_UNDEFINED_VARIABLE: &str = "ZUN-R004";
+pub const RUNTIME_MODULE_LOAD: &str = "ZUN-R005";
+pub const RUNTIME_TYPE_MISMATCH: &str = "ZUN-R006";
+pub const RUNTIME_INVALID_EXPRESSION: &str = "ZUN-R007";
+pub const RUNTIME_INVALID_ASSIGNMENT: &str = "ZUN-R008";
+pub const RUNTIME_FIELD_NOT_FOUND: &str = "ZUN-R009";
+pub const RUNTIME_INVALID_FIELD_ACCESS: &str = "ZUN-R010";
+pub const RUNTIME_FIELD_TYPE_MISMATCH: &str = "ZUN-R011";
+
+pub const PROJECT_LOAD: &str = "ZUN-C001";
+pub const CONFIG_CORS_INVALID: &str = "ZUN-C002";
+pub const CONFIG_HDR_INVALID: &str = "ZUN-C003";

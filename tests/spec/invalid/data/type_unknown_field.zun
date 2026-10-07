@@ -1,0 +1,8 @@
+$Type User {
+    id: Int
+}
+
+$ user = User {
+    id: 1,
+    nickname: "neo",
+};

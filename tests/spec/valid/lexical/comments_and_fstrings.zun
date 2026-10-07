@@ -1,0 +1,4 @@
+// line comment
+$ value = "Zun";
+/* block comment */
+$>> f"hello {value}";

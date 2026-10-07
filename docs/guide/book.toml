@@ -1,0 +1,8 @@
+[book]
+title = "Zun Guide"
+language = "zh-CN"
+src = "."
+
+[build]
+build-dir = "book"
+create-missing = false

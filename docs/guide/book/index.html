@@ -1,0 +1,541 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Zun Guide - Zun Guide</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-ae938929.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-3fdfc3ac.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-c015aa2b.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-f522da52.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Zun Guide</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="zun-guide"><a class="header" href="#zun-guide">Zun Guide</a></h1>
+<p>本页是 <code>docs/guide/</code> 的主入口。Guide 只负责学习路径，不负责完整 API 查表，也不负责定义最终实现边界。</p>
+<p>如果你第一次系统学习 Zun，按本页编号章节往下读即可；如果你已经知道自己要查哪个能力，优先跳到对应 reference 页面。</p>
+<h2 id="文档分层规则"><a class="header" href="#文档分层规则">文档分层规则</a></h2>
+<ul>
+<li>Guide：讲学习顺序、最小示例、推荐写法</li>
+<li>Reference：讲查表、速查、完整接口索引</li>
+<li>Spec：讲当前实现行为与边界</li>
+</ul>
+<p>出现冲突时：</p>
+<ol>
+<li>以当前实现和 <code>tests/spec/*</code> 为准</li>
+<li>然后看 <code>docs/spec/*</code></li>
+<li>Guide / Reference 只保留与上述一致的说法</li>
+</ol>
+<h2 id="迁移期旧页面状态规则"><a class="header" href="#迁移期旧页面状态规则">迁移期旧页面状态规则</a></h2>
+<p>本目录仍保留一批旧页面，但它们不再共同承担“主线指南”职责。状态统一分为三类：</p>
+<ul>
+<li><code>Deprecated</code>：内容已与主线冲突，应停止作为教学入口使用</li>
+<li><code>Supplemental</code>：仍有补充背景或示例价值，但不替代编号章节</li>
+<li><code>Migration Source</code>：保留迁移索引或尚未完全整合的旧内容</li>
+</ul>
+<p>使用建议：</p>
+<ul>
+<li>学习主线时优先读编号章节</li>
+<li>查完整 stdlib API 时读 <a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a></li>
+<li>对语言边界有疑问时读 <a href="../spec/README.html">../spec/README.md</a></li>
+</ul>
+<h2 id="章节目录"><a class="header" href="#章节目录">章节目录</a></h2>
+<pre><code class="language-text">docs/guide/
+├── README.md
+├── 01-introduction.md
+├── 02-installation-and-cli.md
+├── 03-first-program.md
+├── 04-basic-syntax.md
+├── 05-values-and-variables.md
+├── 06-control-flow.md
+├── 07-functions.md
+├── 08-collections-and-methods.md
+├── 09-gradual-typing.md
+├── 10-error-handling.md
+├── 11-modules.md
+├── 12-projects-and-package.md
+├── 13-stdlib-overview.md
+├── 14-io-env-config.md
+├── 15-http-basics.md
+├── 16-http-organization.md
+├── 17-testing-and-debugging.md
+├── 18-patterns-and-recipes.md
+└── appendix/
+    ├── syntax-cheatsheet.md
+    ├── cli-cheatsheet.md
+    ├── module-resolution.md
+    └── common-errors.md
+</code></pre>
+<h2 id="开始阅读"><a class="header" href="#开始阅读">开始阅读</a></h2>
+<ul>
+<li><a href="01-introduction.html">01-introduction.md</a></li>
+<li><a href="02-installation-and-cli.html">02-installation-and-cli.md</a></li>
+<li><a href="03-first-program.html">03-first-program.md</a></li>
+<li><a href="04-basic-syntax.html">04-basic-syntax.md</a></li>
+<li><a href="05-values-and-variables.html">05-values-and-variables.md</a></li>
+<li><a href="06-control-flow.html">06-control-flow.md</a></li>
+<li><a href="07-functions.html">07-functions.md</a></li>
+<li><a href="08-collections-and-methods.html">08-collections-and-methods.md</a></li>
+<li><a href="09-gradual-typing.html">09-gradual-typing.md</a></li>
+<li><a href="10-error-handling.html">10-error-handling.md</a></li>
+<li><a href="11-modules.html">11-modules.md</a></li>
+<li><a href="12-projects-and-package.html">12-projects-and-package.md</a></li>
+<li><a href="13-stdlib-overview.html">13-stdlib-overview.md</a></li>
+<li><a href="14-io-env-config.html">14-io-env-config.md</a></li>
+<li><a href="15-http-basics.html">15-http-basics.md</a></li>
+<li><a href="16-http-organization.html">16-http-organization.md</a></li>
+<li><a href="17-testing-and-debugging.html">17-testing-and-debugging.md</a></li>
+<li><a href="18-patterns-and-recipes.html">18-patterns-and-recipes.md</a></li>
+</ul>
+<p>附录：</p>
+<ul>
+<li><a href="appendix/syntax-cheatsheet.html">syntax-cheatsheet.md</a></li>
+<li><a href="appendix/cli-cheatsheet.html">cli-cheatsheet.md</a></li>
+<li><a href="appendix/module-resolution.html">module-resolution.md</a></li>
+<li><a href="appendix/common-errors.html">common-errors.md</a></li>
+</ul>
+<p>迁移期旧页面：</p>
+<ul>
+<li><a href="concepts.html">concepts.md</a></li>
+<li><a href="getting-started.html">getting-started.md</a></li>
+<li><a href="examples.html">examples.md</a></li>
+<li><a href="modules.html">modules.md</a></li>
+<li><a href="stdlib.html">stdlib.md</a></li>
+<li><a href="types.html">types.md</a></li>
+<li><a href="web.html">web.md</a></li>
+</ul>
+<p>Reference 快速入口：</p>
+<ul>
+<li><a href="../reference/syntax.html">../reference/syntax.md</a></li>
+<li><a href="../reference/errors.html">../reference/errors.md</a></li>
+<li><a href="../reference/project-system.html">../reference/project-system.md</a></li>
+<li><a href="../reference/http.html">../reference/http.md</a></li>
+<li><a href="../reference/stdlib-api.html">../reference/stdlib-api.md</a></li>
+</ul>
+<h2 id="主线章节"><a class="header" href="#主线章节">主线章节</a></h2>
+<h3 id="part-1-起步"><a class="header" href="#part-1-起步">Part 1 起步</a></h3>
+<h4 id="1-认识-zun"><a class="header" href="#1-认识-zun">1. 认识 Zun</a></h4>
+<ul>
+<li>Zun 的定位、适用场景、和其他语言的区别</li>
+<li>解释执行、面向脚本和轻服务的心智模型</li>
+<li>Guide / Reference / Spec 三类文档分别解决什么问题</li>
+</ul>
+<h4 id="2-安装与-cli"><a class="header" href="#2-安装与-cli">2. 安装与 CLI</a></h4>
+<ul>
+<li>本地编译与运行方式</li>
+<li><code>zun</code> REPL、<code>zun run &lt;file&gt;</code>、<code>zun serve [path]</code>、<code>zun test</code></li>
+<li><code>--routertab</code>、<code>test --route</code>、<code>test --body</code> 的使用场景</li>
+</ul>
+<h4 id="3-第一个程序"><a class="header" href="#3-第一个程序">3. 第一个程序</a></h4>
+<ul>
+<li>Hello World</li>
+<li>第一个 REPL 交互</li>
+<li>第一个 HTTP 路由</li>
+<li>单文件脚本与项目目录运行的区别</li>
+</ul>
+<h3 id="part-2-语言基础"><a class="header" href="#part-2-语言基础">Part 2 语言基础</a></h3>
+<h4 id="4-基本语法"><a class="header" href="#4-基本语法">4. 基本语法</a></h4>
+<ul>
+<li>语句与分号</li>
+<li>注释</li>
+<li>标识符与 <code>$</code> 前缀关键字</li>
+<li>字面量：数字、字符串、字符、布尔、<code>null</code></li>
+<li>f-string 基本写法</li>
+<li>表达式优先级的最小规则</li>
+</ul>
+<h4 id="5-值变量与常量"><a class="header" href="#5-值变量与常量">5. 值、变量与常量</a></h4>
+<ul>
+<li><code>$</code> 变量声明</li>
+<li><code>$@</code> 常量声明</li>
+<li>赋值与复合赋值</li>
+<li><code>$&gt;&gt;</code> 输出、<code>$&gt;&gt;ERR(...)</code> 错误输出</li>
+<li><code>$&lt;&lt;LINE(...)</code> 读入</li>
+</ul>
+<h4 id="6-控制流"><a class="header" href="#6-控制流">6. 控制流</a></h4>
+<ul>
+<li><code>$if / $elif / $else</code></li>
+<li><code>$while</code></li>
+<li><code>$loop</code></li>
+<li><code>$for item in iterable</code></li>
+<li>C 风格 <code>$for init; condition; update</code></li>
+<li><code>$break</code>、<code>$continue</code>、<code>exit</code></li>
+<li>truthy / falsy 规则</li>
+</ul>
+<h4 id="7-函数"><a class="header" href="#7-函数">7. 函数</a></h4>
+<ul>
+<li><code>$fn</code> 定义函数</li>
+<li>参数、可变参数、返回值</li>
+<li><code>$#</code> 返回</li>
+<li>返回类型注解</li>
+<li>匿名函数的当前能力边界</li>
+<li><code>_$fn</code> 私有函数</li>
+</ul>
+<h4 id="8-集合与常用方法"><a class="header" href="#8-集合与常用方法">8. 集合与常用方法</a></h4>
+<ul>
+<li><code>List</code>、<code>Map</code>、字符串的基础操作</li>
+<li>索引访问与方法调用</li>
+<li>常用内建方法：<code>len</code>、<code>slice</code>、<code>contains</code>、<code>push</code>、<code>pop</code>、<code>keys</code>、<code>values</code>、<code>type</code></li>
+<li>什么时候用值方法，什么时候用 <code>std.*</code></li>
+</ul>
+<h3 id="part-3-语言能力"><a class="header" href="#part-3-语言能力">Part 3 语言能力</a></h3>
+<h4 id="9-渐进类型"><a class="header" href="#9-渐进类型">9. 渐进类型</a></h4>
+<ul>
+<li>“默认动态，显式约束”的使用方式</li>
+<li>变量/常量类型注解</li>
+<li>当前真正支持的声明类型名</li>
+<li>函数返回类型检查</li>
+<li><code>List&lt;T&gt;</code> 与 <code>$Type</code> 的定位</li>
+</ul>
+<h4 id="10-错误处理"><a class="header" href="#10-错误处理">10. 错误处理</a></h4>
+<ul>
+<li>运行时错误是什么</li>
+<li><code>$try / $catch</code></li>
+<li><code>$throw</code></li>
+<li>未定义变量、类型不匹配、模块加载失败等典型错误</li>
+<li>Guide 中如何引导读者读懂错误信息</li>
+</ul>
+<h4 id="11-模块系统"><a class="header" href="#11-模块系统">11. 模块系统</a></h4>
+<ul>
+<li><code>$mod a.b;</code></li>
+<li><code>$mod a.*;</code></li>
+<li>命名空间访问规则</li>
+<li>公有函数与私有函数</li>
+<li>普通模块与 <code>std.*</code> 的区别</li>
+</ul>
+<h4 id="12-项目系统"><a class="header" href="#12-项目系统">12. 项目系统</a></h4>
+<ul>
+<li><code>package.toml</code> 的当前字段</li>
+<li><code>entry</code></li>
+<li><code>[server]</code></li>
+<li><code>[env]</code></li>
+<li><code>[dependencies]</code> 当前只是解析边界，不写成“已完整可用的包管理”</li>
+<li>项目根与入口解析规则</li>
+</ul>
+<h3 id="part-4-标准库与宿主能力"><a class="header" href="#part-4-标准库与宿主能力">Part 4 标准库与宿主能力</a></h3>
+<h4 id="13-标准库总览"><a class="header" href="#13-标准库总览">13. 标准库总览</a></h4>
+<ul>
+<li>native 模块与纯 <code>.zun</code> 模块的区别</li>
+<li>当前已可写入主线的模块：
+<ul>
+<li><code>std.str</code></li>
+<li><code>std.math</code></li>
+<li><code>std.json</code></li>
+<li><code>std.fs</code></li>
+<li><code>std.env</code></li>
+<li><code>std.time</code></li>
+<li><code>std.uuid</code></li>
+<li><code>std.http</code></li>
+<li><code>std.core.iter</code></li>
+<li><code>std.core.check</code></li>
+<li><code>std.str.check</code></li>
+<li><code>std.str.fmt</code></li>
+<li><code>std.math.stats</code></li>
+<li><code>std.math.trig</code></li>
+<li><code>std.path</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="14-io环境变量与配置"><a class="header" href="#14-io环境变量与配置">14. I/O、环境变量与配置</a></h4>
+<ul>
+<li><code>$&lt;&lt;ENV(...)</code></li>
+<li><code>$&lt;&lt;CONFIG(...)</code></li>
+<li><code>$&lt;&lt;FILE(...)</code> 与 <code>$&gt;&gt;FILE(...)</code></li>
+<li><code>std.fs</code> 与 <code>std.env</code></li>
+<li>serve 模式与非 serve 模式下的能力差异</li>
+</ul>
+<h3 id="part-5-web-开发"><a class="header" href="#part-5-web-开发">Part 5 Web 开发</a></h3>
+<h4 id="15-http-基础"><a class="header" href="#15-http-基础">15. HTTP 基础</a></h4>
+<ul>
+<li><code>$GET / $POST / $PUT / $DEL / $PATCH</code></li>
+<li>handler 参数、路径参数、query 参数、body</li>
+<li><code>$HDR(...)</code></li>
+<li><code>-&gt; String</code>、<code>-&gt; JSON</code>、<code>-&gt; HTML</code></li>
+<li><code>$JSON { ... }</code>、<code>$HTML(...)</code>、<code>$RES(status, body)</code></li>
+<li><code>std.http</code> 的同步客户端调用</li>
+</ul>
+<h4 id="16-http-组织方式"><a class="header" href="#16-http-组织方式">16. HTTP 组织方式</a></h4>
+<ul>
+<li><code>$HTTP { ... }</code></li>
+<li><code>$HTTP("/prefix") { ... }</code></li>
+<li><code>$HTTP(...).link("module.path")</code></li>
+<li><code>$STATIC(...)</code></li>
+<li>路由拆分、静态资源、HTML link 的当前能力边界</li>
+</ul>
+<h3 id="part-6-工程化使用"><a class="header" href="#part-6-工程化使用">Part 6 工程化使用</a></h3>
+<h4 id="17-测试与调试"><a class="header" href="#17-测试与调试">17. 测试与调试</a></h4>
+<ul>
+<li><code>zun test</code></li>
+<li>针对单路由测试</li>
+<li>如何最小化复现运行时错误</li>
+<li>REPL、打印输出、fixture 风格的调试方式</li>
+</ul>
+<h4 id="18-模式与实战配方"><a class="header" href="#18-模式与实战配方">18. 模式与实战配方</a></h4>
+<ul>
+<li>小脚本</li>
+<li>带 <code>package.toml</code> 的项目</li>
+<li>拆模块的服务</li>
+<li>纯标准库数据处理</li>
+<li>“从单文件到小型 API” 的迁移路径</li>
+</ul>
+<h2 id="附录章节"><a class="header" href="#附录章节">附录章节</a></h2>
+<h3 id="appendix-a-语法速查"><a class="header" href="#appendix-a-语法速查">Appendix A 语法速查</a></h3>
+<ul>
+<li>一页式列出常见语法</li>
+<li>面向已经学过一遍、需要回查的用户</li>
+</ul>
+<h3 id="appendix-b-cli-速查"><a class="header" href="#appendix-b-cli-速查">Appendix B CLI 速查</a></h3>
+<ul>
+<li>run / serve / test / repl 的命令清单</li>
+</ul>
+<h3 id="appendix-c-模块解析说明"><a class="header" href="#appendix-c-模块解析说明">Appendix C 模块解析说明</a></h3>
+<ul>
+<li>当前目录、项目根、<code>modules/</code>、<code>stdlib/</code>、<code>deps/</code> 的查找顺序</li>
+</ul>
+<h3 id="appendix-d-常见错误"><a class="header" href="#appendix-d-常见错误">Appendix D 常见错误</a></h3>
+<ul>
+<li>解析错误</li>
+<li>类型错误</li>
+<li>模块错误</li>
+<li>文件与环境变量读取错误</li>
+</ul>
+<h2 id="暂不进入-guide-主线的主题"><a class="header" href="#暂不进入-guide-主线的主题">暂不进入 Guide 主线的主题</a></h2>
+<p>以下主题可以在设计文档或 reference 中保留，但不建议先写进 Guide 主线：</p>
+<ul>
+<li>第三方依赖生态与真正的包管理工作流</li>
+<li>尚未形成稳定用户故事的高级安全模型</li>
+<li>LSP 与编辑器集成细节</li>
+<li>未经 spec/test 固化的新语法提案</li>
+<li>把 <code>Any</code>、<code>Json</code>、<code>Response</code> 等写成“变量声明已完整支持”的教程</li>
+</ul>
+<h2 id="现有文档的重构建议"><a class="header" href="#现有文档的重构建议">现有文档的重构建议</a></h2>
+<ul>
+<li><code>getting-started.md</code> 可拆入第 2、3 章</li>
+<li><code>concepts.md</code> 可压缩为第 1 章的“定位与设计目标”</li>
+<li><code>examples.md</code> 不再单独做成散装示例页，改为分散到各章与第 18 章</li>
+<li><code>types.md</code> 需要继续和主线章节保持同步，避免旧页再次落后于实现</li>
+<li><code>modules.md</code>、<code>stdlib.md</code>、<code>web.md</code> 适合分别并入第 11、13-16 章</li>
+</ul>
+<h2 id="下一步建议"><a class="header" href="#下一步建议">下一步建议</a></h2>
+<p>按下面顺序开始扩写最稳妥：</p>
+<ol>
+<li>第 2 章 安装与 CLI</li>
+<li>第 3 章 第一个程序</li>
+<li>第 4-8 章 语言基础</li>
+<li>第 11-16 章 模块、项目系统、标准库、Web</li>
+<li>第 9-10、17-18 章 类型、错误处理、测试与实战</li>
+</ol>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+                            <a rel="next prefetch" href="01-introduction.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+                    <a rel="next prefetch" href="01-introduction.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg></span>
+                    </a>
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+
+    </div>
+    </body>
+</html>

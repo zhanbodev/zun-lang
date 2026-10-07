@@ -1,0 +1,30 @@
+$mod std.str;
+
+$fn join(base, segment) -> String {
+    $if str.ends_with(base, "/") {
+        $# f"{base}{segment}";
+    } $else {
+        $# f"{base}/{segment}";
+    }
+}
+
+$fn basename(path) -> String {
+    $ parts = str.split(path, "/");
+    $# parts[parts.len() - 1];
+}
+
+$fn dirname(path) -> String {
+    $ parts = str.split(path, "/");
+    $ i = 0;
+    $ result = [];
+    $while i < parts.len() - 1 {
+        result.push(parts[i]);
+        i = i + 1;
+    }
+    $# str.join(result, "/");
+}
+
+$fn ext(path) -> String {
+    $ parts = str.split(path, ".");
+    $# f".{parts[parts.len() - 1]}";
+}

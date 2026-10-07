@@ -1,0 +1,3 @@
+$main() {
+    $HTTP("/").link("app.router.hello_router");
+}

@@ -1,0 +1,11 @@
+$GET("/health") health() -> JSON {
+    $# { "status": "ok" };
+}
+
+$GET("/hello") hello() -> JSON {
+    $# { "message": "Hello, world!" };
+}
+
+$GET("/greet/{name}") greet(name) -> JSON {
+    $# { "message": "Hello, " + name + "!" };
+}

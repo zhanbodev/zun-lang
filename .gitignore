@@ -1,0 +1,46 @@
+# Rust / Cargo
+/target
+**/*.rs.bk
+*.pdb
+
+# Keep Cargo.lock tracked — this workspace ships binaries (zun-cli)
+
+# Local dev / tooling
+.worktrees/
+.idea/
+.vscode/
+.claude/
+.superpowers
+
+# Editor backups & swap files
+*.swp
+*.swo
+*~
+
+# OS noise
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment & secrets
+.env
+.env.local
+.env.*.local
+
+# Logs
+*.log
+
+# Coverage / profiling
+lcov.info
+tarpaulin-report.html
+*.profraw
+flamegraph.svg
+
+# Python scratch (occasional tooling)
+__pycache__/
+*.pyc
+
+
+prompt/
+examples/
+sample

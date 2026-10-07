@@ -1,0 +1,19 @@
+$fn range(start, end) {
+    $ result = [];
+    $ i = start;
+    $while i < end {
+        result.push(i);
+        i += 1;
+    }
+    $# result;
+}
+
+$fn range_step(start, end, step) {
+    $ result = [];
+    $ i = start;
+    $while i < end {
+        result.push(i);
+        i += step;
+    }
+    $# result;
+}

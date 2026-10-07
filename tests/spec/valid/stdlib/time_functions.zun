@@ -1,0 +1,18 @@
+$mod std.time;
+
+$>> time.format(0, "%Y-%m-%d");
+$>> time.parse("1970-01-01", "%Y-%m-%d");
+$>> time.year(0);
+$>> time.month(0);
+$>> time.day(0);
+$>> time.hour(0);
+$>> time.minute(0);
+$>> time.second(0);
+$>> time.weekday(0);
+$>> time.add_days(0, 1);
+$>> time.diff_days(86400, 0);
+
+$ now = time.now();
+$ now_ms = time.now_ms();
+$>> now > 0;
+$>> now_ms >= now * 1000;

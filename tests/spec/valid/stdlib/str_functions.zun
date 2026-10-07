@@ -1,0 +1,16 @@
+$mod std.str;
+
+$>> str.trim("  hello  ");
+$>> str.trim_start("  hello");
+$>> str.trim_end("hello  ");
+$>> str.split("a,b,c", ",");
+$>> str.join(["a", "b", "c"], " - ");
+$>> str.replace("a-b-a", "a", "x");
+$>> str.contains("hello", "ell");
+$>> str.starts_with("hello", "he");
+$>> str.ends_with("hello", "lo");
+$>> str.to_upper("Hello");
+$>> str.to_lower("Hello");
+$>> str.len("你好");
+$>> str.parse_int("42");
+$>> str.parse_float("3.5");

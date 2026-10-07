@@ -1,0 +1,4 @@
+@SET_HDR({ "X-Frame-Options": "DENY" })
+$HTTP("/api") {
+    $GET("/users") list() { $# []; }
+}

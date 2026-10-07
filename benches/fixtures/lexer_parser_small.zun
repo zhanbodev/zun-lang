@@ -1,0 +1,11 @@
+// benchmark fixture
+$ value = "Zun";
+$ count = 3;
+
+$fn greet(name) -> String {
+    $# f"hello {name}";
+}
+
+$if count > 1 {
+    $>> greet(value);
+}

@@ -1,0 +1,24 @@
+[package]
+name = "zun-cli"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+atty = "0.2"
+axum = "0.7"
+multer = "3"
+crossterm = "0.29"
+indexmap = "2"
+libc = "0.2"
+serde_json = "1"
+tokio = { version = "1", features = ["rt-multi-thread", "macros"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "fs"] }
+zun = { package = "zun-runtime", path = "../zun-runtime" }
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61.2", features = ["Win32_Foundation", "Win32_NetworkManagement_IpHelper", "Win32_NetworkManagement_Ndis", "Win32_Networking_WinSock"] }
+
+[[bin]]
+name = "zun-cli"
+path = "src/main.rs"

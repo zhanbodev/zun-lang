@@ -1,0 +1,3 @@
+$mod std.path;
+$ result = path.join("/usr/local", "bin");
+$>> result;

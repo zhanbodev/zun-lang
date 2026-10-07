@@ -1,0 +1,8 @@
+$mod std.http;
+
+$try {
+    $ res = http.get("not-a-url");
+    $>> res["status"];
+} $catch err {
+    $>> "caught-http";
+}

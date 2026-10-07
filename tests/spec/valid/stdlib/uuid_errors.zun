@@ -1,0 +1,7 @@
+$mod std.uuid;
+
+$try {
+    $>> uuid.is_valid(123);
+} $catch err {
+    $>> "caught-uuid";
+}

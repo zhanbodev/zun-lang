@@ -1,0 +1,13 @@
+$Type User {
+    id: Int
+}
+
+$Type Post {
+    title: String
+}
+
+$ posts: List<Post> = [
+    User {
+        id: 1,
+    }
+];

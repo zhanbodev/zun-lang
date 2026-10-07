@@ -1,0 +1,8 @@
+$mod std.math.trig;
+
+$>> trig.degrees(0.0);
+$>> trig.radians(0.0);
+$>> trig.tan(0.0);
+$>> trig.sign(5);
+$>> trig.sign(-3);
+$>> trig.sign(0);

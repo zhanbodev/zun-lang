@@ -1,0 +1,18 @@
+$mod std.auth.session;
+$mod std.auth.guard;
+
+$>> guard.authenticated();
+
+session.create({
+    "subject": "user_1",
+    "roles": ["admin"],
+    "permissions": ["post:create"]
+});
+
+$>> guard.has_role("admin");
+$>> guard.has_permission("post:create");
+$>> guard.has_any_role(["editor", "admin"]);
+$>> guard.has_all_permissions(["post:create"]);
+guard.require_any_role(["editor", "admin"]);
+guard.require_all_permissions(["post:create"]);
+$>> guard.principal()["subject"];

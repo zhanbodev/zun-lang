@@ -1,0 +1,7 @@
+$mod std.str.fmt;
+
+$>> fmt.pad_left("42", 5, "0");
+$>> fmt.pad_right("hi", 5, ".");
+$>> fmt.repeat("ab", 3);
+$>> fmt.truncate("hello world", 8, "...");
+$>> fmt.count("a,b,,c,", ",");

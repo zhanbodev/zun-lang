@@ -1,0 +1,8 @@
+results/*.json
+results/*.md
+fastapi/.venv/
+hono/node_modules/
+hono/package-lock.json
+hono/bun.lockb
+harness/__pycache__/
+*.pyc

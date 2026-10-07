@@ -1,0 +1,36 @@
+$mod std.str;
+
+$fn pad_left(s, width, pad_char) -> String {
+    $ result = s;
+    $while str.len(result) < width {
+        result = f"{pad_char}{result}";
+    }
+    $# result;
+}
+
+$fn pad_right(s, width, pad_char) -> String {
+    $ result = s;
+    $while str.len(result) < width {
+        result = f"{result}{pad_char}";
+    }
+    $# result;
+}
+
+$fn repeat(s, n) -> String {
+    $# s * n;
+}
+
+$fn truncate(s, max_len, suffix) -> String {
+    $if str.len(s) <= max_len {
+        $# s;
+    }
+    $ cut = max_len - str.len(suffix);
+    $if cut < 0 {
+        $# suffix;
+    }
+    $# f"{s.slice(0, cut)}{suffix}";
+}
+
+$fn count(s, sub) -> Int {
+    $# str.split(s, sub).len() - 1;
+}

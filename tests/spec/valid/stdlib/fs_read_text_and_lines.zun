@@ -1,0 +1,5 @@
+$mod std.fs;
+
+$>> fs.read_text("tests/fixtures/stdlib/lines.txt");
+$>> fs.read_lines("tests/fixtures/stdlib/lines.txt");
+$>> fs.is_dir("tests/fixtures/stdlib");

@@ -1,0 +1,11 @@
+$Type User {
+    id: Int
+}
+
+$Type Post {
+    author: User
+}
+
+$ post = Post {
+    author: {"id": 1},
+};

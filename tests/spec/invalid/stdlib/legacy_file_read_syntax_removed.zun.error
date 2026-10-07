@@ -1,0 +1,2 @@
+error[ZUN-P008]: legacy file syntax `$<<FILE(...)` has been removed
+note: replace `$<<FILE(path)` with `std.fs.read_text(path)`

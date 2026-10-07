@@ -1,0 +1,3 @@
+$GET("/users") list_users() -> JSON<List> {
+    $# [];
+}

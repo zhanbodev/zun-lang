@@ -1,0 +1,17 @@
+$mod std.auth.session;
+
+$ created = session.create({
+    "subject": "user_1",
+    "roles": ["admin"],
+    "permissions": ["post:create"],
+    "claims": { "team_id": "t_001" }
+});
+
+$ original_id = created["id"];
+$>> session.get("team_id");
+session.set("cart_id", "c_001");
+$>> session.get("cart_id");
+session.delete("team_id");
+$>> session.get("team_id");
+$ rotated = session.rotate();
+$>> original_id != rotated["id"];

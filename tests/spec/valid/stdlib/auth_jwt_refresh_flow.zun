@@ -1,0 +1,11 @@
+$mod std.auth.jwt;
+
+$ token = jwt.sign_refresh({
+    "sub": "user_1",
+    "roles": ["admin"],
+    "permissions": ["post:create"]
+});
+
+$ claims = jwt.verify_refresh(token);
+$>> claims["token_use"];
+$>> claims["sub"];

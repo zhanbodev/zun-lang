@@ -1,0 +1,10 @@
+$mod std.auth.session;
+$mod std.auth.guard;
+
+session.create({
+    "subject": "user_1",
+    "roles": ["viewer"],
+    "permissions": []
+});
+
+guard.require_role("admin");

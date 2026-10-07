@@ -1,0 +1,9 @@
+$Type Post {
+    author_id: Int
+}
+
+$ post = Post {
+    author_id: 1,
+};
+
+post.author_id = "wrong";

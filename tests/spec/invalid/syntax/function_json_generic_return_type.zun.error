@@ -1,0 +1,1 @@
+generic return types like JSON<T> are not supported; only List<T> is allowed

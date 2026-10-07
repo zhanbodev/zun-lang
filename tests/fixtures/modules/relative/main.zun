@@ -1,0 +1,3 @@
+$mod shared.helper;
+$ result = helper.answer();
+$>> result;

@@ -1,0 +1,17 @@
+$fn assert(cond, msg) {
+    $if !cond {
+        $throw msg;
+    }
+}
+
+$fn type_of(val) -> String {
+    $# val.type();
+}
+
+$fn is_null(val) -> Bool {
+    $# val == null;
+}
+
+$fn identity(val) {
+    $# val;
+}

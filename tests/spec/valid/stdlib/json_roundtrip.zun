@@ -1,0 +1,9 @@
+$mod std.json;
+
+$ obj = json.parse("{\"name\":\"zun\",\"version\":1}");
+$>> json.get(obj, "name");
+$>> json.stringify(obj);
+$ legacy = $JSON { "hello": "world" };
+$>> json.stringify(legacy);
+$ missing = json.get(obj, "missing");
+$>> missing;

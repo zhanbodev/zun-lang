@@ -1,0 +1,8 @@
+$mod std.core.iter;
+$mod std.core.check;
+
+$>> iter.range(0, 5);
+$>> iter.range_step(0, 10, 2);
+$>> check.type_of(42);
+$>> check.type_of("hello");
+$>> check.is_null(check.identity(0));

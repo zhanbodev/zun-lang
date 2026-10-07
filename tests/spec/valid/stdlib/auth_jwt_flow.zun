@@ -1,0 +1,12 @@
+$mod std.auth.jwt;
+
+$ token = jwt.sign({
+    "sub": "user_1",
+    "roles": ["admin"],
+    "permissions": ["post:create"]
+});
+
+$ claims = jwt.verify(token);
+$>> claims["sub"];
+$>> claims["roles"][0];
+$>> claims["permissions"][0];

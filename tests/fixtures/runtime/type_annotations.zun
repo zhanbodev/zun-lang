@@ -1,0 +1,4 @@
+$ answer: Int = 42;
+$ text: String = "hello";
+$>> answer.type();
+$>> text.type();
